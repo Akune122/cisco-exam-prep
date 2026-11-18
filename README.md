@@ -41,6 +41,7 @@ Conçue pour reproduire les conditions d'examen avec extraits **Cisco IOS CLI**,
 | **CCNP ENCOR v9** | **Checkpoint Exam : Network Security (Modules 14 – 16)** | `28` | 3 Quizz (10 par 10) + Mode Examen (28 Q) | ✅ Actif |
 | **CCNP ENCOR v9** | **Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)** | `30` | 3 Quizz (10 par 10) + Mode Examen (30 Q) | ✅ Actif |
 | **CCNP ENCOR v9** | **Checkpoint Exam : Programmability (Modules 21 – 22)** | `17` | 2 Quizz (10 par 10) + Mode Examen (17 Q) | ✅ Actif |
+| **CCNP ENCOR v9** | **Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)** | `33` | 4 Quizz (10 par 10) + Mode Examen (33 Q) | ✅ Actif |
 | **CCNA v7** | *Modules CCNA 1 / 2 / 3* | — | Prêt via `data/catalog.json` | 🔜 Évolutif |
 
 ---

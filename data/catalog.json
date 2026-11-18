@@ -77,6 +77,19 @@
       "examModeQuestionCount": 17,
       "passingScorePercent": 70,
       "status": "active"
+    },
+    {
+      "id": "ccnp-encor-v9-sdn",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 23 – 26",
+      "title": "Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)",
+      "dataFile": "data/exams/ccnp-encor-v9-sdn.json",
+      "totalQuestions": 33,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 33,
+      "passingScorePercent": 70,
+      "status": "active"
     }
   ]
 }

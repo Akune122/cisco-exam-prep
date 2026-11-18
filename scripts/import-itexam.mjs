@@ -354,4 +354,28 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-programmability.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-sdn')) {
+  const htmlPath = args[args.indexOf('--build-sdn') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const questions = parseItExamHtml(html);
+
+  const examData = {
+    id: 'ccnp-encor-v9-sdn',
+    categoryId: 'ccnp-v9',
+    categoryName: 'CCNP ENCOR v9',
+    courseCode: 'Modules 23 – 26',
+    title: 'Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)',
+    description: 'Examen Checkpoint officiel sur le SDN (Cisco Catalyst Center, Assurance, IBN, SD-Access, LISP, VXLAN, Cisco Catalyst SD-WAN, REST APIs) du cours CCNP ENCOR v9.',
+    sourceUrl: 'https://itexamanswers.net/modules-23-26-checkpoint-exam-software-defined-networking-answers-ccnp-encor-v9.html',
+    lastUpdated: '2026-05-01',
+    quizChunkSize: 10,
+    examModeQuestionCount: questions.length,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-sdn.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
 }

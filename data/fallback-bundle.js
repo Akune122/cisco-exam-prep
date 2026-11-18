@@ -79,6 +79,19 @@ window.__EXAM_DATA_BUNDLE__ = {
         "examModeQuestionCount": 17,
         "passingScorePercent": 70,
         "status": "active"
+      },
+      {
+        "id": "ccnp-encor-v9-sdn",
+        "categoryId": "ccnp-v9",
+        "categoryName": "CCNP ENCOR v9",
+        "code": "Modules 23 – 26",
+        "title": "Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)",
+        "dataFile": "data/exams/ccnp-encor-v9-sdn.json",
+        "totalQuestions": 33,
+        "quizChunkSize": 10,
+        "examModeQuestionCount": 33,
+        "passingScorePercent": 70,
+        "status": "active"
       }
     ]
   },
@@ -6770,6 +6783,1197 @@ window.__EXAM_DATA_BUNDLE__ = {
           ],
           "topic": "Topic 22.8.1",
           "explanation": "YANG is a highly structured data modeling language used to define the syntax and semantics of data, which is used to enforce data input values and constraints. Therefore, the statement that it \"does not provide semantics\" is incorrect.\n\nThe other options are valid properties of YANG as described in the sources:\n\n• Protocol independent: While originally designed for NETCONF, it is protocol-independent and is also used by RESTCONF and potentially other protocols.\n\n• Extensible and modular: YANG supports extensibility through augmentation and provides data modularity through the use of modules and submodules.\n\n• Analogous to XML schema and SMI for SNMP: YANG modules serve a purpose for NETCONF and RESTCONF that is analogous to what MIBs (modeled via SMI) provide for SNMP. It defines data hierarchies called schema trees, which represent how data is structured and accessed."
+        }
+      ]
+    },
+    "ccnp-encor-v9-sdn": {
+      "id": "ccnp-encor-v9-sdn",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "courseCode": "Modules 23 – 26",
+      "title": "Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)",
+      "description": "Examen Checkpoint officiel sur le SDN (Cisco Catalyst Center, Assurance, IBN, SD-Access, LISP, VXLAN, Cisco Catalyst SD-WAN, REST APIs) du cours CCNP ENCOR v9.",
+      "sourceUrl": "https://itexamanswers.net/modules-23-26-checkpoint-exam-software-defined-networking-answers-ccnp-encor-v9.html",
+      "lastUpdated": "2026-05-01",
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 33,
+      "passingScorePercent": 70,
+      "totalQuestions": 33,
+      "questions": [
+        {
+          "id": 1,
+          "originalNumber": 1,
+          "questionType": "choice",
+          "question": "Which feature of Cisco Catalyst Center helps in the definition of user and device profiles that facilitate highly secure access and network segmentation based on business needs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "policy",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "platform",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "security",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "provision",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.3.0",
+          "explanation": "Cisco Catalyst Center is composed of several core functional areas designed to automate and secure network operations. The policy component is specifically responsible for defining user and device profiles that facilitate highly secure access and network segmentation tailored to business needs. This feature supports group-based policies and segmentation to ensure consistent security enforcement across the infrastructure. Other primary components include Design for maps and topologies, Provisioning for automated service delivery, and Assurance for proactive network monitoring and optimization."
+        },
+        {
+          "id": 2,
+          "originalNumber": 2,
+          "questionType": "choice",
+          "question": "Which of these is the correct URL format to issue a REST API call to Cisco Catalyst SD-WAN Manager that retrieves a list of all devices in the network?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "http://manager_ip/dataservice/device",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "https://manager_ip/device",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "https://manager_ip/dataservice/device",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "http://manager_ip/device",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 26.6.3",
+          "explanation": "The Cisco Catalyst SD-WAN Manager web server uses HTTPS as its primary communications protocol for REST API calls. To retrieve inventory data, such as a list of devices in the network, a GET request must be issued to the specific resource path /dataservice/device. Therefore, the correct full URL format is https://manager_ip/dataservice/device. The sources also note that before this call can be successful, the user must first authenticate (typically via the /j_security_check resource) to obtain a session cookie."
+        },
+        {
+          "id": 3,
+          "originalNumber": 3,
+          "questionType": "choice",
+          "question": "Which Cisco Catalyst Center API retrieves site hierarchy with network health information?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Client Health Intent API",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Network Device Detail Intent API",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Site Hierarchy Intent API",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Network Health Intent API",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 26.5.2",
+          "explanation": "The Know Your Network API domain is organized into several subdomains. The Topology subdomain is specifically used to retrieve network health information and site and network physical, Layer 2, Layer 3, and VLAN information. In Cisco Catalyst Center, this functionality is provided by the Network Health Intent API, which allows for viewing the status of the network across the site hierarchy.\n\nThe other options listed serve different functions:\n\n• Client Health Intent API: Returns overall client health information organized into wired and wireless categories.\n\n• Network Device Detail Intent API: Retrieves detailed information about specific devices (such as configuration, interfaces, and modules) based on MAC address, UUID, or name.\n\n• Sites Subdomain: While it allows administrators to obtain site information and manage hierarchical collections of sites and buildings, it is not primarily described as the source for combined health metrics in the way the Topology/Network Health API is."
+        },
+        {
+          "id": 4,
+          "originalNumber": 4,
+          "questionType": "choice",
+          "question": "Which option is a centralized CLI management tool to help design and provision templates in the Cisco Catalyst Center?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Image Repository",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "CLI Template",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "CLI Edit tool",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "USB flash storage",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.4.11",
+          "explanation": "CLI Templates is defined in the sources as a centralized CLI management tool provided by Cisco Catalyst Center. It features an interactive editor that allows network operators to design, build, and provision generic configurations for one or more devices within a specific site. The tool supports various functions, including creating, editing, and deleting templates, as well as validating them for errors and simulating them before deployment. These templates can utilize variables and interactive commands to automate repetitive configuration tasks efficiently."
+        },
+        {
+          "id": 5,
+          "originalNumber": 5,
+          "questionType": "choice",
+          "question": "Which Cisco Catalyst Center tool enables you to perform CRUD operations on templates and projects that the template programmer uses to facilitate design and provisioning workflows in Cisco Catalyst Center?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Command Runner API",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Template Programmer API",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Path Trace API",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Task API",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 26.5.2",
+          "explanation": "The Template Programmer API (associated with the Configuration Templates subdomain) is a centralized CLI-management tool used to facilitate design and provisioning workflows within Cisco Catalyst Center. This specific API enables users to perform CRUD operations—allowing them to create, view (read), edit (update), and delete both templates and projects.\n\nThe other options serve different purposes:\n\n• Command Runner API: Used to retrieve CLI keywords and run read-only commands on devices to check real-time configuration.\n\n• Path Trace API: Used to trace application paths and provide hop-by-hop statistics to resolve performance issues.\n\n• Task API: Used to query the status of asynchronous actions to determine if a request completed successfully."
+        },
+        {
+          "id": 6,
+          "originalNumber": 6,
+          "questionType": "choice",
+          "question": "Which three options are examples of an overlay network? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "IPv4",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "LISP",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "MPLS",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "RIPv2",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "IPX",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "CAPWAP",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 24.3.1\n\nAn",
+          "explanation": "overlay network is defined as a logical topology used to virtually connect devices that is built on top of an arbitrary physical underlay topology. According to the sources, common examples of overlay networks include Multiprotocol Label Switching (MPLS), Locator/ID Separation Protocol (LISP), and Control and Provisioning of Wireless Access Points (CAPWAP).\n\n• LISP is utilized in the Cisco SD-Access fabric as the control plane to decouple an endpoint's identity from its location.\n\n• MPLS is a mechanism used to create Layer 3 VPNs and provide path isolation over shared physical infrastructure.\n\n• CAPWAP functions as a network overlay by forming a tunnel between an Access Point and a Wireless LAN Controller to transport all client traffic.\n\nIn contrast, IPv4 and IPX are typically referred to as \"passenger protocols\" that are encapsulated by these overlays, and RIPv2 is a traditional routing protocol."
+        },
+        {
+          "id": 7,
+          "originalNumber": 7,
+          "questionType": "choice",
+          "question": "Which Cisco SD-WAN component has programmatic interfaces to enable DevOps operations and to also extract performance statistics collected from the entire fabric?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Cisco WAN Edge router",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Cisco vBond",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco vSmart controller",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Cisco vManage",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 25.5.0",
+          "explanation": "The Cisco Catalyst SD-WAN Manager (vManage) is the central management plane component of the fabric, serving as a \"single pane of glass\" for Day 0, Day 1, and Day 2 operations. According to the sources, it provides programmatic interfaces (REST APIs) that allow users to enable DevOps operations, such as automated configuration changes and template management. Additionally, these interfaces are used to extract performance statistics collected from the entire fabric, which can then be exported to external systems or the Cisco Catalyst SD-WAN Analytics tool for deeper examination. While WAN Edge routers do export statistics, they send them to the Manager, which centralizes them for programmatic access."
+        },
+        {
+          "id": 8,
+          "originalNumber": 8,
+          "questionType": "choice",
+          "question": "What are three primary focus areas for Cisco Catalyst Center Assurance and Analytics? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "licensing",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "streaming telemetry",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "end-to-end visibility",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "automation",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "endpoint predictability",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "predict performance",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 23.12.2",
+          "explanation": "Cisco Catalyst Center Assurance and Analytics focus on transforming network operations through the following areas:\n\n• streaming telemetry: The Assurance architecture is designed for real-time data collection and ingestion, leveraging streaming technologies (streaming telemetry) to collect a variety of network telemetry and contextual data. This telemetry allows the system to poll network devices and collect data according to settings for SNMP, syslogs, and NetFlow.\n\n• end-to-end visibility: Assurance enables visibility of the entire network through multiple lenses, including geography, hierarchy, and topology. A key troubleshooting tool mentioned is Path Trace, which provides end-to-end visibility by following the path from any source to a destination device at the port level to resolve performance issues.\n\n• predict performance: A major focus of AI-driven analytics is to reduce outages and minimize business impact using predictive performance analytics. The system uses proactive sensor testing to test protocol connectivity and performance to discover issues before they occur, effectively allowing the network to predict performance and behavior trends.\n\nIn contrast, automation is primarily categorized under the Provisioning functional area, and licensing is a prerequisite for using advanced features like AI Analytics rather than a focus area of the analytics engine itself."
+        },
+        {
+          "id": 9,
+          "originalNumber": 9,
+          "questionType": "choice",
+          "question": "Which node serves as the gateway between the fabric domain and the known network outside of the fabric?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "intermediate node",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "fabric border node",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "default border node",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "border node",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 24.4.4",
+          "explanation": "Fabric border nodes serve as the gateway between the Cisco SD-Access fabric site and the networks external to the fabric. They are responsible for network virtualization interworking, advertisement of EID subnets (typically using BGP), and SGT propagation from the fabric to the rest of the network. These nodes can be configured in different roles: an internal border connects to a well-defined/known set of IP subnets (such as a data center or shared services), while an external border serves as the gateway of last resort for unknown destinations outside the enterprise."
+        },
+        {
+          "id": 10,
+          "originalNumber": 10,
+          "questionType": "choice",
+          "question": "Which Cisco SD-WAN component displays application performance for the last 24 hours with the vQoE of 0 to 10, with 0 as the worst performance and 10 as the best?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Cisco WAN Edge router",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Cisco vManage",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco vBond",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Cisco vAnalytics",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 25.9.0",
+          "explanation": "The Cisco Catalyst SD-WAN Analytics (vAnalytics) platform provides graphical representations of overlay network performance and includes a dashboard that serves as an interactive overview. This dashboard displays information covering the most recent 24 hours. Specifically, it tracks application performance using a QoE (Quality of Experience) score that ranges from 0 to 10, where 0 is the worst performance and 10 is the best. The platform calculates this score by analyzing telemetry data for latency, loss, and jitter, and it is customized for each specific application. While Cisco Catalyst SD-WAN Manager (vManage) extracts the performance statistics from the fabric, it exports them to the Analytics tool for this deeper level of processing and scoring."
+        },
+        {
+          "id": 11,
+          "originalNumber": 11,
+          "questionType": "choice",
+          "question": "Which Cisco SD-WAN component operates in the Management plane?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Cisco vManage",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Cisco WAN Edge routers",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco vBond",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Cisco vAnalytics",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 25.5.0",
+          "explanation": "The Cisco Catalyst SD-WAN Manager (vManage) is the primary component of the management plane and serves as a \"single pane of glass\" for Day 0, Day 1, and Day 2 network operations. Its core functions include centralized provisioning, standardization of configurations, and providing real-time alerting and visibility across the entire fabric. It also offers programmatic interfaces (REST APIs) that allow for DevOps automation and the extraction of performance statistics.\n\nIn contrast, other components operate in different planes:\n\n• Cisco vBond (Cisco Catalyst SD-WAN Validator) operates in the orchestration plane.\n\n• Cisco WAN Edge routers operate in the data plane.\n\n• Cisco vSmart (Cisco Catalyst SD-WAN Controller) operates in the control plane.\n\n• Cisco vAnalytics is an optional cloud-based analytics engine used for deeper processing of the telemetry data exported by the Manager."
+        },
+        {
+          "id": 12,
+          "originalNumber": 12,
+          "questionType": "choice",
+          "question": "Which server return code indicates that the server accepted your request, but it must perform other actions in order to complete the request?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "200 OK",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "202 Accepted",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "201 Created",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "206 Partial Content",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 26.3.1",
+          "explanation": "The HTTP status code 202 (Accepted) indicates that the server accepted your request, but it must perform other actions in order to complete the request. For instance, if the Cisco Catalyst Center platform needs to interact with various network devices to fulfill a specific command, it will return this code.\n\nIn contrast, other codes serve different purposes:\n\n• 200 (OK): Means the request succeeded and the response already includes the result of the action.\n\n• 4xx codes: Indicate that the request failed due to a client-side error, such as a 401 (Unauthorized) code.\n\n• 5xx codes: Indicate that the failure was due to a server-side error, such as a 503 (Service Unavailable) code."
+        },
+        {
+          "id": 13,
+          "originalNumber": 13,
+          "questionType": "choice",
+          "question": "Which node is part of the underlay network?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "edge node",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "border node",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "intermediate node",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "control node",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 24.4.0",
+          "explanation": "The intermediate node is the node type that is part of the underlay network. While the campus fabric is composed of control plane, edge, border, and intermediate nodes, their functions differ between the underlay and overlay.\n\n• Edge nodes, border nodes, and control plane nodes all have specific functional roles within the overlay network, such as endpoint registration, acting as a gateway to external networks, or maintaining the host tracking database.\n\n• Intermediate nodes, by contrast, serve the underlay by providing IP reachability and connectivity between the other nodes in the fabric. As noted in the conversation history, they provide reachability within the fabric underlay but do not serve as external gateways or perform overlay-specific mapping functions.\n\nThe role of the underlay network is to establish physical connectivity using a routing protocol (typically IS-IS) to ensure packets can be delivered between fabric boundaries."
+        },
+        {
+          "id": 14,
+          "originalNumber": 14,
+          "questionType": "choice",
+          "question": "Which three options are limiting factors of traditional networks in the new age of digitalization? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "IP Access Lists",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "VRFs",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "VLANs",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "VXLANs",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "IP subnets",
+              "isCorrect": true
+            },
+            {
+              "id": "f",
+              "text": "LISPs",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 24.2.3",
+          "explanation": "Traditional networks rely on topology-based constructs that have become limiting factors in the face of modern digitalization requirements, such as host mobility and large-scale automation.\n\n• VLANs: The sources explicitly state that VLANs are a limiting factor due to inefficient use of available network links, rigid requirements on device placements, and limited scalability (restricted to 4,094 IDs).\n\n• IP subnets: Traditional segmentation is tied to the network topology, such as the IP subnet, which limits flexibility because policies are coupled to where a device is physically located in the network.\n\n• IP Access Lists: In traditional designs, security policies leverage ACLs that are statically mapped to IP and MAC addresses. The sources note that it is challenging to track ACLs, VLANs, and IP addresses to ensure optimal policy and security compliance as the network grows.\n\nIn contrast, VXLAN and LISP are modern overlay technologies used in Cisco SD-Access to overcome these traditional limitations. While VRFs are used in traditional segmentation, the primary \"topology-based\" constraints highlighted as hurdles for digitalization are VLANs, subnets, and the resulting complexity of ACL management."
+        },
+        {
+          "id": 15,
+          "originalNumber": 15,
+          "questionType": "choice",
+          "question": "What Cisco Catalyst Center tool provides visibility of what endpoints are there on the network and how they can be authenticated and assigned an appropriate policy for network usage, security, and segmentation?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Cisco Umbrella",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Design",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Provision",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "AI Endpoint Analytics",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 23.5.0\n\nA",
+          "explanation": "I Endpoint Analytics is the specific tool within Cisco Catalyst Center that provides visibility of what endpoints are on the network. Beyond simple identification, it helps determine how they can be authenticated and assigned an appropriate policy for network usage, security, and segmentation. This tool is part of the SecOps functional area, which focuses on eliminating vulnerabilities and ensuring the network remains secure through proactive scans and endpoint classification."
+        },
+        {
+          "id": 16,
+          "originalNumber": 16,
+          "questionType": "choice",
+          "question": "Which three tools have been upgraded to include network operations in their process? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "BGP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Chef",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Puppet",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Inventory",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "RSTP",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "Ansible",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 23.4.0",
+          "explanation": "Tools that were originally designed to help automate workflows for applications and cloud infrastructure, such as Ansible, Puppet, and Chef, have been upgraded to include network operations in their process. This integration of NetOps and DevOps concepts allows teams to use these tools to automatically make configuration changes and update network devices. While these tools began in the application and cloud sectors, they expanded their portfolios to include network automation after gaining significant traction in the industry."
+        },
+        {
+          "id": 17,
+          "originalNumber": 17,
+          "questionType": "choice",
+          "question": "Which Cisco Catalyst Center tool provides programmatic access to the discovery functionality of Cisco Catalyst Center?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Template Programmer API",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Command Runner API",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Network Discovery API",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Path Trace API",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 26.5.7",
+          "explanation": "The Network Discovery API is the specific tool that provides programmatic access to the discovery functionality of Cisco Catalyst Center. It allows users to create, update, delete, and manage discovery jobs and their associated credentials, as well as retrieve the specific network devices that a particular discovery job acquired.\n\nThe other options in the query serve different operational purposes:\n\n• Template Programmer API: Used for CRUD operations on configuration templates and projects.\n\n• Command Runner API: Used to run read-only commands on network devices to retrieve real-time configuration.\n\n• Path Trace API: Used to analyze and trace application flows between endpoints to resolve performance issues."
+        },
+        {
+          "id": 18,
+          "originalNumber": 18,
+          "questionType": "choice",
+          "question": "Which building block of the IBN includes functions that ensure that the derived model-based policies are disseminated throughout any of the relevant network domains?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "programmability",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "activation",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "translation",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "assurance",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.4.2\n\nA",
+          "explanation": "ctivation is the principal functional building block of an Intent-Based Network (IBN) that includes functions to ensure that the derived model-based policies are disseminated throughout any of the relevant network domains. These domains can include the data center, WAN, branches, and campuses. The activation block also handles orchestration, allowing policies to be limited in scope to specific parts of the network, and may employ additional functions to derive appropriate device configurations using standards-based APIs like NETCONF or REST.\n\nThe other two primary building blocks described in the sources serve different roles:\n\n• Translation: This block captures business intent and harmonizes it into a common model-based policy.\n\n• Assurance: This block provides continuous verification and contextual analysis to ensure the network is delivering the desired outcomes."
+        },
+        {
+          "id": 19,
+          "originalNumber": 19,
+          "questionType": "choice",
+          "question": "In Cisco Catalyst Center, what are three server settings for network services that can be applied at a global level, which can then be inherited by all sites under the hierarchy? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "DHCP",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "XML",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "AAA",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "PTP",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "TFTP",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "NTP",
+              "isCorrect": true
+            },
+            {
+              "id": "g",
+              "text": "IRC",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.4.5",
+          "explanation": "In Cisco Catalyst Center, the Design application uses a hierarchical format that allows network operators to define common resources at a global level, which are then inherited by all child sites, buildings, and floors. This eliminates the need to manually redefine the same resources in multiple places. According to the sources, the three network services from your list that can be applied globally and inherited are:\n\n• AAA: Used to perform network, client, and endpoint authentication via servers like Cisco ISE.\n\n• DHCP: Defined as a standardized set of configuration parameters for the entire hierarchy.\n\n• NTP: Configured to ensure all network infrastructure devices have synchronized time.\n\nOther attributes that follow this global inheritance and site-specific override model include DNS servers, syslog servers, SNMP trap servers, and device credentials. While settings are inherited by default, they can be manually overridden at any specific site level to meet local requirements."
+        },
+        {
+          "id": 20,
+          "originalNumber": 20,
+          "questionType": "choice",
+          "question": "Which LISP infrastructure device stores registered EID prefixes in a mapping database where they are associated to RLOCs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "map resolver",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "proxy ETR",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "proxy ITR",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "map server",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 24.5.3\n\nA",
+          "explanation": "map server (MS) is the specific LISP infrastructure device to which Egress Tunnel Routers (ETRs) register their EID prefixes. Its primary function is to store these registered EID prefixes in a mapping database where they are associated with RLOCs. All LISP sites then utilize this mapping system to resolve EID-to-RLOC mappings for traffic forwarding.\n\nIn the context of a Cisco SD-Access fabric, this map server functionality is typically combined with map resolver (MR) duties on the control plane node, which manages the host tracking database (HTDB) to maintain these associations. In contrast, a map resolver is the device that receives queries from Ingress Tunnel Routers (ITRs) rather than storing the registrations itself."
+        },
+        {
+          "id": 21,
+          "originalNumber": 21,
+          "questionType": "matching",
+          "question": "Match the Cisco SD-WAN component with the fabric plane to which it belongs:",
+          "chooseCount": 4,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "pairs": [
+            {
+              "id": "p1",
+              "prompt": "Management",
+              "answer": "Cisco vManage"
+            },
+            {
+              "id": "p2",
+              "prompt": "Orchestration",
+              "answer": "Cisco vBond"
+            },
+            {
+              "id": "p3",
+              "prompt": "Data",
+              "answer": "Cisco WAN Edge"
+            },
+            {
+              "id": "p4",
+              "prompt": "Control",
+              "answer": "Cisco vSmart"
+            }
+          ],
+          "options": [],
+          "topic": "Topic 25.3.0",
+          "explanation": null
+        },
+        {
+          "id": 22,
+          "originalNumber": 22,
+          "questionType": "choice",
+          "question": "In Cisco Catalyst Center, which important principle helps to lower IT costs and complexity while meeting business and user expectations?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "analytics",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "insights and actions",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "security and compliance",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "automation and assurance",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 23.7.1",
+          "explanation": "Cisco Catalyst Center is characterized as a complete network automation and assurance solution. These two principles are fundamental to its ability to lower IT costs and reduce complexity:\n\n• Automation: By using features such as zero-touch provisioning (PnP) and Software Image Management (SWIM), the platform automates routine administrative and provisioning tasks, reducing device installation and upgrade times from hours to minutes. This policy-driven approach reduces the time spent on simple network operations and minimizes human error.\n\n• Assurance: This function provides deep visibility and AI-driven insights into the health of the network, devices, and applications. It utilizes guided remediation and predictive analytics to resolve issues quickly, which increases network uptime and ensures that business and user expectations for a seamless experience are met.\n\nTogether, automation and assurance transform network operations from a reactive, manual process into an agile, proactive system that aligns the network with business intent."
+        },
+        {
+          "id": 23,
+          "originalNumber": 23,
+          "questionType": "choice",
+          "question": "Where does Cisco Catalyst Center store all the unique software images?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "external TFTP server",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Cisco Networking Design Center",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "external FTP server",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Image Repository",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 23.4.10",
+          "explanation": "Cisco Catalyst Center manages software through a feature called Software Image Management (SWIM). The Image Repository is a specific part of the design application that serves as the central software storage for the system. Within this repository, Cisco Catalyst Center stores all of the software images, Software Maintenance Updates (SMUs), subpackages, and ROM monitor images for the various devices in your network.\n\nThe repository allows network operators to view, import, and delete images, as well as designate specific versions as \"golden images\" to ensure consistency and compliance across the organization. While administrators can configure up to three external image distribution servers (using protocols like SFTP) to assist in the distribution process for different geographical regions, the primary management and storage of these unique images reside within the internal Image Repository."
+        },
+        {
+          "id": 24,
+          "originalNumber": 24,
+          "questionType": "choice",
+          "question": "Which three options correctly define the features of Cisco Catalyst Center? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "An open and extensible platform allows third-party applications and processes to exchange data.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Zero-touch device provisioning and software image management.",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "SAN and server provisioning and configuration management.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "User and device profiles that facilitate highly secure access and network segmentation based on business needs.",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "Device and network RADIUS-based authentication services through third-party FTP services.",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "Server profiles that limit access and avoid unnecessary network segmentation.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.2.1",
+          "explanation": "Cisco Catalyst Center provides a comprehensive set of management, automation, and security features for enterprise networks:\n\n• Open and Extensible Platform: The solution is designed as an open platform that utilizes northbound REST APIs and SDKs. This allows third-party applications and external systems (such as ITSM systems like ServiceNow or IPAM systems) to exchange data and intelligence, ensuring the network stays aligned with broader business processes.\n\n• Zero-touch Provisioning and SWIM: Catalyst Center simplifies network operations through automation features like Plug-and-Play (PnP) for near zero-touch device deployment. It also includes Software Image Management (SWIM), which provides a central repository for software images and automates upgrades to ensure all devices run validated \"golden images,\" reducing manual configuration time from hours to minutes.\n\n• Secure Access and Segmentation: The platform's Policy component allows administrators to define user and device profiles that enforce highly secure access. It supports granular macro- and micro-segmentation to isolate traffic and limit the network's attack surface based on business intent, often integrating with Cisco Identity Services Engine (ISE) for identity-based control.\n\nOther options, such as SAN provisioning or using FTP for RADIUS services, are not core functions of the Cisco Catalyst Center platform as described in the sources."
+        },
+        {
+          "id": 25,
+          "originalNumber": 25,
+          "questionType": "choice",
+          "question": "What are two benefits of VXLANs over the segmentation limiting factors of traditional VLANs? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "better utilization of available network paths",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "rigid requirements on device placement",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "eliminates the use of multitenant segments within the data center",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "inefficient use of available network links",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "flexible placement of multitenant segments throughout the data center",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 24.6.1",
+          "explanation": "Traditional VLANs have several limiting factors in modern data centers, specifically the inefficient use of network links due to Spanning Tree Protocol (STP) and rigid requirements on device placement based on physical Layer 2 boundaries. VXLAN overcomes these issues through the following benefits:\n\n• Better utilization of available network paths: Unlike traditional VLANs that use STP to block redundant paths to prevent loops, VXLAN encapsulates frames into Layer 3 UDP packets. This allows the network to take full advantage of Layer 3 routing features like Equal-Cost Multipath (ECMP) and link aggregation, utilizing all available paths in the fabric.\n\n• Flexible placement of multitenant segments: VXLAN decouples the overlay network from the physical underlay, allowing Layer 2 segments to be extended over the Layer 3 infrastructure. This eliminates the traditional Layer 2 boundaries that forced rigid device placement, enabling multitenant segments to be placed anywhere throughout the data center.\n\nAdditionally, while VLANs are limited to 4,094 IDs, VXLAN supports up to 16 million coexistent segments using 24-bit VXLAN Network Identifiers (VNIDs)."
+        },
+        {
+          "id": 26,
+          "originalNumber": 26,
+          "questionType": "choice",
+          "question": "Which three routing protocols can the Cisco WAN Edge router use for learning reachability information from the service-side interfaces? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "RIPv1",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "EIGRP",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "OSPF",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "IS-IS",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "BGP",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 25.7.0",
+          "explanation": "The Cisco WAN Edge router functions as the data plane element of the SD-WAN fabric, responsible for establishing secure connectivity and forwarding data between sites. To learn reachability information from the service-side (LAN) interfaces, these routers support several traditional routing protocols:\n\n• OSPF: WAN Edge routers support both OSPFv2 and OSPFv3 for learning routes from the local service-side network.\n\n• EIGRP: This protocol is explicitly used for learning reachability information from service-side interfaces and for brownfield integration with non-SD-WAN sites.\n\n• BGP: This is a standard routing protocol used on the service-side to exchange prefixes with local site routers.\n\nOnce these routes are learned from the service-side (configured in VPNs 1 through 65535), they are redistributed into the Overlay Management Protocol (OMP) to be advertised as service-side routes (vRoutes) across the SD-WAN overlay.\n\nNote: While the sources state that RIPv2 is also supported, RIPv1 and IS-IS are not listed as options for learning reachability from the service-side interfaces. (IS-IS is instead recommended for use in the network underlay for physical connectivity)."
+        },
+        {
+          "id": 27,
+          "originalNumber": 27,
+          "questionType": "choice",
+          "question": "What Cisco Catalyst Center tool detects anomalous behavior and stops its manifestation into security threats?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Power over Ethernet (PoE)",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "AI Endpoint Analytics",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Cisco Secure Network Analytics",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Identity Services Engine (ISE)",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.2.0",
+          "explanation": "Cisco Catalyst Center uses AI Endpoint Analytics and endpoint trust score automation to detect anomalous behavior and prevent its manifestation into security threats. This tool is a core component of the platform's security architecture, providing deep visibility into what endpoints are on the network and allowing for granular macro- and micro-segmentation to limit the attack surface.\n\nAs part of the SecOps (Security Operations) capabilities, AI Endpoint Analytics classifies endpoints and helps enforce zero-trust network access. By monitoring endpoint behavior and calculating trust scores, it ensures that only authorized resources are accessed and that potential vulnerabilities are identified through continuous compliance checks. While other tools like Cisco Secure Network Analytics and Identity Services Engine (ISE) are part of the integrated security suite, AI Endpoint Analytics is specifically cited in the sources for its role in stopping the manifestation of anomalous behavior into threats."
+        },
+        {
+          "id": 28,
+          "originalNumber": 28,
+          "questionType": "choice",
+          "question": "What Cisco Catalyst Center component combines deep insights with rich context?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Provisioning",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Design",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Assurance",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Policy",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 23.3.0",
+          "explanation": "Within the Cisco Catalyst Center architecture, Assurance is the specific component designed to combine deep insights with rich context to deliver a consistent user experience and proactively optimize the network. It acts as a real-time network data collection and analytics engine that uses contextual analysis to validate that business intent has been correctly applied and that desired outcomes are being achieved.\n\nKey functions of the Assurance component include:\n\n• Health Dashboards: Providing at-a-glance visibility into the overall health of network devices, clients, and applications.\n\n• Proactive Issue Resolution: Using AI-driven insights and predictive analytics to identify root causes and suggest remediation steps before they impact the business.\n\n• 360-Degree Views: Offering detailed, drill-down perspectives of specific network elements to facilitate faster troubleshooting."
+        },
+        {
+          "id": 29,
+          "originalNumber": 29,
+          "questionType": "choice",
+          "question": "Which statement best describes the Cisco SD-WAN solution?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "The Cisco SD-WAN solution is a software-based, virtual IP fabric overlay network relying on LISP and VXLAN for both wired and wireless LANs.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "The Cisco SD-WAN solution allows service providers to accelerate WAN services directly for enterprise customers.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "The Cisco SD-WAN is a hardware-based solution that covers switching, routing, voice, and VPN for small to medium-sized businesses.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "The Cisco SD-WAN solution is a software-based, virtual IP fabric overlay network that builds a secure, unified connectivity over any transport network (the underlay).",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 25.2.0",
+          "explanation": "The Cisco Catalyst SD-WAN solution represents a significant shift from older, hardware-based legacy WAN models to a secure, software-based, virtual IP fabric overlay. This overlay architecture is designed to build unified connectivity over any transport network, known as the underlay, which can include the public internet, MPLS, Metro Ethernet, and LTE/4G/5G.\n\nKey characteristics of this solution include:\n\n• Decoupling Planes: It separates the data plane forwarding from the control plane, allowing for centralized intelligence, automation, and simplified management.\n\n• Integration: It fully integrates routing, security, centralized policy, and orchestration into large-scale networks.\n\n• Transport Independence: Because it is software-based and virtualized, it can run over any transport circuits, enabling an active-active mix of different link types to optimize capacity and reduce costs.\n\n• Security: It utilizes a zero-trust security model with strong encryption, end-to-end segmentation, and certificate-based identity for all devices.\n\nIn contrast, the option mentioning LISP and VXLAN describes the Cisco SD-Access solution, which is intended for wired and wireless LANs rather than the WAN."
+        },
+        {
+          "id": 30,
+          "originalNumber": 30,
+          "questionType": "choice",
+          "question": "Which option describes an industry-standard API that the ONF defines?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "OpenFlex",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "REST",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "NETCONF",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "OpenFlow",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 26.2.1",
+          "explanation": "OpenFlow is an industry-standard southbound API that is specifically defined by the Open Networking Foundation (ONF). Its primary function is to configure the flow tables in switches, which defines the specific flow path traffic takes through a network.\n\nThe other options represent different protocols or architectures:\n\n• NETCONF is a network management protocol standardized by the IETF (Internet Engineering Task Force) used to install, manipulate, and delete device configurations via XML-encoded messages.\n\n• OpFlex (likely the \"OpenFlex\" mentioned in the query) is an open-standard protocol that utilizes a declarative SDN model, where a controller like the Cisco APIC sends abstract policies to network elements.\n\n• REST (Representational State Transfer) is a web service architecture based on the HTTP request-response model that has not been formally defined by any specific standards body."
+        },
+        {
+          "id": 31,
+          "originalNumber": 31,
+          "questionType": "choice",
+          "question": "Which action used by the Cisco Catalyst Center Intent API writes new data at the path that the URL specifies?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "PUT",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "DELETE",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "GET",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "POST",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 26.3.0",
+          "explanation": "The Cisco Catalyst Center Intent API utilizes standard HTTP request-response actions to interact with network resources. According to the sources, the POST action is used specifically to write new data at the path that the URL specifies. Its primary purpose is to create new data on the server.\n\nIn contrast, the other listed actions perform different functions:\n\n• GET: Used to retrieve or read data from the specified path.\n\n• PUT: Used to replace or update existing data; it cannot be used to create new data.\n\n• DELETE: Used to remove existing data at the specified path."
+        },
+        {
+          "id": 32,
+          "originalNumber": 32,
+          "questionType": "choice",
+          "question": "Which node provides the endpoints to a single anycast Layer 3 gateway?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "control plane node",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "border node",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "edge node",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "intermediate node",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 24.4.1",
+          "explanation": "In a Cisco SD-Access fabric, the edge node is the component that provides first-hop services for users and devices (endpoints) connected to the fabric. A critical function of the edge node is providing the anycast Layer 3 gateway.\n\nThe anycast gateway uses a common IP and MAC address that is present on every edge node sharing a common EID (Endpoint Identifier) subnet. This mechanism ensures that when an endpoint moves from one edge node to another, it does not need to change its default gateway configuration, facilitating seamless host mobility and optimal forwarding. While the control plane node manages the host tracking database and the border node acts as the exit point for the fabric, it is the edge node that directly interfaces with endpoints to provide this unified gateway service."
+        },
+        {
+          "id": 33,
+          "originalNumber": 33,
+          "questionType": "choice",
+          "question": "Which three options are characteristics of the Cisco vBond orchestration plane? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "first point of authentication",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "authorizes all control connections",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "facilitates fabric discovery",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "distributes a list of Cisco vSmart controllers to all Cisco WAN Edge routers",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "real-time alerting",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "distributes a list of Cisco WAN Edge routers to all Cisco vSmart controllers",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 25.4.0",
+          "explanation": "The Cisco Catalyst SD-WAN Validator (historically known as vBond) resides on the orchestration plane and is responsible for initial security and connectivity. Its key characteristics include:\n\n• First point of authentication: The Validator is the first point of contact for any device connecting to the SD-WAN overlay. It performs initial authentication for all devices to ensure they are authorized to join the network.\n\n• Authorizing control connections: It uses a zero-trust certificate-based allow list model to authorize all control connections within the fabric.\n\n• Distribution of controller lists: During the deployment process, the Validator automatically distributes a list of available Cisco Catalyst SD-WAN Controllers (vSmart) and the Cisco Catalyst SD-WAN Manager (vManage) to the WAN Edge routers. This enables the routers to establish the necessary control and management plane connections.\n\nOther options provided, such as facilitating fabric discovery, are characteristics of the Control Plane (vSmart), while real-time alerting is a feature of the Management Plane (SD-WAN Manager)."
         }
       ]
     }
