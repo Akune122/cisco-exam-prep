@@ -306,4 +306,28 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-security.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-virtualization')) {
+  const htmlPath = args[args.indexOf('--build-virtualization') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const questions = parseItExamHtml(html);
+
+  const examData = {
+    id: 'ccnp-encor-v9-virtualization',
+    categoryId: 'ccnp-v9',
+    categoryName: 'CCNP ENCOR v9',
+    courseCode: 'Modules 17 – 20',
+    title: 'Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)',
+    description: 'Examen Checkpoint officiel sur la virtualisation et les services réseau (Hyperviseurs, VRF, GRE, IPsec, NTP, SNMP, Syslog, NetFlow, IP SLA, EEM) du cours CCNP ENCOR v9.',
+    sourceUrl: 'https://itexamanswers.net/modules-17-20-checkpoint-exam-virtualization-and-network-services-answers-ccnp-encor-v9.html',
+    lastUpdated: '2026-05-01',
+    quizChunkSize: 10,
+    examModeQuestionCount: questions.length,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-virtualization.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
 }

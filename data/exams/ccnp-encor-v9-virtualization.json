@@ -1,0 +1,1073 @@
+{
+  "id": "ccnp-encor-v9-virtualization",
+  "categoryId": "ccnp-v9",
+  "categoryName": "CCNP ENCOR v9",
+  "courseCode": "Modules 17 – 20",
+  "title": "Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)",
+  "description": "Examen Checkpoint officiel sur la virtualisation et les services réseau (Hyperviseurs, VRF, GRE, IPsec, NTP, SNMP, Syslog, NetFlow, IP SLA, EEM) du cours CCNP ENCOR v9.",
+  "sourceUrl": "https://itexamanswers.net/modules-17-20-checkpoint-exam-virtualization-and-network-services-answers-ccnp-encor-v9.html",
+  "lastUpdated": "2026-05-01",
+  "quizChunkSize": 10,
+  "examModeQuestionCount": 30,
+  "passingScorePercent": 70,
+  "totalQuestions": 30,
+  "questions": [
+    {
+      "id": 1,
+      "originalNumber": 1,
+      "questionType": "choice",
+      "question": "Which three statements about site-to-site VPNs are true? (Choose three.)",
+      "chooseCount": 3,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "They eliminate the need for QoS.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "They provide transmission security between sites over an untrusted network.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "They support only Cisco routers.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "They often encounter problems with traffic filtering.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "They authenticate VPN peers and network devices that provide VPN functionality for an entire site.",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "They can be used as replacements for classic routed WANs.",
+          "isCorrect": true
+        },
+        {
+          "id": "g",
+          "text": "They eliminate the need for basic network traffic controls.",
+          "isCorrect": false
+        },
+        {
+          "id": "h",
+          "text": "They eliminate the need for high availability.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 18.1.0",
+      "explanation": "Site-to-site VPNs are primarily used by enterprises to connect geographically dispersed sites or partners over public networks, often serving as a cost-effective replacement for classic routed WANs. These VPNs serve several critical security and operational roles:\n\n• Transmission Security: They provide security for data traveling over untrusted networks like the Internet or an MPLS WAN.\n\n• Authentication: They authenticate both the VPN peers and the network devices that manage VPN functionality for the entire site."
+    },
+    {
+      "id": 2,
+      "originalNumber": 2,
+      "questionType": "choice",
+      "question": "Which show command filter skips the output up to the first occurrence of the regular expression pattern?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "begin",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "section",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "exclude",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "include",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.6.3",
+      "explanation": "The begin filter is specifically designed to allow a user to skip all output of a show command down to the first occurrence of a specified regular expression pattern. For instance, if you want to see only the line configuration in a long running configuration, using show running-config | begin line vty will skip all preceding text and start the output at the first instance of the \"line vty\" keyword.\n\nOther filters mentioned in the sources serve different purposes:\n\n• exclude is used to omit lines containing a specific keyword from the output.\n\n• include is used to display only the lines that contain the specified keyword.\n\n• section is used to display entire configuration sections (such as a specific routing protocol) that match a keyword."
+    },
+    {
+      "id": 3,
+      "originalNumber": 3,
+      "questionType": "choice",
+      "question": "Assume the far-end device is correctly configured. Which command is missing from having a complete IP SLA ICMP Echo configuration after pasting it into the CLI of the device?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "[MISSING COMMAND] \n  icmp-echo 192.168.22.22 \nip sla schedule 33 life forever start-time now"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "ip sla 33",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "ip sla 1",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "router sla 1",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "interface ethernet 0/0",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.9.1",
+      "explanation": "To successfully configure an IP SLA, you must first enter the IP SLA configuration mode by defining a unique operation number in global configuration mode. In your provided snippet, the scheduling command specifically references operation 33 (ip sla schedule 33...), meaning the missing command must be ip sla 33 to create that specific instance. Without this initial command, the device would not be in the correct sub-mode to accept the subsequent icmp-echo configuration."
+    },
+    {
+      "id": 4,
+      "originalNumber": 4,
+      "questionType": "choice",
+      "question": "What is the purpose of the SNMP trap message?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "It traps an agent into performing a device reboot.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "It performs a write to a MIB variable on the agent.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "It transmits an unsolicited condition from agent to manager.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Trap is not an SNMP message.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 19.6.0",
+      "explanation": "The purpose of an SNMP trap is to provide a mechanism for a managed device (the SNMP agent) to send unsolicited notifications to the network management system (the SNMP manager).\n\nUnlike standard SNMP polling, where the manager periodically queries the agent for data, traps are event-based. They provide almost real-time notifications when specific conditions occur, such as a change in device status or when a pre-configured performance threshold has been reached. This allows administrators to be alerted to irregular events, such as device unavailability or increased traffic, without waiting for the next scheduled poll."
+    },
+    {
+      "id": 5,
+      "originalNumber": 5,
+      "questionType": "choice",
+      "question": "Which command can be used to verify that IPsec tunnels are established and to display the number of encrypted and decrypted packets for individual connections?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "show crypto map",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "show crypto sockets",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "show crypto pki",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "show crypto isakmp sa detail",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "show crypto ipsec sa detail",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 18.8.2",
+      "explanation": "The show crypto ipsec sa command (and its detailed version) is the primary tool used to verify the status of IPsec Security Associations (SAs) and monitor data-plane activity. According to the sources, this command provides comprehensive information for individual connections, including the local and remote crypto endpoints, the current outbound and inbound SPIs, and the specific transform sets being utilized.\n\nCrucially, it displays real-time statistics for traffic passing through the tunnel, specifically showing the number of packets that have been encapsulated, encrypted, decapsulated, and decrypted. In the provided configuration examples, this command is used to confirm that a tunnel is operational by observing these counters increase after a successful ping.\n\nWhile show crypto isakmp sa is also a vital verification command, the sources specify that it is used to validate the status of IKE peering (Phase 1) rather than the packet-level encryption statistics of the IPsec tunnel itself."
+    },
+    {
+      "id": 6,
+      "originalNumber": 6,
+      "questionType": "choice",
+      "question": "Which portion of the show interface command output indicates a congested interface?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "output queue drops",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "input errors",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "output errors",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "input queue drops",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.5.0",
+      "explanation": "Output queue drops are specifically designated as being a result of a congested link. This occurs when the volume of traffic attempting to exit an interface exceeds the capacity of that link, causing the output buffer to overflow.\n\nIn contrast, the other indicators mentioned in the output of the show interface command signify different issues:\n\n• Input queue drops: These indicate that the router is receiving more traffic than it can actually process internally.\n\n• Input errors: These typically point to physical interface problems, CRC errors, or duplex mismatches.\n\n• Output errors: These are usually related to duplex issues on the connection."
+    },
+    {
+      "id": 7,
+      "originalNumber": 7,
+      "questionType": "choice",
+      "question": "Which character in the output of a traceroute operation indicates that a packet is dropped because of a configured packet filter?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "\"U\"",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "\"I\"",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "\"A\"",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "\"H\"",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.7.4",
+      "explanation": "In a Cisco traceroute operation, specific characters are used to diagnose where a packet flow is being interrupted. The character \"A\" stands for \"Administratively Prohibited,\" indicating that the packet was dropped because of a configured packet filter, such as an Access Control List (ACL).\n\nWhile the provided sources explain the underlying mechanism of traceroute—sending UDP datagrams with increasing TTL values until an ICMP \"port unreachable\" is received—and demonstrate the use of the asterisk (*) to indicate a timeout, they do not explicitly list the full table of response codes in the current excerpts. However, in standard Cisco network diagnostics:\n\n• A: Indicates the packet was blocked by an administrative filter (ACL).\n\n• H: Indicates the Host is unreachable.\n\n• U: Indicates a Port unreachable message was received, which typically signals that the packet successfully reached the destination host.\n\n• I: Indicates the operation was interrupted by the user."
+    },
+    {
+      "id": 8,
+      "originalNumber": 8,
+      "questionType": "choice",
+      "question": "Which hypervisor is used with almost all collaboration applications?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Sun xVM Server",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "VirtualBox",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Xen",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "VMware ESXi (vSphere)",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 17.2.2",
+      "explanation": "VMware ESXi (vSphere) is the hypervisor used with almost all collaboration applications. It is a software package consisting of a lightweight operating system and additional software designed to create and manage virtual environments.\n\nCisco Unified Communications applications began supporting virtualization with VMware ESXi 4.0, and most current versions of collaboration applications require at least ESXi version 5.0. While other hypervisors exist, the sources explicitly note that applications such as Microsoft Hyper-V, Citrix Zen (Xen), and Red Hat KVM are not currently supported for these specific collaboration workloads. The hypervisor acts as an abstraction layer between the physical hardware and the virtual machines, managing resources like CPU cores, memory, and networking to ensure that multiple independent operating systems can run simultaneously on a single physical server."
+    },
+    {
+      "id": 9,
+      "originalNumber": 9,
+      "questionType": "choice",
+      "question": "Which network topology is in use when every network has a direct VPN connection to every other network? This topology provides any-to-any communication and provides the most optimal direct path for network traffic.",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "individual point-to-point VPN connection",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "partially meshed network",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "star topology network",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "hub-and-spoke network",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "fully meshed network",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 18.2.0",
+      "explanation": "In a fully meshed network, every network device is connected directly to every other network device. According to the sources, this specific topology is characterized by its ability to enable any-to-any communication, providing the most optimal and direct paths for network traffic. Because each site has a direct connection to all others, it offers the greatest flexibility to network users.\n\nOther topologies mentioned in the sources do not meet these criteria:\n\n• Hub-and-spoke: Relies on a central hub, and while the hub can facilitate spoke-to-spoke communication, it is not a direct any-to-any path for all nodes.\n\n• Partial mesh: Only some devices are organized in a full mesh, while others use hub-and-spoke or point-to-point connections.\n\n• Individual point-to-point: Only interconnects two specific sites using a secure path."
+    },
+    {
+      "id": 10,
+      "originalNumber": 10,
+      "questionType": "choice",
+      "question": "Which command do you use if you want to control the severity of the event that determines when a syslog should be sent?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "logging {hostname | ip address}",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "logging level severity",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "logging trap severity",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "logging severity",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 19.4.2",
+      "explanation": "The logging trap command is used in global configuration mode to limit the syslog messages sent to a remote server based on their severity level. There are eight levels of severity (0 to 7), ranging from \"emergency\" to \"debug\".\n\nWhen a specific severity level is configured with this command, the device will forward all messages at that specified level and any level more severe. For example, if you set the threshold to \"informational\" (level 6), the router will forward all messages from severity 0 through 6 to the syslog server. This mechanism allows network administrators to control the volume of log data transmitted over the network and focus on the most critical events."
+    },
+    {
+      "id": 11,
+      "originalNumber": 11,
+      "questionType": "choice",
+      "question": "Which option is the stronger hash algorithm used by IKE?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "SHA-1",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "DH group 2",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "MD5",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "DH group 5",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 18.7.1",
+      "explanation": "SHA-1 is a stronger hash algorithm than MD5. While even newer and more secure hash algorithms exist (such as SHA-256, SHA-384, and SHA-512), SHA-1 is explicitly preferred over MD5 in IKE policies to ensure better security.\n\nIt is important to note that DH group 2 and DH group 5 are not hash algorithms; rather, they are Diffie-Hellman groups used to determine the strength of the encryption-key-determination algorithm. While DH group 5 is stronger than DH group 2, they serve a different function in the IKE policy than hashing."
+    },
+    {
+      "id": 12,
+      "originalNumber": 12,
+      "questionType": "choice",
+      "question": "What is the command sequence to configure a GRE tunnel interface on a Cisco IOS router?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "R4(config)# interface tunnel0 R4(config-if)# ip address 172.16.99.2 255.255.255.0 R4(config-if)# tunnel source GigabitEthernet 0/0",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "R4(config)# interface tunnel0 R4(config-if)# ip address 172.16.99.2 255.255.255.0 R4(config-if)# tunnel source interface GigabitEthernet 0/0 R4(config-if)# tunnel destination 10.10.1.1",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "R4(config)# interface tunnel0 R4(config-if)# ip address 172.16.99.2 255.255.255.0 R4(config-if)# tunnel source 10.10.3.2 R4(config-if)# tunnel destination 10.10.1.1",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "R4(config)# interface tunnel0 R4(config-if)# tunnel source 10.10.3.2 R4(config-if)# tunnel destination 10.10.1.1",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 17.8.2\n\nA",
+      "explanation": "minimum Generic Routing Encapsulation (GRE) tunnel configuration requires three core components: a tunnel interface with its own IP subnet, a tunnel source address, and a tunnel destination address.\n\nThe configuration sequence involves the following steps:\n\n• Create the interface: Enter interface configuration mode using the interface tunnel command followed by an ID number.\n\n• Assign an IP address: Configure an IP address and subnet mask for the tunnel interface to provide connectivity across the logical link.\n\n• Define the source: Specify the local IP address (or physical interface) that will serve as the origin for the encapsulated packets.\n\n• Define the destination: Specify the IP address of the remote peer where the tunnel will terminate.\n\nThe sources emphasize that the tunnel source and destination must be symmetrical and reachable between the two routers for the line protocol to come \"up\". In the specific example for router R4, the source is its own physical interface (10.10.3.2) and the destination is the far-end router R1 (10.10.1.1)."
+    },
+    {
+      "id": 13,
+      "originalNumber": 13,
+      "questionType": "choice",
+      "question": "Which portion of the show interface command output indicates that a router received the information faster than the information could be processed by the router?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "input errors",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "output errors",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "input queue drops",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "output queue drops",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.5.0",
+      "explanation": "Input queue drops in the show interface command output signify that traffic is being discarded because the router is receiving more traffic than it can process. This indicates an internal processing bottleneck where the CPU or switching logic cannot keep up with the rate of incoming packets.\n\nIn contrast, the other counters in the output indicate different types of network issues:\n\n• Output queue drops: These are typically caused by a congested link, where the egress traffic exceeds the bandwidth of the physical interface.\n\n• Input errors: These generally result from physical layer problems, such as CRC errors, duplex mismatches, or interface hardware issues.\n\n• Output errors: These are usually specifically related to duplex issues on the local connection."
+    },
+    {
+      "id": 14,
+      "originalNumber": 14,
+      "questionType": "choice",
+      "question": "What Cisco IOS XE command configures the domain value on the PTP?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "ptp transport ipv4 udp",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "ptp vlan",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "ptp mode",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "ptp domain",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 19.3.4",
+      "explanation": "The ptp domain command is used in global configuration mode to define the domain value for the Precision Time Protocol (PTP). A PTP domain represents a logical grouping of clocks that synchronize with each other, allowing multiple independent clock distribution systems to share the same physical network medium.\n\nBy default, the PTP domain is set to 0, but the ptp domain command allows administrators to configure a specific value, typically within a range of 4 to 127. Other commands listed serve different functions: ptp mode selects the clock synchronization role (e.g., boundary or transparent), ptp vlan identifies the specific VLAN for PTP traffic on trunk ports, and ptp transport ipv4 udp specifies the Layer 3 transport method."
+    },
+    {
+      "id": 15,
+      "originalNumber": 15,
+      "questionType": "choice",
+      "question": "Which three components must be defined on the local device to implement NetFlow on an interface when you configure Flexible NetFlow? (Choose three.)",
+      "chooseCount": 3,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "NetFlow security",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "NetFlow admin",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "NetFlow monitor",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "NetFlow client",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "NetFlow record",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "NetFlow export",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 19.8.1",
+      "explanation": "Configuring Flexible NetFlow on a Cisco device involves a specific four-step process that requires defining three core components on the local device before applying them to an interface. These components are:\n\n• NetFlow record: This defines the \"fingerprint\" of the traffic. It consists of key fields (configured with match commands) to identify unique flows and non-key fields (configured with collect commands) to gather additional statistics for analysis.\n\n• NetFlow export (Flow Exporter): This component specifies the destination for the captured data. It defines the IP address of the Flow Collector (the server), the transport protocol (typically UDP), and the specific port number used for the export.\n\n• NetFlow monitor: This functions as the NetFlow database in the device's memory (cache). Its primary purpose is to bind the flow record and the flow exporter together so the device knows what data to collect and where to send it.\n\nOnce these three elements are established, the NetFlow monitor is applied to a Layer 3-enabled interface (usually for input monitoring) to start the actual flow capture."
+    },
+    {
+      "id": 16,
+      "originalNumber": 16,
+      "questionType": "choice",
+      "question": "Which two headers are added to an existing packet by GRE? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "16-byte GRE header",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "16-byte IP header",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "4-byte CMD header",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "4-byte GRE header",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "20-byte IP header",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 17.7.0",
+      "explanation": "Generic Routing Encapsulation (GRE) creates a tunnel by adding two specific headers to the original packet. These include a 20-byte IP header, also known as the Delivery Header, which handles the transport of the packet across the network. Additionally, a 4-byte GRE header is added, which contains a protocol type field to identify the Layer 3 protocol being transported. Together, these headers result in a minimum of 24 bytes of additional overhead, effectively hiding the original packet headers from transit routers."
+    },
+    {
+      "id": 17,
+      "originalNumber": 17,
+      "questionType": "choice",
+      "question": "Which Cisco IOS feature allows you to create your own event definition for a network device and specify the action that should be performed in response to that event?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "NetFlow",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "EEM",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "SNMP",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "syslog",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 19.9.0",
+      "explanation": "Cisco IOS Embedded Event Manager (EEM) is a powerful and flexible subsystem designed specifically to automate tasks and customize the behavior of a device. Unlike standard logging or monitoring protocols, EEM allows you to create your own event definitions through event detectors and specify automated actions (such as executing CLI commands, sending emails, or reloading the device) in response to those specific real-time events.\n\nWhile the other options serve different roles:\n\n• NetFlow is used for collecting and reporting IP traffic statistics.\n\n• SNMP is a standard for network management that uses polling and predefined trap notifications.\n\n• Syslog is a protocol used for sending and storing event notification messages across the network."
+    },
+    {
+      "id": 18,
+      "originalNumber": 18,
+      "questionType": "choice",
+      "question": "Which SNMP recommendation is not valid?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Configure ACLs to restrict SNMP access to only known managers.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Set up SNMP views to restrict the manager to only access the needed set of MIBs.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Restrict access to read-only.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Always use MD5 authentication when SNMPv3 is not available, and you are forced to use SNMPv2c.",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 19.6.1",
+      "explanation": "The statement regarding MD5 authentication and SNMPv2c is not valid because SNMPv2c does not support MD5 or SHA authentication; it relies solely on community strings, which are transmitted in cleartext and are not a robust security mechanism. MD5 and SHA authentication were specifically introduced as part of the enhanced security models in SNMPv3 to ensure secure transmission between the manager and agent.\n\nThe other three recommendations are explicitly listed in the sources as valid best practices:\n\n• Restrict access to read-only: NMS systems rarely require write access, so community credentials should be limited.\n\n• Set up SNMP views: This restricts a manager’s access to only the specific MIB trees they need to monitor.\n\n• Configure ACLs: Access Control Lists should be used to ensure that only authorized, known SNMP managers can communicate with the agent."
+    },
+    {
+      "id": 19,
+      "originalNumber": 19,
+      "questionType": "choice",
+      "question": "Which two encapsulation methods are supported by Cisco IOS VTIs? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "SSL",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "TLS",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "ESP",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "AH",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "GRE",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 18.7.0",
+      "explanation": "Cisco IOS Virtual Tunnel Interfaces (VTIs) are a simplified mechanism for protecting site-to-site VPN tunnels. The sources explicitly state that the encapsulation for a VTI must be either IPsec Encapsulating Security Payload (ESP) or Authentication Header (AH).\n\nWhile GRE is a widely used tunneling protocol, the sources distinguish it as a separate technology that supports a broader range of protocols, whereas VTIs are specifically designed to terminate IPsec tunnels using a routable interface,. SSL and TLS are not mentioned as encapsulation methods for VTIs in these excerpts."
+    },
+    {
+      "id": 20,
+      "originalNumber": 20,
+      "questionType": "choice",
+      "question": "Which network virtualization architecture component transports traffic over isolated Layer 3 partitions?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "path isolation",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "access control",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "virtual machine",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "services edge",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 17.3.0",
+      "explanation": "The network virtualization architecture consists of three main components: access control, path isolation, and services edge. Path isolation is the specific component that functions as an overlay network to create independent logical traffic paths, effectively isolating traffic between different groups over a shared physical infrastructure. This is achieved by maintaining isolated Layer 3 partitions using technologies such as Virtual Routing and Forwarding (VRF), GRE tunnels, or MPLS VPNs to provide end-to-end connectivity while keeping user groups separate."
+    },
+    {
+      "id": 21,
+      "originalNumber": 21,
+      "questionType": "choice",
+      "question": "How is debug traffic processed on a Cisco IOS router when the packets are generated by the router out its local interfaces?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Cisco Express Forwarding switched",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "fast-switched",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "ASIC-switched",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "process-switched",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 20.7.7",
+      "explanation": "Packets that are generated by a router or destined for a router are handled directly by the router's processor and are therefore process-switched. Because they are processed in this manner, they can be captured and displayed by diagnostic commands like debug ip packet. In contrast, packets that are merely forwarded through a router using hardware-accelerated methods like Cisco Express Forwarding (CEF) or fast-switching are not sent to the CPU and will not appear in debug output unless those switching features are specifically disabled."
+    },
+    {
+      "id": 22,
+      "originalNumber": 22,
+      "questionType": "choice",
+      "question": "Which option is an encryption mode supported by IPsec?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "tunnel mode",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "bypass mode",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "clear mode",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "pass-through mode",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 18.5.0",
+      "explanation": "IPsec supports two primary encryption modes: transport mode and tunnel mode. Tunnel mode is considered more secure than transport mode because it encrypts both the packet payload and the original header, creating a new IP header in the process. This mode is commonly used in VPNs to hide unregistered internal IP addresses within the tunneled packet. In contrast, transport mode only encrypts the data portion (payload) of each packet and leaves the original packet header untouched."
+    },
+    {
+      "id": 23,
+      "originalNumber": 23,
+      "questionType": "choice",
+      "question": "Which VPN solution relies on IKEv2?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "GET VPN",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "FlexVPN",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "DMVPN",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Easy VPN",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 18.6.2",
+      "explanation": "FlexVPN is a unified VPN solution that specifically relies on open standards-based IKEv2 (Internet Key Exchange version 2) as its core security technology. It was created to simplify the complexity of deploying multiple VPN types by providing a single ecosystem that covers site-to-site, remote-access, and mobility requirements. Because it is built on IKEv2, FlexVPN is compatible with third-party VPN vendors and native VPN clients on mobile devices, such as Apple iOS and Android. While other solutions like DMVPN and GET VPN are used for scalable environments, the sources explicitly distinguish FlexVPN by its use of IKEv2 capabilities."
+    },
+    {
+      "id": 24,
+      "originalNumber": 24,
+      "questionType": "choice",
+      "question": "Which IP protocol defines GRE packets?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "47",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "51",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "17",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "50",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 17.7.0",
+      "explanation": "IP protocol 47 is used to define GRE packets. Generic Routing Encapsulation (GRE) is a stateless tunneling protocol that transports various Layer 3 protocols (such as IP, IPX, and AppleTalk) by encapsulating them within a transport protocol. To do this, GRE adds a 20-byte IP delivery header and a 4-byte GRE header to the existing packet, allowing routing in"
+    },
+    {
+      "id": 25,
+      "originalNumber": 25,
+      "questionType": "choice",
+      "question": "Which two options are benefits of server virtualization? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "physical resource sharing",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "underutilization of CPU",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "more cooling requirements",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "more physical resource needs",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "hardware resource consolidation",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 17.2.4",
+      "explanation": "The primary benefits of server virtualization include hardware resource consolidation and physical resource sharing. Consolidation allows for reduced costs and increased utilization by running multiple independent operating systems on a single physical server. This is achieved through a hypervisor that segments the hardware into multiple separate resource units that all draw from the same physical pool. In contrast, options like \"underutilization of CPU\" and \"more cooling requirements\" are characteristics of nonvirtualized environments, which virtualization specifically aims to correct."
+    },
+    {
+      "id": 26,
+      "originalNumber": 26,
+      "questionType": "choice",
+      "question": "Which option is a logical container that holds all the resources that an operating system requires for normal operation, such as a graphics adapter, memory, processor, networking, and so on?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "host",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "virtual machine",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "physical server",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "guest",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 17.2.6\n\nA",
+      "explanation": "virtual machine (VM) is a logical container that holds all the resources required by an operating system for normal operation, such as a graphics adapter, memory, processor, and networking. From the perspective of the operating system running within it, these virtualized components are functionally identical to the physical hardware found in a standard server. While a physical server's operating system has direct access to hardware, a VM relies on a hypervisor to allocate and forward requests to the physical resources of the host server."
+    },
+    {
+      "id": 27,
+      "originalNumber": 27,
+      "questionType": "choice",
+      "question": "Which statement correctly describes the IP SLA responder?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "The IP SLA source and responder communicate over TCP.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "The responder can respond to multiple IP SLA measurement operations that try to connect to the same port number.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "IP SLA operation with the responder has two phases: control and management.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "All IP SLA tests will only work if the IP SLA responder is used.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 20.8.1",
+      "explanation": "The IP SLA responder is a Cisco IOS feature that enhances measurement accuracy by adding timestamps to packets to account for processing latency. It is designed to be highly scalable, allowing it to respond to multiple concurrent measurement operations even when they utilize the same port number. While it uses UDP port 1967 for control messages (refuting the TCP option), the responder is not required for all tests—basic operations like ICMP echoes can target any standard IP device, though advanced metrics like jitter often require the responder for accuracy."
+    },
+    {
+      "id": 28,
+      "originalNumber": 28,
+      "questionType": "choice",
+      "question": "In which NetFlow configuration step do you associate a NetFlow record with a NetFlow exporter?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Verify the configuration.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Configure a record.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Configure an exporter.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Configure a monitor.",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "Apply FnF to interfaces.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 19.7.2",
+      "explanation": "The NetFlow monitor serves as the central management point in a Flexible NetFlow configuration where disparate components are joined together.\n\nDuring the step to configure a monitor, the administrator must explicitly associate a specific NetFlow record (which defines the \"match\" and \"collect\" criteria) with a NetFlow exporter (which defines the destination and transport parameters for the flow data).\n\nThe monitor represents the memory-resident database that utilizes these associations to determine which traffic data to capture and where it should be sent once the flow expires or terminates.\n\nWhile records and exporters are defined in their own configuration steps, they remain inactive and unlinked until they are assigned to a flow monitor, which is then applied to a Layer 3 interface."
+    },
+    {
+      "id": 29,
+      "originalNumber": 29,
+      "questionType": "choice",
+      "question": "Which severity level indicates that a system is unusable?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Critical",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Emergency",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Error",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Alert",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 19.4.2",
+      "explanation": "Cisco IOS Software generates syslog messages using eight severity levels, numbered from 0 to 7. Severity level 0 (Emergency) is the most severe level and indicates that the system is unusable. In contrast, Alert (Level 1) indicates immediate action is needed, Critical (Level 2) signifies critical conditions, and Error (Level 3) represents general error conditions."
+    },
+    {
+      "id": 30,
+      "originalNumber": 30,
+      "questionType": "matching",
+      "question": "Different NTP restrictions can be configured through ACLs on Cisco devices. Match the restriction keyword with the restriction it applies.",
+      "chooseCount": 4,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "pairs": [
+        {
+          "id": "p1",
+          "prompt": "Time synchronization requests and control queries are allowed. The device is not allowed to synchronize itself to remote systems that pass the access list.",
+          "answer": "Serve"
+        },
+        {
+          "id": "p2",
+          "prompt": "Time synchronization requests and control queries are allowed. The device is allowed to synchronize itself to remote systems that pass the access list.",
+          "answer": "Peer"
+        },
+        {
+          "id": "p3",
+          "prompt": "This keyword only allows synchronization requests.",
+          "answer": "serve-only"
+        },
+        {
+          "id": "p4",
+          "prompt": "This keyword only allows control queries.",
+          "answer": "query-only"
+        }
+      ],
+      "options": [],
+      "topic": "Topic 19.2.8",
+      "explanation": null
+    }
+  ]
+}

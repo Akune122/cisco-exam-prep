@@ -51,6 +51,19 @@
       "examModeQuestionCount": 28,
       "passingScorePercent": 70,
       "status": "active"
+    },
+    {
+      "id": "ccnp-encor-v9-virtualization",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 17 – 20",
+      "title": "Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)",
+      "dataFile": "data/exams/ccnp-encor-v9-virtualization.json",
+      "totalQuestions": 30,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 30,
+      "passingScorePercent": 70,
+      "status": "active"
     }
   ]
 }
