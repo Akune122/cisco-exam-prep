@@ -187,6 +187,26 @@ body {
   gap: 0.65rem;
 }
 
+.btn-request-nav {
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.btn-request-nav:hover {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
 .btn-text {
   background: none;
   border: none;
@@ -1108,6 +1128,150 @@ body {
 }
 
 /* ==========================================================================
+   Vue Demander un Cours (Formulaire & Aperçu des demandes)
+   ========================================================================== */
+
+.request-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 2.15rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+}
+
+.request-card h1 {
+  margin: 0 0 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.request-card > p {
+  margin: 0 0 1.65rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-row-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.form-group label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0.72rem 0.95rem;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.92rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.request-toast {
+  padding: 0.85rem 1.1rem;
+  border-radius: 10px;
+  background: var(--success-soft);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--success);
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: fadeUp 0.25s ease;
+}
+
+.requests-inbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.request-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  animation: fadeUp 0.25s ease;
+}
+
+.request-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.request-item-title {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
+.request-item-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.request-item-body {
+  font-size: 0.89rem;
+  color: var(--text-secondary);
+  white-space: pre-line;
+  background: var(--bg-elevated);
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
    Modales
    ========================================================================== */
 
@@ -1182,7 +1346,8 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
-  .matching-row {
+  .matching-row,
+  .form-row-grid {
     grid-template-columns: 1fr;
   }
 }

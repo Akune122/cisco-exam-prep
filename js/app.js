@@ -7,6 +7,7 @@
 
   const STORAGE_KEY_PROGRESS = 'netexam_prep_progress_v1';
   const STORAGE_KEY_THEME = 'netexam_prep_theme_v1';
+  const STORAGE_KEY_REQUESTS = 'netexam_prep_requests_v1';
   const PASSING_PERCENT = 70;
 
   const state = {
@@ -257,7 +258,12 @@
 
     const gridEl = document.getElementById('courses-grid');
     if (courses.length === 0) {
-      gridEl.innerHTML = `<div class="empty-category">Aucun cours dans cette catégorie pour le moment.</div>`;
+      gridEl.innerHTML = `
+        <div class="empty-category" style="grid-column: 1 / -1;">
+          <p style="margin: 0 0 1rem;">Aucun cours dans cette catégorie pour le moment.</p>
+          <a href="#/request" class="btn btn-primary">+ Demander l'ajout d'un cours</a>
+        </div>
+      `;
       return;
     }
 
@@ -867,6 +873,172 @@
   }
 
   // =========================================================================
+  // VUE 5 : Demander l'ajout d'un cours (Formulaire + Aperçu des demandes)
+  // =========================================================================
+
+  function loadCourseRequests() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY_REQUESTS);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveCourseRequests(list) {
+    try {
+      localStorage.setItem(STORAGE_KEY_REQUESTS, JSON.stringify(list));
+    } catch {
+      // Ignore
+    }
+  }
+
+  function renderRequestView(showSuccessBanner = false) {
+    state.session = null;
+    showView('view-request');
+
+    const requests = loadCourseRequests();
+    const container = document.getElementById('request-course-content');
+
+    const requestsListHtml = requests.length
+      ? requests
+          .map(
+            req => `
+            <div class="request-item">
+              <div class="request-item-top">
+                <div>
+                  <span class="course-tag" style="margin-bottom:0; margin-right:0.5rem;">${escapeHtml(req.category)}</span>
+                  <span class="request-item-title">${escapeHtml(req.subject)}</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.65rem;">
+                  <span class="request-item-meta">${escapeHtml(req.date)}</span>
+                  <button type="button" class="btn-text" data-del-req="${escapeHtml(req.id)}" style="padding:0.2rem 0.45rem; font-size:0.78rem;">
+                    Supprimer
+                  </button>
+                </div>
+              </div>
+              <div class="request-item-meta">De : <strong>${escapeHtml(req.email)}</strong></div>
+              ${req.details ? `<div class="request-item-body">${escapeHtml(req.details)}</div>` : ''}
+            </div>
+          `
+          )
+          .join('')
+      : `<div class="empty-category">Aucune demande enregistrée pour le moment.</div>`;
+
+    container.innerHTML = `
+      <a href="#/" class="back-link">&larr; Retour à l'accueil</a>
+
+      <div class="request-card">
+        <h1>Demander l'ajout d'un cours</h1>
+        <p>Vous souhaitez réviser un examen ou un module qui n'est pas encore sur le site ? Envoyez votre demande ci-dessous.</p>
+
+        ${
+          showSuccessBanner
+            ? `<div class="request-toast" style="margin-bottom:1.25rem;">
+                 &#10003; Votre demande a bien été enregistrée !
+               </div>`
+            : ''
+        }
+
+        <form class="request-form" id="course-request-form">
+          <div class="form-row-grid">
+            <div class="form-group">
+              <label for="req-email">Votre adresse e-mail *</label>
+              <input
+                type="email"
+                id="req-email"
+                class="form-input"
+                placeholder="exemple@domaine.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="req-category">Catégorie</label>
+              <select id="req-category" class="form-select">
+                <option value="CCNA v7">CCNA v7</option>
+                <option value="CCNP">CCNP (ENCOR / ENARSI)</option>
+                <option value="CyberOps / Sécurité">CyberOps / Sécurité</option>
+                <option value="Autre">Autre cours</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="req-subject">Sujet / Titre du cours souhaité *</label>
+            <input
+              type="text"
+              id="req-subject"
+              class="form-input"
+              placeholder="Ex : CCNA 2 (SRWE v7) — Final Exam, Modules 1–4 Checkpoint..."
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="req-details">Informations complémentaires (lien vers les questions, chapitres, détails...)</label>
+            <textarea
+              id="req-details"
+              class="form-textarea"
+              placeholder="Collez ici le lien vers la page des questions (ex: itexamanswers.net/...) ou précisez votre besoin..."
+            ></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; margin-top:0.35rem;">
+            <button type="submit" class="btn btn-primary">
+              Envoyer la demande &rarr;
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="requests-inbox-header">
+        <h2 class="section-label" style="margin:0;">Demandes envoyées (${requests.length})</h2>
+      </div>
+      <div class="requests-list">
+        ${requestsListHtml}
+      </div>
+    `;
+
+    document.getElementById('course-request-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('req-email').value.trim();
+      const category = document.getElementById('req-category').value;
+      const subject = document.getElementById('req-subject').value.trim();
+      const details = document.getElementById('req-details').value.trim();
+
+      if (!email || !subject) return;
+
+      const list = loadCourseRequests();
+      list.unshift({
+        id: `req_${Date.now()}`,
+        email,
+        category,
+        subject,
+        details,
+        date: new Date().toLocaleDateString('fr-FR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      });
+      saveCourseRequests(list);
+      renderRequestView(true);
+    });
+
+    container.querySelectorAll('[data-del-req]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.delReq;
+        const updated = loadCourseRequests().filter(r => r.id !== id);
+        saveCourseRequests(updated);
+        renderRequestView(false);
+      });
+    });
+  }
+
+  // =========================================================================
   // Modales & Événements Globaux
   // =========================================================================
 
@@ -927,13 +1099,22 @@
       if (cb) cb();
     });
 
+    document.getElementById('nav-request-link')?.addEventListener('click', e => {
+      if (window.location.hash === '#/request') {
+        e.preventDefault();
+        renderRequestView(false);
+      }
+    });
+
     window.addEventListener('hashchange', handleRoute);
   }
 
   async function handleRoute() {
     const hash = window.location.hash || '#/';
     try {
-      if (hash.startsWith('#/course/')) {
+      if (hash === '#/request') {
+        renderRequestView(false);
+      } else if (hash.startsWith('#/course/')) {
         const courseId = decodeURIComponent(hash.replace('#/course/', '').trim());
         await renderCourseDashboard(courseId);
       } else {
