@@ -1,0 +1,1655 @@
+{
+  "id": "ccnp-encor-v9-routing",
+  "categoryId": "ccnp-v9",
+  "categoryName": "CCNP ENCOR v9",
+  "courseCode": "Modules 8 – 13",
+  "title": "Checkpoint Exam : Network Routing (Modules 8 – 13)",
+  "description": "Examen Checkpoint officiel sur le routage réseau (EIGRP, OSPF, BGP, Multicast, NAT/PAT) du cours CCNP ENCOR v9.",
+  "sourceUrl": "https://itexamanswers.net/modules-8-13-checkpoint-exam-network-routing-answers-ccnp-encor-v9.html",
+  "lastUpdated": "2026-05-01",
+  "quizChunkSize": 10,
+  "examModeQuestionCount": 45,
+  "passingScorePercent": 70,
+  "totalQuestions": 45,
+  "questions": [
+    {
+      "id": 1,
+      "originalNumber": 1,
+      "questionType": "choice",
+      "question": "When should you enable the EIGRP load and/or reliability metrics?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "If needed for troubleshooting",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "To identity better paths when load or reliability change",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Only on core routers",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Under recommendation by Cisco",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 8.5.1",
+      "explanation": "EIGRP uses a composite metric based on five vector attributes: bandwidth (K1), load (K2), delay (K3), reliability (K4), and MTU (K5). By default, Cisco sets these coefficients so that only bandwidth and delay (K1 and K3) are used to calculate the path metric, while load and reliability (K2 and K4) are set to zero and ignored.\n\nThe sources explicitly state that Cisco does not recommend using load and reliability for metric computation. Furthermore, because EIGRP metric K-values are exchanged in hello packets, they must be consistently configured across the entire network; a mismatch will cause neighbor relationships to reset. Therefore, these values should only be changed under the recommendation of Cisco. Changing them without expert guidance can lead to inconsistent routing behavior and connectivity issues."
+    },
+    {
+      "id": 2,
+      "originalNumber": 2,
+      "questionType": "choice",
+      "question": "What is the scope and address range for multicast addresses that are reserved for use inside private domains?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "administratively scoped: 239.0.0.0-239.255.255.255",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "global scope: 224.0.1.0-238.255.255.255",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "local scope: 239.0.0.0-239.255.255.255",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "local scope: 224.0.0.0-224.0.0.255",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 12.2.5",
+      "explanation": "The multicast IP address space (Class D) is categorized into three primary functional groups based on their scope of use:\n\n• Administratively scoped addresses: These range from 239.0.0.0 through 239.255.255.255 and are specifically reserved for use inside private domains.\n\n• Local-scope addresses: These range from 224.0.0.0 through 224.0.0.255 and are reserved by IANA for network protocol use; they are never forwarded off the local network regardless of their Time to Live (TTL) value.\n\n• Global-scope addresses: These range from 224.0.1.0 through 238.255.255.255 and are allocated dynamically across the internet.\n\nThe administratively scoped range acts similarly to RFC 1918 private unicast addresses, allowing organizations to use multicast internally without conflicting with addresses used on the public internet."
+    },
+    {
+      "id": 3,
+      "originalNumber": 3,
+      "questionType": "choice",
+      "question": "Which two statements describe what a next hop of 0.0.0.0 indicates in this show ip bgp command output? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "Router# show ip bgp  \n For address family: IPv4 Unicast   ***** \n BGP table version is 27, local router ID is 1.1.1.1 \n Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, \n               r RIB-failure \n Origin codes: i - IGP, e - EGP, ? - incomplete \n\n     Network            Next Hop            Metric    LocPrf Weight Path \n *> 10.1.1.0/24        0.0.0.0                  0         32768 ? \n *> 10.13.13.0/24    0.0.0.0                  0         32768 ? \n *> 10.15.15.0/24    0.0.0.0                  0         32768 ?"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The next hop is not reachable.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "The network is not valid.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The network is locally originated via the network command in BGP.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "The router does not know the next hop.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "The network was redistributed into BGP from an IGP.",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 11.7.2",
+      "explanation": "The provided show ip bgp output contains several key indicators regarding the origin and status of the listed networks:\n\n• Next Hop of 0.0.0.0: In BGP terminology, a next hop of 0.0.0.0 indicates that the network is locally originated by the router performing the command.\n\n• Weight of 32768: This is the default Weight attribute assigned to paths that the local router originates. Other paths learned from neighbors have a default weight of 0.\n\n• Origin Code \"?\": The \"Origin\" attribute (at the far right of the output) indicates how the route was introduced into BGP. An \"i\" indicates the network command, while a \"?\" (incomplete) indicates the network was redistributed into BGP from an IGP or static route.\n\nIn your specific output, the networks have a next hop of 0.0.0.0 and a weight of 32768, confirming they are locally originated. Furthermore, the \"?\" origin code explicitly indicates they were introduced via redistribution. (Note: While one option mentions the \"network command,\" standard BGP interpretation uses 0.0.0.0 to identify local origination generally, and the ? code identifies redistribution as the specific method for these entries)."
+    },
+    {
+      "id": 4,
+      "originalNumber": 4,
+      "questionType": "choice",
+      "question": "Which IGMP version allows a host to indicate that they only want to receive traffic from a specific source within a multicast group?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "IGMPv2",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "IGMPv3",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "IGMPv1",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "IGMPv4",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 12.3.3",
+      "explanation": "IGMP Version 3 added support for \"source filtering,\" a feature that enables a multicast receiver host to signal to a router which multicast groups it wants to join and the specific sources from which it expects to receive that traffic. This is also known as source-specific multicast (SSM) capability. By using this membership information, Cisco IOS Software can forward traffic only from the sources explicitly requested by the receivers.\n\nIn contrast, earlier versions do not have this capability:\n\n• IGMPv1 uses a basic query-response model for reporting group membership.\n\n• IGMPv2 improves on version 1 by adding group-specific queries and a leave-group message to reduce latency, but it still lacks source-specific filtering."
+    },
+    {
+      "id": 5,
+      "originalNumber": 5,
+      "questionType": "choice",
+      "question": "Which option enables one public address to be used for multiple internal private hosts?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "PAT",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "DHCP",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "static NAT",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "dynamic NAT",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.4.3",
+      "explanation": "Port Address Translation (PAT), also referred to as NAT overloading, is the specific implementation of NAT that allows multiple internal private hosts to share a single public (inside global) IPv4 address for external communication. This is a many-to-one mapping process where the router uses unique TCP or UDP port numbers to differentiate between the various internal client sessions.\n\nWhen a response returns from the internet, the router uses the destination port number to determine which specific internal host should receive the packet, a mechanism known as connection tracking. Because port numbers are 16-bit values, a single public IP address can theoretically support as many as 65,536 internal translations.\n\nIn contrast, other NAT types do not support this specific \"many-to-one\" sharing:\n\n• Static NAT maps a single private address to a single public address (one-to-one).\n\n• Dynamic NAT maps private addresses to a pool of available public addresses rather than a single one.\n\n• DHCP is used for address allocation, not translation."
+    },
+    {
+      "id": 6,
+      "originalNumber": 6,
+      "questionType": "choice",
+      "question": "Based on the output given, which statement correctly describes whether or not the BGP session is established between the peers?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1# show ip bgp summary \nBGP router identifier 10.1.1.1, local AS number 64 \nBGP table version is 1, main routing table version 1\n\nNeighbor  V      AS MsgRcvd MsgSent     TblVer      InQ OutQ   Up/Down  State/PfxRcd \n10.1.5.70        4      64       0            0        0         0     0       never    Active"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, it is in the established state.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "No, it is in the active state trying to establish a BGP session.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Yes, it is in active state.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "No, it is in the never state.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 11.7.2",
+      "explanation": "In the output of the show ip bgp summary command, the State/PfxRcd column indicates the current status of the BGP peering relationship. When a BGP session is successfully established, this column does not show a state name; instead, it displays a numeric value representing the number of prefixes received from that neighbor.\n\nIf a text string like Active is displayed in this column, it signifies that the BGP session is not yet established. Specifically, the Active state indicates that the router is actively attempting to initiate a TCP connection with the peer to establish the session. Furthermore, the never entry in the Up/Down column confirms that a successful BGP adjacency has never been formed with this neighbor."
+    },
+    {
+      "id": 7,
+      "originalNumber": 7,
+      "questionType": "choice",
+      "question": "Which two statements about single-area and multiarea OSPF are true? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Multiarea OSPF can be used to limit the propagation and processing of LSAs.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "In single-area OSPF, all routers inject routing information into the backbone router, and in turn the backbone router sends that information to other routers.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Multiarea OSPF is more scalable than single-area OSPF and is easier to implement.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "In multiarea OSPF, Area 1 must be physically connected to the backbone, and all other areas must be connected to Area 1.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "Single-area OSPF has one advantage over multiarea OSPF: smaller routing tables.",
+          "isCorrect": false
+        },
+        {
+          "id": "f",
+          "text": "When a multiarea design is used, one of the areas should be Area 0.",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 9.7.0",
+      "explanation": "OSPF uses a two-layer hierarchical design to enhance scalability and efficiency. The two true statements are supported as follows:\n\n• LSA Limitation: One of the primary advantages of multiarea OSPF is that it segments the network to limit the propagation of LSAs inside a specific area. This ensures that any topology change in one area causes LSA flooding and SPF recalculations only within that specific area, rather than across the entire OSPF domain.\n\n• Requirement for Area 0: The sources explicitly state that when multiple areas are involved, OSPF has special restrictions requiring that one of the areas must be Area 0, also known as the backbone. All other non-backbone areas must connect directly to this backbone area to facilitate the distribution of routing information between them."
+    },
+    {
+      "id": 8,
+      "originalNumber": 8,
+      "questionType": "matching",
+      "question": "Match the packet type with the proper function and description.",
+      "chooseCount": 5,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "pairs": [
+        {
+          "id": "p1",
+          "prompt": "Contains a list of LSAs that need to be updated",
+          "answer": "LSU"
+        },
+        {
+          "id": "p2",
+          "prompt": "Discovers and maintains neighbors",
+          "answer": "Hello"
+        },
+        {
+          "id": "p3",
+          "prompt": "Ensures a reliable transmission of LSAs",
+          "answer": "LSAck"
+        },
+        {
+          "id": "p4",
+          "prompt": "Generated when the router does not have the current information in its database",
+          "answer": "LSR"
+        },
+        {
+          "id": "p5",
+          "prompt": "Contains the LSA headers that help routers build the link-state database",
+          "answer": "DBD"
+        }
+      ],
+      "options": [],
+      "topic": "Topic 9.5.0",
+      "explanation": null
+    },
+    {
+      "id": 9,
+      "originalNumber": 9,
+      "questionType": "choice",
+      "question": "Which two of the following commands should you use to determine whether the EIGRP router ID has been configured in the EIGRP process? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "show ip protocols",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "show ip eigrp interface",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "show ip eigrp traffic",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "show ip eigrp neighbor",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "show ip eigrp topology",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 8.10.2",
+      "explanation": "To determine the Router ID (RID) assigned to an EIGRP process, the following commands are the most effective:\n\n• show ip protocols: The sources explicitly state that while the EIGRP router ID has less significance than in OSPF, you should use show ip protocols (referred to in the text as show ip protocol) to view it. This command provides a comprehensive overview of the routing protocol parameters, including the AS number, K-values, and the current Router ID.\n\n• show ip eigrp topology: This command is used to display the EIGRP topology table. In the header of the output for this command, the router typically displays the local autonomous system number and the local Router ID associated with that database.\n\nIn contrast, other commands like show ip eigrp interface focus on interface-specific settings like Hello intervals, and show ip eigrp neighbor focuses on identifying discovered adjacent routers rather than local process identifiers."
+    },
+    {
+      "id": 10,
+      "originalNumber": 10,
+      "questionType": "choice",
+      "question": "Which character in the BGP table of routes indicates the best path to a given route?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "b",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "*",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "#",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": ">",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 11.7.2",
+      "explanation": "In the output of the show ip bgp command, the BGP table (or forwarding database) lists all the routes the router has learned from its neighbors. When the BGP table contains more than one path to reach the same destination network, the protocol runs a specific selection process to identify the single optimal route.\n\nThis best path is explicitly designated by the \">\" character located in the left-most column of the table. Other status codes are often seen in conjunction with this:\n\n• The \"*\" character indicates that the route is valid.\n\n• The \">\" character indicates it is the best path.\n\nIf only one path to a network exists, it is marked as both valid and best (*>) by default. Only the route marked with the \">\" symbol is offered to the router's IP routing table for traffic forwarding."
+    },
+    {
+      "id": 11,
+      "originalNumber": 11,
+      "questionType": "choice",
+      "question": "Which two options are classified as link-state routing protocols? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "BGP",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "RIPv2",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "EIGRP",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "OSPF",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "IS-IS",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 9.2.0",
+      "explanation": "Open Shortest Path First (OSPF) and Intermediate System-to-Intermediate System (IS-IS) are both classified as link-state routing protocols. OSPF functions by having routers generate Link State Advertisements (LSAs), which describe the state of their interfaces and relationships with neighbors. These LSAs are flooded throughout an area so that every router can piece together an identical link-state database (LSDB) representing the complete network topology.\n\nThe other protocols listed are categorized differently:\n\n• RIPv2 is a traditional distance vector routing protocol.\n\n• EIGRP is described as an advancement on distance vector protocols that combines advantages of both link-state and distance vector mechanisms, but it is primarily based on distance vector principles where information is learned from directly connected neighbors.\n\n• BGP is defined as a path vector protocol that uses path attributes to exchange reachability information between different autonomous systems."
+    },
+    {
+      "id": 12,
+      "originalNumber": 12,
+      "questionType": "choice",
+      "question": "In the following output, the AS number 65200 is for which router?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1(config-router)# neighbor 10.108.200.1 remote-as 65200"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "the neighbor router with the IP address 10.108.200.1",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "both routers",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "neither router; 65200 is a process ID",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "the local router R1",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 11.7.1",
+      "explanation": "In Border Gateway Protocol (BGP) configuration, the neighbor [ip-address] remote-as [as-number] command is used to explicitly define a peering relationship with another BGP speaker. The remote-as keyword specifically identifies the Autonomous System number of the neighbor router being configured.\n\nThe local router's own AS number is established when the BGP process is first enabled using the router bgp [as-number] command. In your specific example, the command tells the local router (R1) that the peer at IP address 10.108.200.1 belongs to AS 65200. If the AS number in the remote-as command is the same as the local router's AS, it is an Internal BGP (IBGP) session; if it is different, it is an External BGP (EBGP) session."
+    },
+    {
+      "id": 13,
+      "originalNumber": 13,
+      "questionType": "choice",
+      "question": "Which statement correctly describes OSPF summarization?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "With route summarization, only the summarized routes are propagated into the stub areas.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "With route summarization, only the default route is propagated into the backbone (Area 0).",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "With route summarization, all subnet routes are propagated into the backbone (Area 0).",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "With route summarization, only the summarized routes are propagated into the backbone (Area 0).",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 10.4.1",
+      "explanation": "OSPF route summarization is an optimization technique where an Area Border Router (ABR) or Autonomous System Boundary Router (ASBR) consolidates multiple specific network prefixes into a single summary advertisement.\n\nAccording to the sources, without route summarization, every individual specific-link LSA is propagated into the OSPF backbone and throughout the entire domain, which increases network traffic and router overhead. When summarization is enabled, only the summarized routes are propagated into the backbone (Area 0). This provides several critical benefits:\n\n• Reduced LSA Flooding: It prevents topology changes (like a link failure) in one area from being propagated into the backbone and other areas.\n\n• Smaller Routing Tables: It minimizes the number of routing table entries that routers in other areas must maintain.\n\n• Improved Efficiency: Because individual changes are hidden, routers in the backbone and other areas do not have to rerun the SPF algorithm for every change in a remote area, which saves CPU and memory resources.\n\nWhile ABRs specifically inject these as Type-3 summary LSAs into the backbone, ASBRs summarize Type-5 external LSAs."
+    },
+    {
+      "id": 14,
+      "originalNumber": 14,
+      "questionType": "choice",
+      "question": "Which protocol does a receiver use to register their interest in multicast traffic at the first-hop router?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "IGMP",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "Anycast-RP",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "PIM-SM",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "PIM-DM",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 12.3.0",
+      "explanation": "The Internet Group Management Protocol (IGMP) is the specific protocol used by IP hosts (receivers) to report their multicast group membership to their first-hop multicast routers. Its primary purpose is to allow these hosts to communicate their desire to receive specific multicast traffic to the local router, which then begins forwarding that traffic onto the network segment.\n\nIn contrast, other protocols mentioned serve different functions:\n\n• PIM-SM (Sparse Mode) and PIM-DM (Dense Mode) are multicast routing protocols used between routers to build distribution trees and forward traffic across the network.\n\n• Anycast-RP is a technique used to provide redundancy and load sharing for Rendezvous Points within a PIM-SM environment, rather than for host-to-router registration.\n\nWhile receivers use IGMP to register with their local (first-hop) router, that router then uses protocols like PIM to communicate that membership information to the rest of the network."
+    },
+    {
+      "id": 15,
+      "originalNumber": 15,
+      "questionType": "choice",
+      "question": "Examine the following exhibit. What is the router ID for R1?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1# configure terminal\nR1(config)# interface loopback 0\nR1(config-if)# ip address 192.168.1.253 255.255.255.0\nR1(config-if)# interface ethernet 1/0\nR1(config-if)# ip address 192.168.1.1 255.255.255.0\nR1(config-if)# exit\nR1(config)# router ospf 1\nR1(config-router)# network 10.0.0.0\nR1(config-router)# end\nR1#"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "10.0.0.0",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "192.168.1.253",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "192.168.1.1",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "The router ID is currently unassigned.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 9.3.0",
+      "explanation": "OSPF follows a specific three-step hierarchical process to select a Router ID (RID) when the routing process starts:\n\n• Manual Configuration: It first checks for a manually configured ID using the router-id command under the OSPF process.\n\n• Loopback Interface: If no manual ID is configured, it selects the highest IP address of any active loopback interface.\n\n• Physical Interface: In the absence of a loopback interface, it selects the highest IP address of any active physical interface.\n\nIn the provided exhibit, there is no manual router-id command configured within the router ospf 1 block. However, a loopback interface (Loopback 0) is configured with the IP address 192.168.1.253 [Exhibit]. Because a loopback interface exists and its IP address is numerically higher than the physical interface IP (192.168.1.1), OSPF automatically selects 192.168.1.253 as the Router ID for R1.\n\nNote that an interface does not need to be actively participating in OSPF via a network command to be considered for the Router ID selection; it only needs to be in an active (up/up) state."
+    },
+    {
+      "id": 16,
+      "originalNumber": 16,
+      "questionType": "choice",
+      "question": "You enter the show ip nat translations command and do not see any translations. You are worried that there is a problem. What would be the most appropriate action to test the NAT operation?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Issue a ping from the router to any IP address in the outside network.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Verify the running configuration to find the configuration error.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Issue a ping from a device inside the network that should be translated.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Issue a traceroute from the router to any IP address in the outside network.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.6.0",
+      "explanation": "In Cisco NAT operations, specifically for dynamic NAT and Port Address Translation (PAT), translation entries are not permanent and are only created when relevant traffic passes through the router. According to the sources, a router determines that a source address must be translated only when it receives the first packet from an internal host on a NAT-enabled inside interface.\n\nIf the show ip nat translations command shows an empty table, it is often because no active sessions are currently being translated or previous dynamic entries have timed out due to inactivity. Therefore, to test the NAT operation and populate the table, you should generate traffic (such as a ping) from an internal device that is eligible for translation.\n\nOther actions are less effective for testing:\n\n• Pinging or tracing from the router itself will typically use the router's own IP address, which is often already a public/global address and does not require translation, thus failing to test the logic intended for internal private hosts.\n\n• Verifying the configuration is a troubleshooting step to take after a test has failed, rather than the primary method to test the operation of the NAT engine itself."
+    },
+    {
+      "id": 17,
+      "originalNumber": 17,
+      "questionType": "choice",
+      "question": "Which type of router is specific to a multiarea OSPF design?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "ASBR",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "ABR",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "internal router",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "backbone router",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 9.7.0",
+      "explanation": "The Area Border Router (ABR) is the specific type of router required for a multiarea OSPF design because its primary function is to connect multiple areas together. An ABR maintains a separate Link-State Database (LSDB) for each area it is connected to and is responsible for summarizing routing information between those areas.\n\nIn contrast, the other router roles can exist in both single-area and multiarea designs:\n\n• Internal Router: These routers have all their interfaces in a single area. In a single-area design, every router is an internal router.\n\n• Backbone Router: These are routers with at least one interface in Area 0. If a single-area design uses Area 0, all routers in that design are backbone routers.\n\n• ASBR (Autonomous System Boundary Router): This router connects the OSPF domain to external routing domains (like the internet or another routing protocol). An ASBR can reside within a single-area OSPF network.\n\nTherefore, while internal, backbone, and ASBR routers are often part of a multiarea OSPF network, only the ABR is fundamentally unique to and required by a design involving more than one area."
+    },
+    {
+      "id": 18,
+      "originalNumber": 18,
+      "questionType": "choice",
+      "question": "A router has learned three possible routes that could be used to reach a destination network. One route is from EIGRP and has a composite metric of 20584570. Another route is from OSPF with a metric of 842. The last is from RIPv2 and has a metric of 3. Which route or routes will the router install in the routing table?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "RIPv2",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "none of the above",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "EIGRP route",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "OSPF route",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "all three routes",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 8.6.2",
+      "explanation": "When a router learns multiple paths to the same destination from different routing protocols, it uses a value called Administrative Distance (AD) to decide which route to install in the IP routing table. Administrative distance is a measure of the \"trustworthiness\" of the source protocol; the lower the AD, the more trusted the protocol is.\n\nThe router's decision-making process is as follows:\n\n• AD before Metric: The router first compares the administrative distance of the protocols. Metrics (such as RIP's hop count, OSPF's cost, or EIGRP's composite value) are only compared if multiple paths are learned from the same protocol.\n\n• Protocol Hierarchy: According to the sources, EIGRP has a lower administrative distance than OSPF, meaning EIGRP routes are preferred over OSPF routes regardless of the metric values. While OSPF has a default distance of 110, EIGRP is more trusted. RIPv2, as an older distance-vector protocol, typically has an even higher (less trusted) administrative distance than both EIGRP and OSPF.\n\nIn this scenario, even though the EIGRP metric is much larger than the others, the router will install the EIGRP route because its administrative distance makes it the most trustworthy source among the three."
+    },
+    {
+      "id": 19,
+      "originalNumber": 19,
+      "questionType": "choice",
+      "question": "Which protocol is described in RFC 7761 and uses shared distribution trees rooted at the RP, but may switch to the source-rooted distribution tree?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "PIM-DM",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "OSPFv3",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "MP-BGP with MSDP",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "PIM-SM",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 12.5.2",
+      "explanation": "Protocol Independent Multicast - Sparse Mode (PIM-SM) is the specific protocol described in RFC 7761. PIM-SM operates by using shared distribution trees that are rooted at a Rendezvous Point (RP) to coordinate the forwarding of multicast traffic from a source to its receivers.\n\nA key characteristic of PIM-SM is that while it starts with a shared tree, it may switch to a source-rooted distribution tree (also known as a Shortest Path Tree or SPT). This transition typically occurs when a last-hop router exceeds a configured SPT threshold, allowing it to join the SPT and receive traffic directly from the source to reduce latency.\n\nIn contrast, PIM-DM (Dense Mode) uses a \"push\" model that only supports source trees and is incapable of building shared distribution trees rooted at an RP. OSPFv3 is a unicast routing protocol that can be used to populate the routing table but does not manage multicast distribution trees itself."
+    },
+    {
+      "id": 20,
+      "originalNumber": 20,
+      "questionType": "choice",
+      "question": "By default, what is the valid AS number range for a BGP process on a Cisco router?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "1 to 256",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "1 to 32,768",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "1 to 65,535",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "1 to 131,072",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 11.2.0\n\nA",
+      "explanation": "utonomous Systems are identified by AS numbers, which are defined as 16-bit integers. This results in a valid range from 1 to 65,535.\n\nWithin this 16-bit range, numbers are categorized by their usage:\n\n• Public AS numbers: These range from 1 to 64,511 and are assigned and managed by the Internet Assigned Numbers Authority (IANA).\n\n• Private AS numbers: These range from 64,512 to 65,535 and are reserved for customers who need to run BGP within their private networks.\n\nThe sources also note that while 32-bit AS numbers were later created to address pool exhaustion, the standard 16-bit integer representation remains a fundamental part of BGP identification."
+    },
+    {
+      "id": 21,
+      "originalNumber": 21,
+      "questionType": "choice",
+      "question": "Which protocol uses a pull model, enabling multicast traffic to be sent only where it is requested?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "MP-BGP",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "PIM-DM",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "PIM-SM",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "OSPFv3",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 12.5.2",
+      "explanation": "Protocol Independent Multicast - Sparse Mode (PIM-SM) is based on an explicit pull model, meaning that multicast traffic is forwarded only to the specific parts of the network that have requested it. In this operation, receivers signal their interest via IGMP, and the last-hop routers send PIM join messages toward a Rendezvous Point (RP) to \"pull\" the data stream down the shared distribution tree.\n\nIn contrast, PIM-DM (Dense Mode) uses a push model, which floods multicast traffic to every corner of the network and then requires routers with no interested receivers to prune the unwanted traffic. PIM-SM is the optimal choice for production networks because it efficiently conserves bandwidth and router resources by avoiding this unnecessary flooding. Other protocols like OSPFv3 and MP-BGP are primarily unicast routing protocols used to populate the routing table rather than managing the multicast distribution \"pull\" logic."
+    },
+    {
+      "id": 22,
+      "originalNumber": 22,
+      "questionType": "choice",
+      "question": "Here is the show ip route command from router R1, which is load-balancing to the 10.80.13.0/30 network.\n\nOn R1, the following change was made. In which two ways will the EIGRP routing table and topology table be affected? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1> show ip route \nCodes: C - connected, S - static, R - RIP, M - mobile, B - BGP\n       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area \n       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2 \n       E1 - OSPF external type 1, E2 - OSPF external type 2 \n       * - candidate default, U - per-user static route \n       o - ODR, P - periodic downloaded static route \nGateway of last resort is not set\n  10.80.0.0/8 is variably subnetted, 11 subnets, 4 masks\nD    10.80.13.0/30 [90/2681856] via 10.80.234.3, 01:13:17, Serial0/0 \n                   [90/2681856] via 10.80.234.2, 01:13:17, Serial1/0 \nD    10.80.23.2/32 [90/2681856] via 10.80.234.2, 01:13:17, Serial0/0 \n<output omitted>"
+        },
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1(config)# router eigrp 10\nR1(config-router)# maximum-paths 1"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "There will be no change in the routing table for the route 10.80.13.0/30.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "The EIGRP routing table will have only one route for 10.80.13.0/30.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "The EIGRP topology table will have only one route for 10.80.13.0/30.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The EIGRP topology table will have no route for 10.80.13.0/30.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "The EIGRP topology table will indicate both routes to the network 10.80.13.0/30.",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 8.7.2",
+      "explanation": "The configuration change on R1 involves the maximum-paths command, which dictates how many paths the EIGRP process installs in the router's IP routing table for a single destination.\n\n• Effect on the Routing Table: By default, Cisco IOS software allows EIGRP to install up to four equal-cost paths in the routing table. Configuring maximum-paths 1 explicitly disables load balancing. As a result, even though R1 has two valid, equal-cost paths to reach 10.80.13.0/30 (via 10.80.234.3 and 10.80.234.2), it will now only install one of those routes into the routing table.\n\n• Effect on the Topology Table: The EIGRP topology table functions as a database that contains all destination routes advertised by neighbor routers. Unlike the routing table, which only stores the \"best\" paths allowed by policy, the topology table retains information for every path learned from every adjacent neighbor. Limiting the number of paths installed in the routing table does not purge these entries from the protocol's underlying database. Therefore, the topology table will still show both routes to the network.\n\nIn conclusion, the maximum-paths command restricts the forwarding instructions (routing table) but does not limit the protocol's knowledge of the network structure (topology table)."
+    },
+    {
+      "id": 23,
+      "originalNumber": 23,
+      "questionType": "choice",
+      "question": "Besides EIGRP, which other IGP protocol supports unequal load-balancing?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "IS-IS",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "RIP",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "OSPF",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "BGP",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "None of the above",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 8.7.1",
+      "explanation": "EIGRP is unique among routing protocols because it is the only one that supports both equal and unequal-cost path load balancing.\n\nWhile other Interior Gateway Protocols (IGPs) like OSPF and RIP support Equal-Cost Multipath (ECMP) load balancing using the maximum-paths command, they do not have a mechanism for balancing traffic across links with different metrics. EIGRP achieves unequal-cost load balancing through the variance command, which allows the router to install feasible successor routes into the routing table if their metric is less than the best metric multiplied by the variance value.\n\nRegarding the other options:\n\n• BGP is an Exterior Gateway Protocol (EGP) and is explicitly described as not being designed to perform load balancing; its selection process eliminates multiple paths until only a single best path remains.\n\n• OSPF and RIP are limited to equal-cost load balancing only.\n\nConsequently, since EIGRP is identified as the unique protocol with this capability, \"None of the above\" is the correct choice."
+    },
+    {
+      "id": 24,
+      "originalNumber": 24,
+      "questionType": "choice",
+      "question": "Which command is used to apply a distribute list to OSPF?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "config)# distribute list 1 in",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "config-std-nacl)# distribute-list 1 in",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "config-router)# distribute-list 1 out",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "config)# distribute-list 1 out",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 10.5.1\n\nA d",
+      "explanation": "istribute list is a technique used to control routing updates by applying an access list to the routing process. To apply this filter, the distribute-list command must be configured under the routing protocol. This requirement means the command must be issued from the config-router prompt.\n\nThe behavior of distribute lists in OSPF is governed by specific rules:\n\n• distribute-list in: This command filters which routes the SPF process installs into the local IP routing table; it does not remove routes from the link-state database (LSDB).\n\n• distribute-list out: In OSPF, this command is used only on an ASBR and applies exclusively to redistributed routes, allowing the administrator to select which of those routes are advertised to other routers."
+    },
+    {
+      "id": 25,
+      "originalNumber": 25,
+      "questionType": "choice",
+      "question": "Which of the following correctly describes an EIGRP feasible successor route?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "The best path",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "A suboptimal path",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "A backup path",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "A shorter path",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 8.3.1\n\nAn",
+      "explanation": "EIGRP feasible successor is defined as the best alternative loop-free backup path to reach a destination. While the successor is the primary route with the lowest metric and is installed in the routing table, the feasible successor is stored in the topology table but is not used for active forwarding unless the primary path fails.\n\nTo qualify as a feasible successor and ensure the path is loop-free, a route must satisfy the feasibility condition: the neighbor's Advertised Distance (the metric for that neighbor to reach the destination) must be less than the Feasible Distance (the current best metric) of the existing successor. The primary advantage of having a feasible successor is that it allows the router to recover immediately from a link failure by promoting the backup route to the routing table without the delay of performing a new route recomputation."
+    },
+    {
+      "id": 26,
+      "originalNumber": 26,
+      "questionType": "choice",
+      "question": "Network administrators use the route map tool for many purposes. Which three options are more common applications for route maps? (Choose three.)",
+      "chooseCount": 3,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "autonomous system synchronization",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "network monitoring",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "network topology mapping",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "route filtering with redistribution",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "policy-based routing",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "BGP",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 10.5.4\n\nN",
+      "explanation": "etwork administrators use route maps for several sophisticated network tasks. The three most common applications are:\n\n• Route filtering during redistribution: Redistribution between different routing protocols almost always requires some filtering. Route maps are preferred for this because, unlike basic distribute lists, they allow administrators to also manipulate routing metrics using set commands during the redistribution process.\n\n• Policy-based routing (PBR): Route maps are used to identify specific traffic based on source/destination addresses, protocol types, or applications. Once matched, a set command dictates a specific interface or next-hop address for that traffic, allowing administrators to define a routing policy that differs from standard destination-based routing.\n\n• BGP (Border Gateway Protocol): Route maps are the primary tools for implementing BGP policies. They are assigned to specific BGP neighbor sessions to control which routes enter or leave the BGP process and to perform sophisticated manipulation of BGP path attributes.\n\nThe other options provided—autonomous system synchronization, network monitoring, and network topology mapping—are not listed as common applications for route maps in the source material."
+    },
+    {
+      "id": 27,
+      "originalNumber": 27,
+      "questionType": "choice",
+      "question": "Which TCP port does BGP use to establish a BGP session?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "441",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "21",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "179",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "81",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 11.2.1",
+      "explanation": "Border Gateway Protocol (BGP) uses TCP port 179 as its transport mechanism. By using TCP, BGP ensures reliable connection-oriented delivery, which means the protocol does not need to implement its own error recovery or retransmission mechanisms.\n\nA BGP speaker must establish a TCP session with its neighbor before any routing updates can be exchanged. Once this TCP relationship is formed, the neighbors can begin sending open messages and eventually exchange their routing tables via update messages. This reliance on TCP also allows BGP to scale effectively, as it can leverage the TCP sliding window mechanism to stream large amounts of routing data without waiting for an individual acknowledgment for every packet."
+    },
+    {
+      "id": 28,
+      "originalNumber": 28,
+      "questionType": "choice",
+      "question": "You have a web server with a private IP address within your network. You want users from the internet to access it. Which type of NAT do you use?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "DHCP",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "static NAT",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "dynamic NAT",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "PAT",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.4.1",
+      "explanation": "Static NAT is the correct choice for this scenario because it provides a one-to-one mapping between a specific private (inside local) IPv4 address and a public (inside global) IPv4 address.\n\nKey reasons for using static NAT for a web server include:\n\n• External Initiation: Unlike dynamic NAT or PAT, which are primarily designed for internal hosts reaching out to the internet, static NAT specifically allows external devices to initiate connections to internal devices.\n\n• Persistent Mapping: Static translations are permanent and continuously remain in the translation table, regardless of whether they are actively being used. This ensures that the web server is always reachable at the same public IP address.\n\n• Specific Use Case: The source material explicitly states that static NAT is used when a company has a server that needs to be accessible from outside the network, citing a web server as a primary example.\n\nIn contrast, dynamic NAT and PAT are typically used to allow internal users to share public addresses when accessing the internet, and they do not inherently provide the permanent, externally-reachable entry required for a public-facing server. DHCP is used for assigning addresses to hosts, not for translating them for internet access."
+    },
+    {
+      "id": 29,
+      "originalNumber": 29,
+      "questionType": "choice",
+      "question": "Which translation technology would typically be used at home, especially for connecting devices such as tablets, phones, and PCs through a cable internet connection?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "static NAT",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "dynamic NAT",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "PAT",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "double NAT",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.4.0",
+      "explanation": "Port Address Translation (PAT), also known as NAT overloading, is the specific technology typically used in home environments. Most home routers operate in this manner because an Internet Service Provider (ISP) usually assigns only one public IPv4 address to the router, yet multiple devices within the home—such as PCs, tablets, and phones—need to access the internet simultaneously.\n\nPAT works by mapping multiple private IPv4 addresses to a single public IPv4 address. To distinguish between the different internal devices, the router tracks unique TCP or UDP port numbers for each session. This allows the router to accurately return incoming traffic from the internet to the specific device that requested it.\n\nIn contrast:\n\n• Static NAT is a one-to-one mapping generally used for servers that need to be accessible from the outside.\n\n• Dynamic NAT (without overloading) maps a group of private addresses to a pool of multiple public addresses and does not allow for the many-to-one sharing characteristic of home internet connections."
+    },
+    {
+      "id": 30,
+      "originalNumber": 30,
+      "questionType": "choice",
+      "question": "What is the difference between static NAT and dynamic NAT?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Static NAT maps many-to-one, and dynamic NAT maps many-to-many.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Static NAT maps one-to-one, and dynamic NAT maps one-to-many.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Static NAT maps one-to-one, and dynamic NAT maps many-to-many.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Static NAT maps one-to-many, and dynamic NAT maps many-to-one.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.4.0",
+      "explanation": "The primary difference lies in how internal addresses are mapped to external addresses:\n\n• Static NAT performs a one-to-one mapping between a private IPv4 address and a public IPv4 address. This type of translation is permanent and is typically used when an internal device, such as a web server, must be consistently accessible from the outside network using a specific public address.\n\n• Dynamic NAT maps a group of private IPv4 addresses to a group or pool of available public IPv4 addresses, effectively creating a many-to-many mapping. When an internal host needs to communicate externally, the router dynamically selects an unused address from the pool and creates a temporary translation entry.\n\nThe other options are incorrect because many-to-one mapping is specifically the characteristic of Port Address Translation (PAT), also known as NAT overloading, which allows multiple hosts to share a single public IP address by using different port numbers."
+    },
+    {
+      "id": 31,
+      "originalNumber": 31,
+      "questionType": "choice",
+      "question": "Which command will display which router interfaces are configured as NAT inside interfaces?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "show ip nat interfaces",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "show ip nat statistics",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "show ip nat translations",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "show ip interface",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.6.2",
+      "explanation": "The show ip nat statistics command is the correct tool to verify which router interfaces have been designated for NAT operations.\n\nWhen this command is executed, the output includes specific sections for:\n\n• Outside interfaces: Lists all interfaces configured with the ip nat outside command.\n\n• Inside interfaces: Explicitly lists all interfaces configured with the ip nat inside command.\n\nWhile other commands like show ip nat translations display the active mapping table, they do not provide a summary of the interface roles themselves. The show ip nat statistics command is used specifically in the source material to verify that previous configuration steps were successful and that the expected interfaces are participating in the NAT process."
+    },
+    {
+      "id": 32,
+      "originalNumber": 32,
+      "questionType": "choice",
+      "question": "What are three important changes to IGMPv1 that were implemented in IGMPv2? (Choose three.)",
+      "chooseCount": 3,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "team-specific queries",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "leave-group message",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "group-specific queries",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "stop-group message",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "membership reports",
+          "isCorrect": false
+        },
+        {
+          "id": "f",
+          "text": "querier election mechanism",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 12.3.2",
+      "explanation": "IGMPv2 addressed several limitations found in IGMPv1 by introducing the following key features:\n\n• Group-specific queries: While IGMPv1 used general queries sent to the all-hosts address (224.0.0.1), IGMPv2 added the ability for a router to query a single specific multicast group. This optimization allows the router to quickly determine if any members remain in a specific group without querying every group on the segment.\n\n• Leave-group message: Unlike IGMPv1, which relied on timeouts to determine when a host had left a group, IGMPv2 allows hosts to actively send a leave-group message. This drastically reduces leave latency, especially when the host leaving is the last member of that group on the segment.\n\n• Querier election mechanism: IGMPv2 implemented a standardized method to elect a single querier when multiple routers exist on the same segment. The router with the lowest unicast IP address is elected as the querier, whereas IGMPv1 lacked a formal election process.\n\nAdditionally, IGMPv2 introduced a query-interval response time to control the \"burstiness\" of membership reports by specifying how much time members have to respond to a query."
+    },
+    {
+      "id": 33,
+      "originalNumber": 33,
+      "questionType": "choice",
+      "question": "Which OSPF network type must be statically configured for DR/BDR election to occur?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "broadcast",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "point-to-point",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "point-to-multipoint",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "loopback",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "nonbroadcast",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 9.9.0",
+      "explanation": "The nonbroadcast network type is used on multiaccess networks that interconnect more than two routers but lack inherent broadcast or multicast capabilities, such as Frame Relay or ATM. Because the network cannot flood OSPF Hello packets to discover peers, neighbors must be statically configured by the administrator. Once these manual neighbor relationships are defined, OSPF proceeds to perform a DR/BDR election to optimize the exchange of routing information and manage link-state synchronization on the segment.\n\nOther network types behave differently:\n\n• Broadcast: Also performs a DR/BDR election, but it uses multicast to discover neighbors dynamically rather than requiring static configuration.\n\n• Point-to-point: Uses multicast for dynamic discovery but has no DR/BDR election because only two routers can exist on the segment.\n\n• Point-to-multipoint: Discovers neighbors dynamically using multicast and has no DR/BDR election.\n\n• Loopback: Is the default for loopback interfaces and does not involve DR/BDR elections."
+    },
+    {
+      "id": 34,
+      "originalNumber": 34,
+      "questionType": "choice",
+      "question": "A prefix list can filter on which option?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "classful subnet and port",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "prefix and prefix length",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "prefix and port number",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "protocol and prefix",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 10.5.2",
+      "explanation": "Prefix lists are specialized tools designed for route filtering that offer superior performance compared to traditional access lists. Their primary capability is the ability to filter routing updates based on both the network prefix and the prefix length.\n\nThe sources highlight several advantages and characteristics of prefix lists:\n\n• Granular Matching: A prefix list can specify the exact size of a subnet mask or indicate a range within which the mask must fall to pass the test.\n\n• Efficiency: The router transforms a prefix list into a tree structure, allowing it to determine a \"permit\" or \"deny\" verdict much faster than the sequential processing required by access lists.\n\n• Specialization: While access lists were originally designed for packet filtering and later extended to routes, prefix lists are intended specifically for route filtering.\n\nOptions involving port numbers are incorrect because prefix lists operate at the routing level (Layer 3) to evaluate network addresses and masks, whereas port numbers are part of the transport layer (Layer 4) used for packet filtering."
+    },
+    {
+      "id": 35,
+      "originalNumber": 35,
+      "questionType": "choice",
+      "question": "Which command will display how long a BGP peering relationship has been up?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "show ip bgp",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "show ip bgp summary",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "show ip bgp peer",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "show ip bgp all",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 11.7.2",
+      "explanation": "The show ip bgp summary command is used to verify the state of BGP sessions. The output of this command displays a table with current neighbor statuses, where each line provides information for a specific neighbor.\n\nSpecifically, the column labeled Up/Down in the output indicates how long the neighbor has been in the current state. In BGP operation, if the relationship is \"Established,\" the state name itself is not displayed; instead, the number of prefixes received from that neighbor is shown in the final column. Therefore, the time value in the Up/Down column reflects exactly how long the peering relationship has been up and running.\n\nWhile the show ip bgp neighbors command (not listed as an option) also provides this information in a detailed per-neighbor format (e.g., \"up for 00:01:16\"), show ip bgp summary is the standard administrative command used to view the uptime of all peering relationships simultaneously. Other commands like show ip bgp are used to view the BGP routing table itself rather than session statistics."
+    },
+    {
+      "id": 36,
+      "originalNumber": 36,
+      "questionType": "choice",
+      "question": "Which protocol is a Cisco proprietary mechanism that permits backup RPs to be configured for failover?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "phantom RP",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "embedded RP",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Auto-RP",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Anycast-RP",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 12.6.3\n\nA",
+      "explanation": "uto-RP is a Cisco proprietary mechanism designed to automate the distribution of Rendezvous Point (RP) information within a multicast network. It operates using candidate RPs, which announce their availability, and RP-mapping agents, which map those RPs to specific multicast groups.\n\nA primary benefit of Auto-RP is that it permits backup RPs to be configured, which enables an effective failover mechanism should the primary RP become unavailable. In contrast, the Bootstrap Router (BSR) mechanism is identified as a nonproprietary method. While Anycast-RP can also provide redundancy, the sources specifically highlight Auto-RP as the Cisco proprietary tool that automates this process and supports backup RP configurations."
+    },
+    {
+      "id": 37,
+      "originalNumber": 37,
+      "questionType": "choice",
+      "question": "Which statement about OSPF neighbor adjacencies is correct?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "The hello/dead timers, area IDs, and authentication information must match within the LSAck messages for two devices to form an OSPF neighbor relationship.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Only the hello/dead timers and authentication information must match within the hello messages for two devices to form an OSPF neighbor relationship. Area IDs and router IDs must be unique.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The hello/dead timers, area IDs, and authentication information must match within the hello messages for two devices to form an OSPF neighbor relationship.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "The hello/dead timers, area IDs, and router ID information must match within the hello messages for two devices to form an OSPF neighbor relationship.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "The hello/dead timers, area IDs, and authentication information must be unique within the DBD messages for two devices to form an OSPF neighbor relationship.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 9.4.0",
+      "explanation": "OSPF routers use the Hello protocol to discover neighbors and establish adjacencies. For a neighbor relationship to form, routers must agree on specific parameters carried within their hello messages.\n\nSpecifically, the following information must match:\n\n• Hello and Dead Intervals: These timers specify how often hello packets are sent and how long a router waits before declaring a neighbor down. If these are mismatched, an adjacency will not be established.\n\n• Area ID: Neighbors must share a common segment and their interfaces must be assigned to the same OSPF area.\n\n• Authentication Data: If authentication is enabled, both routers must use the same authentication type and exchange matching keys.\n\n• Stub Area Flag: Routers must also agree on whether the area is a stub area.\n\nIn contrast, Router IDs must be unique for each router within an OSPF network to avoid identification issues and potential outages; they should not match between neighbors. Furthermore, these compatibility checks occur during the initial hello packet exchange, not within LSAck, DBD, or other subsequent packet types."
+    },
+    {
+      "id": 38,
+      "originalNumber": 38,
+      "questionType": "choice",
+      "question": "Refer to the output of the show ip protocols command. Which two EIGRP metrics are being used to affect the calculation that selects the best path to add to the EIGRP routing table? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1# show ip protocols \n*** IP Routing is NSF aware ***\n\nRouting Protocol is \"eigrp 65010\"\n  Outgoing update filter list for all interfaces is not set\n Incoming update filter list for all interfaces is not set\n Default networks flagged in outgoing updates\n Default networks accepted from incoming updates\n EIGRP-IPv4 Protocol for AS(65010)\n    Metric weight K1=1, K2=0, K3=1, K4=0, K5=0\n    NSF-aware route hold timer is 240\n    Router-ID: 172.16.1.1 \n    Topology : 0 (base) \n       Active Timer: 3 min\n       Distance: internal 90 external 170\n       Maximum path: 4\n       Maximum hopcount 100\n       Maximum metric variance 1\n  Automatic Summarization: disabled\n  Maximum path: 4\n  Routing for Networks:\n  Routing Information Sources:\n    Gateway         Distance      Last Update\n  Distance: internal 90 external 170"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "load",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "delay",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "MTU",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "reliability",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "bandwidth",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 8.5.1",
+      "explanation": "The output of the show ip protocols command displays the metric weights as K1=1, K2=0, K3=1, K4=0, K5=0. In EIGRP, these K-values are coefficients used in the composite metric formula where K1 represents bandwidth and K3 represents delay. Because only K1 and K3 are set to 1 while the other weights are 0, EIGRP uses only the bandwidth and delay values to calculate the total metric and select the best path (successor) for the routing table. Metrics such as load (K2), reliability (K4), and MTU (K5) are excluded from the calculation in this configuration."
+    },
+    {
+      "id": 39,
+      "originalNumber": 39,
+      "questionType": "matching",
+      "question": "Match the correct term with the description.",
+      "chooseCount": 4,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "pairs": [
+        {
+          "id": "p1",
+          "prompt": "Router interface",
+          "answer": "Link"
+        },
+        {
+          "id": "p2",
+          "prompt": "Collection of networks under a common administration",
+          "answer": "Autonomous system"
+        },
+        {
+          "id": "p3",
+          "prompt": "Interface relationship to neighboring routers",
+          "answer": "State"
+        },
+        {
+          "id": "p4",
+          "prompt": "Grouping of contiguous networks",
+          "answer": "Area"
+        }
+      ],
+      "options": [],
+      "topic": "Topic 9.2.0",
+      "explanation": null
+    },
+    {
+      "id": 40,
+      "originalNumber": 40,
+      "questionType": "choice",
+      "question": "Which two options play primary roles in route summarization? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Network numbers in areas should be assigned contiguously.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "VRRP",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "FLSM",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Network numbers in areas should be assigned discontinuously.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "VLSM",
+          "isCorrect": true
+        }
+      ],
+      "topic": "Topic 10.6.1",
+      "explanation": "Route summarization, or route aggregation, is the process of advertising a contiguous set of addresses as a single address with a shorter subnet mask. To achieve this efficiently, network numbers must be assigned contiguously so they can be grouped into the smallest possible number of summary addresses. Additionally, because OSPF is a classless routing protocol, it supports VLSM (Variable Length Subnet Mask), allowing it to carry subnet mask information and consolidate multiple specific subnets into a single summary prefix."
+    },
+    {
+      "id": 41,
+      "originalNumber": 41,
+      "questionType": "choice",
+      "question": "Which statement correctly defines one major difference between route maps and access lists?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Access lists can use a match and set commands to modify the packet.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Route maps can use the set commands to modify the packet or route.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Route maps can use the set commands to modify the packet header.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "Route maps can use a forward command to route the packet.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 10.5.3",
+      "explanation": "Route maps are more sophisticated than access lists, operating with logic similar to if-then scripts. While access lists are primarily designed for simple filtering (permit/deny), the major difference is that route maps use match commands to identify conditions and set commands to modify attributes of the packet or route. These set commands allow administrators to change specific characteristics, such as routing metrics during redistribution or next-hop addresses in Policy-Based Routing."
+    },
+    {
+      "id": 42,
+      "originalNumber": 42,
+      "questionType": "choice",
+      "question": "You issue the command clear ip nat translation *. However, the translation table still displays NAT entries. Which two reasons can possibly cause this issue? (Choose two.)",
+      "chooseCount": 2,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Static entries never remain in the translation table but must be refreshed.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "The command is not correct.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "Static entries constantly remain in the translation table.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "The translations are still in use by a host.",
+          "isCorrect": true
+        },
+        {
+          "id": "e",
+          "text": "PAT entries constantly remain in the translation table.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 13.6.1",
+      "explanation": "The command clear ip nat translation * is used to remove dynamic NAT entries from the translation table. However, entries may still appear for two primary reasons:\n\n• Static Entries: Unlike dynamic entries, static translations continuously remain in the translation table regardless of their use; they are persistent and not removed by the clear command.\n\n• Translations in Use: If a host is currently generating traffic (such as an active Telnet or ICMP session), the router will immediately recreate the dynamic translation entry the moment the next packet arrives, making it appear as though the entry was never removed."
+    },
+    {
+      "id": 43,
+      "originalNumber": 43,
+      "questionType": "choice",
+      "question": "What are the three steps in creating a route map? (Choose three.)",
+      "chooseCount": 3,
+      "isMultipleChoice": true,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "Create a profile.",
+          "isCorrect": false
+        },
+        {
+          "id": "b",
+          "text": "Name the route map.",
+          "isCorrect": true
+        },
+        {
+          "id": "c",
+          "text": "Add the match statement.",
+          "isCorrect": true
+        },
+        {
+          "id": "d",
+          "text": "Select a protocol.",
+          "isCorrect": false
+        },
+        {
+          "id": "e",
+          "text": "Add the action.",
+          "isCorrect": true
+        },
+        {
+          "id": "f",
+          "text": "Activate the interface.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 10.5.4",
+      "explanation": "Route map configuration generally consists of three essential parts:\n\n• Name the route map: Defining a unique name to identify the specific route map and its sequence.\n\n• Add the match statement: Defining the conditions (match action) to identify which packets or routes are subject to the map.\n\n• Add the action: Defining the \"set\" action or parameters to be performed if the match criteria are met.\n\nOnce these configuration steps are complete, the route map must then be applied (e.g., in a redistribution command or attached to an interface) to take effect."
+    },
+    {
+      "id": 44,
+      "originalNumber": 44,
+      "questionType": "choice",
+      "question": "What does the passive interface command do in EIGRP?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [],
+      "options": [
+        {
+          "id": "a",
+          "text": "The passive-interface command in EIGRP suppresses the exchange of hello packets between two routers, which results in the loss of their neighbor relationship. Also, it does suppress the incoming routing packets.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The router cannot receive routing updates on that interface.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The router cannot form neighbor adjacencies on that interface.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The router cannot send routing updates on that interface.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 8.4.0",
+      "explanation": "In EIGRP, the passive-interface command stops the interface from sending and receiving Hello packets, which are required to discover neighbors and establish adjacencies. Because no adjacency can be formed, the router cannot exchange routing information with other EIGRP routers on that segment. Furthermore, the command specifically suppresses incoming routing packets, preventing the router from learning any EIGRP updates through that interface."
+    },
+    {
+      "id": 45,
+      "originalNumber": 45,
+      "questionType": "choice",
+      "question": "Refer to the output of the show ip protocols command. Which statement is true about the router configuration?",
+      "chooseCount": 1,
+      "isMultipleChoice": false,
+      "exhibits": [
+        {
+          "type": "cli",
+          "title": "Cisco CLI",
+          "content": "R1# show ip protocols\n*** IP Routing is NSF aware ***\n\nRouting Protocol is \"eigrp 65010\"\n  Outgoing update filter list for all interfaces is not set\n  Incoming update filter list for all interfaces is not set\n  Default networks flagged in outgoing updates\n  Default networks accepted from incoming updates\n  EIGRP-IPv4 Protocol for AS(65010)\n    Metric weight K1=1, K2=0, K3=1, K4=0, K5=0\n    NSF-aware route hold timer is 240\n    Router-ID: 172.16.1.1 \n    Topology : 0 (base)\n      Active Timer: 3 min\n      Distance: internal 90 external 170\n      Maximum path: 4\n      Maximum hopcount 100\n      Maximum metric variance 1\n  Automatic Summarization: disabled\n  Maximum path: 4\n  Routing for Networks:\n  Routing Information Sources:\n    Gateway         Distance      Last Update \n  Distance: internal 90 external 170"
+        }
+      ],
+      "options": [
+        {
+          "id": "a",
+          "text": "The variance is set to the default value of 1, which requires all paths to have the same cost to be eligible for load balancing.",
+          "isCorrect": true
+        },
+        {
+          "id": "b",
+          "text": "The router is configured per-destination and per-packet load balancing.",
+          "isCorrect": false
+        },
+        {
+          "id": "c",
+          "text": "The router is configured to load balance over unequal-cost paths.",
+          "isCorrect": false
+        },
+        {
+          "id": "d",
+          "text": "The router is configured with automatic summarization.",
+          "isCorrect": false
+        }
+      ],
+      "topic": "Topic 8.7.3",
+      "explanation": "The output of the show ip protocols command shows \"Maximum metric variance 1.\" In EIGRP, the default variance is 1, which means the router will only perform load balancing across paths that have the exact same metric (equal-cost). To enable unequal-cost load balancing, the variance must be configured to a value greater than 1 (up to 128). Additionally, the output explicitly states \"Automatic Summarization: disabled,\" making that option incorrect [Source Output]. EIGRP's load balancing is also typically performed on a per-conversation (destination) basis rather than per-packet."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "siteTitle": "Cisco Exam Prep",
+  "categories": [
+    {
+      "id": "ccnp-v9",
+      "name": "CCNP ENCOR v9",
+      "shortName": "CCNP V9"
+    },
+    {
+      "id": "ccna",
+      "name": "CCNA v7",
+      "shortName": "CCNA"
+    }
+  ],
+  "courses": [
+    {
+      "id": "ccnp-encor-v9-final",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Final Exam",
+      "title": "Course Final Exam — CCNP ENCOR (v9)",
+      "dataFile": "data/exams/ccnp-encor-v9-final.json",
+      "totalQuestions": 63,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 60,
+      "passingScorePercent": 70,
+      "status": "active"
+    },
+    {
+      "id": "ccnp-encor-v9-routing",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 8 – 13",
+      "title": "Checkpoint Exam : Network Routing (Modules 8 – 13)",
+      "dataFile": "data/exams/ccnp-encor-v9-routing.json",
+      "totalQuestions": 45,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 45,
+      "passingScorePercent": 70,
+      "status": "active"
+    }
+  ]
+}
