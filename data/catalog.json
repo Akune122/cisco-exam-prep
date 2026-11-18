@@ -38,6 +38,19 @@
       "examModeQuestionCount": 45,
       "passingScorePercent": 70,
       "status": "active"
+    },
+    {
+      "id": "ccnp-encor-v9-security",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 14 – 16",
+      "title": "Checkpoint Exam : Network Security (Modules 14 – 16)",
+      "dataFile": "data/exams/ccnp-encor-v9-security.json",
+      "totalQuestions": 28,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 28,
+      "passingScorePercent": 70,
+      "status": "active"
     }
   ]
 }

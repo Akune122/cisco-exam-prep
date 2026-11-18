@@ -40,6 +40,19 @@ window.__EXAM_DATA_BUNDLE__ = {
         "examModeQuestionCount": 45,
         "passingScorePercent": 70,
         "status": "active"
+      },
+      {
+        "id": "ccnp-encor-v9-security",
+        "categoryId": "ccnp-v9",
+        "categoryName": "CCNP ENCOR v9",
+        "code": "Modules 14 – 16",
+        "title": "Checkpoint Exam : Network Security (Modules 14 – 16)",
+        "dataFile": "data/exams/ccnp-encor-v9-security.json",
+        "totalQuestions": 28,
+        "quizChunkSize": 10,
+        "examModeQuestionCount": 28,
+        "passingScorePercent": 70,
+        "status": "active"
       }
     ]
   },
@@ -4001,6 +4014,1056 @@ window.__EXAM_DATA_BUNDLE__ = {
           ],
           "topic": "Topic 8.7.3",
           "explanation": "The output of the show ip protocols command shows \"Maximum metric variance 1.\" In EIGRP, the default variance is 1, which means the router will only perform load balancing across paths that have the exact same metric (equal-cost). To enable unequal-cost load balancing, the variance must be configured to a value greater than 1 (up to 128). Additionally, the output explicitly states \"Automatic Summarization: disabled,\" making that option incorrect [Source Output]. EIGRP's load balancing is also typically performed on a per-conversation (destination) basis rather than per-packet."
+        }
+      ]
+    },
+    "ccnp-encor-v9-security": {
+      "id": "ccnp-encor-v9-security",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "courseCode": "Modules 14 – 16",
+      "title": "Checkpoint Exam : Network Security (Modules 14 – 16)",
+      "description": "Examen Checkpoint officiel sur la sécurité réseau (ACLs, CoPP, AAA, RADIUS/TACACS+, 802.1X, WebAuth, Firewalls) du cours CCNP ENCOR v9.",
+      "sourceUrl": "https://itexamanswers.net/modules-14-16-checkpoint-exam-network-security-answers-ccnp-encor-v9.html",
+      "lastUpdated": "2026-05-01",
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 28,
+      "passingScorePercent": 70,
+      "totalQuestions": 28,
+      "questions": [
+        {
+          "id": 1,
+          "originalNumber": 1,
+          "questionType": "choice",
+          "question": "What happens when a user first connects to a network in a WebAuth scenario?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Their first HTTP or HTTPS request is redirected to a guest authentication portal.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "They are only allowed to access internet web pages.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "They are only allowed to access internal web pages.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "They are denied access until they authenticate via 802.1X.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 15.18.1",
+          "explanation": "When a user first connects to a network using Web Authentication (WebAuth), they are initially granted limited access through an initial authorization assignment. This stage is designed to restrict almost all traffic except for that required for the authentication process itself.\n\nWhen the user attempts to browse to any HTTP or HTTPS DNS-resolvable website, the Network Access Device (NAD) intercepts that specific request. Instead of reaching the intended destination, the user is automatically redirected to a Guest User Login portal or authentication web page. Once the user successfully provides credentials and authenticates through this portal, they are assigned a new authorization profile that permits appropriate access to enterprise resources.\n\nThis method is often used as a method of last resort for guests or users who do not have a functional 802.1X supplicant or lack an account in the primary identity store."
+        },
+        {
+          "id": 2,
+          "originalNumber": 2,
+          "questionType": "choice",
+          "question": "What makes a firewall a Cisco Secure Firewall?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "It has additional features such as Context Awareness and Advanced Malware Protection.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "It has the ability to contain an attack within the security zone where the attack occurred.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "It has the ability to handle protocols that use dynamically negotiated connections.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "When used as a primary path between client and server, it can prevent the server from seeing the connection from the client.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 15.12.1",
+          "explanation": "Cisco Secure Firewall (formerly known as Cisco Next Generation Firewall or NGFW) evolves beyond traditional perimeter security to defend against modern multivector and persistent threats. What makes it a \"Secure Firewall\" is the integration of several advanced security services:\n\n• Context Awareness: This feature allows the firewall to identify who is connecting, what device they are using, their location, and the timing of the connection to enforce granular security policies.\n\n• Advanced Malware Protection (AMP): It provides comprehensive capabilities for detecting, blocking, tracking, and remediating malware.\n\n• Application Visibility and Control: Unlike standard firewalls that look at port numbers, this feature recognizes specific applications by analyzing data streams.\n\n• URL Filtering: This integrates proxy-like functions directly into the firewall, utilizing website reputation scores and classification to control web traffic.\n\n• Intrusion Prevention System (IPS): Deep packet inspection is integrated directly into the appliance to identify and block suspicious behavior.\n\nWhile standard firewalls are designed to contain attacks within a security zone, the Cisco Secure Firewall specifically utilizes these integrated functions to offer comprehensive network visibility and highly effective threat protection."
+        },
+        {
+          "id": 3,
+          "originalNumber": 3,
+          "questionType": "choice",
+          "question": "Refer to the exhibit. Which two statements are correct? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [
+            {
+              "type": "cli",
+              "title": "Cisco CLI",
+              "content": "R# show policy-map control-plane"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "The F0-IN policy is applied to the data plane.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "30 packets have conformed to the TCP-C policing rate.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Access list 150 is used to classify CoPP traffic.",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "A total of 1137 packets have been rate limited by the CoPP policy.",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "A total of 120 packets matched the TCP-C class map.",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 14.9.2",
+          "explanation": "The provided options can be verified using the logic of Control Plane Policing (CoPP) and the output of the show policy-map control-plane command:\n\n• Control Plane vs. Data Plane: The command show policy-map control-plane is specifically used to verify the status of activity on the control plane. CoPP treats the control plane as a separate entity to protect the route processor from being overwhelmed by traffic. Therefore, any policy shown in this output is applied to the control plane, not the data plane.\n\n• Traffic Classification: In the Modular QoS CLI (MQC) framework used by CoPP, class maps are used to categorize traffic, often by referencing an Access Control List (ACL). The output line Match: access-group [Number/Name] explicitly identifies which ACL is being used to classify the packets for that specific class. If the exhibit shows \"Match: access-group 150,\" then ACL 150 is the classification tool.\n\n• Packet Match Counts: When viewing the output for a specific class-map, the first line of statistics (e.g., 120 packets, 7200 bytes) indicates the total number of packets that have matched that class since the counters were last cleared.\n\n• Policing Actions: The police section of the output further breaks down these matches into conformed (packets within the rate limit) and exceeded (packets over the limit). \"Rate limited\" typically refers to the exceeded packets that were dropped by the policy.\n\nBased on the sources, identifying the ACL used for matching and the total packets matched are the standard ways to interpret this verification command."
+        },
+        {
+          "id": 4,
+          "originalNumber": 4,
+          "questionType": "choice",
+          "question": "Which three statements about firewalls are true? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "A firewall can prevent undesired access to a network security zone.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Firewalls typically provide protection between and within network security zones.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "A firewall can introduce a performance bottleneck.",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "A firewall can act as an accelerator for business-critical data.",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "If a system in a security zone is compromised, a firewall can help to contain the attack within that zone.",
+              "isCorrect": true
+            },
+            {
+              "id": "f",
+              "text": "Modern firewalls provide a complete network security solution.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 15.12.0",
+          "explanation": "Firewalls are essential components of network security designed to enforce access control policies between different security domains. Their primary functions and limitations include:\n\n• Access Control and Prevention: The fundamental job of a firewall is to classify traffic and decide what to forward or deny based on configured security policies. This allows them to prevent undesirable or unauthorized access to protected network security zones.\n\n• Attack Containment: Similar to architectural firewalls in buildings, network firewalls are intended to contain damage. If a system within a specific zone is compromised, the firewall acts as a barrier to prevent the attack from spreading to other security zones.\n\n• Performance Impact: Because firewalls are placed at critical transit points between zones and must inspect all passing traffic, they can introduce performance bottlenecks. It is necessary to size a firewall appropriately for the traffic volume it is expected to handle.\n\nIt is important to note that modern firewalls are not a complete security solution; they are merely one component of a larger security architecture. Additionally, they typically only provide protection between zones, as they generally cannot control traffic moving within the same security zone."
+        },
+        {
+          "id": 5,
+          "originalNumber": 5,
+          "questionType": "choice",
+          "question": "Which description is not a feature of CoPP?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "uses MQC for configuration",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "rate-limits access to the control plane",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "easily managed compared with infrastructure ACLs",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "applies to a virtual interface tied to the control plane",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "permits or denies access to the data plane",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 14.9.0",
+          "explanation": "Control Plane Policing (CoPP) is a security feature specifically designed to protect a device’s route processor (CPU) from being overwhelmed by traffic directed at the device itself. Based on the sources, its features include:\n\n• MQC Configuration: CoPP utilizes the Modular QoS CLI (MQC) framework, which involves defining class maps to categorize traffic and policy maps to define actions.\n\n• Rate-Limiting: It allows administrators to rate-limit or filter traffic to prevent low-priority or malicious floods from exhausting system resources.\n\n• Virtual Interface Application: The policy is applied to the control plane virtual interface in the inbound direction rather than on physical interfaces.\n\n• Management Advantage: CoPP is easier to manage than infrastructure ACLs because it is applied once to the control plane entity, whereas traditional ACLs must be applied to every individual physical interface, which can be an \"onerous task\".\n\nThe statement that CoPP permits or denies access to the data plane is incorrect because CoPP only manages traffic destined for the control plane; data plane packets (user-generated traffic forwarded to other end-stations) are handled in the \"fast path\" and are not the target of CoPP policies."
+        },
+        {
+          "id": 6,
+          "originalNumber": 6,
+          "questionType": "choice",
+          "question": "Refer to the exhibit. This ACL is applied on traffic outbound from the router on the interface that directly connects to the 10.0.70.5 server. A request for information from a secure web page is sent from host 10.0.55.23 and is destined for the 10.0.70.5 server. Which line of the access list will cause the router to take action (forward the packet onward or drop the packet)?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [
+            {
+              "type": "cli",
+              "title": "Cisco CLI",
+              "content": "access-list 100 permit tcp host 10.0.55.23 host 10.0.70.55 eq 1719\naccess-list 100 permit tcp host 10.0.55.23 host 10.0.70.55 eq 1720\naccess-list 100 deny tcp any any eq 443\naccess-list 100 deny tcp any any eq www\naccess-list 100 permit ip any any"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "2",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "4",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "5",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "3",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "1",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.3.2",
+          "explanation": "To determine which line of the Access Control List (ACL) will cause the router to take action, you must analyze the traffic characteristics against the ACL entries in order from top to bottom:\n\n• Identify the Traffic: The request is for a secure web page, which uses the HTTPS protocol. This corresponds to TCP port 443. The source is 10.0.55.23 and the destination is 10.0.70.5.\n\n• Evaluate Line 1: access-list 100 permit tcp host 10.0.55.23 host 10.0.70.55 eq 1719. This is not a match because the destination host specified (10.0.70.55) does not match the actual destination (10.0.70.5), and the port (1719) does not match HTTPS (443).\n\n• Evaluate Line 2: access-list 100 permit tcp host 10.0.55.23 host 10.0.70.55 eq 1720. Similar to Line 1, this is not a match due to the incorrect destination IP and port.\n\n• Evaluate Line 3: access-list 100 deny tcp any any eq 443. This statement matches any source and any destination for TCP port 443. Since the secure web request is destined for port 443, this line is a match.\n\nBecause ACLs are processed sequentially and stop at the first match, the router will take action on Line 3 and deny (drop) the packet."
+        },
+        {
+          "id": 7,
+          "originalNumber": 7,
+          "questionType": "choice",
+          "question": "Which option is not a typical use of ACLs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "VPN traffic identification",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "NAT control",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "PPP configuration",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "route advertisement filtering",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.1.0\n\nA",
+          "explanation": "ccess Control Lists (ACLs) are primarily packet classification tools rather than protocol configuration mechanisms. According to the sources, they are typically used to define interesting traffic for a VPN, filter route advertisements, and control traffic for services like NAT. While an ACL can be applied to a PPP interface to filter data, it is not a \"typical use\" for configuring the underlying parameters or properties of the PPP protocol itself."
+        },
+        {
+          "id": 8,
+          "originalNumber": 8,
+          "questionType": "choice",
+          "question": "Which command should be used to configure a vty line to use the aaaservers authentication method list?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "authentication aaaservers",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "line authentication aaaservers",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "login authentication aaaserver",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "authentication method aaaservers",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.8.0",
+          "explanation": "To configure a vty line to use a specifically named AAA authentication method list, you must use the login authentication command followed by the name of the list.\n\nWhile a default method list is automatically applied to all lines and interfaces, any named method list must be explicitly applied in line configuration mode to take effect. Once this command is issued on a vty line (e.g., line vty 0 4), the named list overrides the default authentication settings for that specific line. This architectural framework allows administrators to enforce different security policies for different access methods, such as requiring a more secure server group for remote network access while maintaining a local backup for physical console access."
+        },
+        {
+          "id": 9,
+          "originalNumber": 9,
+          "questionType": "choice",
+          "question": "If a user needs to be in privileged EXEC or enable mode, which part of AAA must succeed?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "authentication",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "accounting",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "administration",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "authorization",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 16.10.0",
+          "explanation": "While authentication is the process of identifying a user, authorization is the component of the AAA framework that determines the level of access a user has and what they are permitted to do. Specifically, authorization allows an administrator to define which privileged EXEC commands are available to a user.\n\nWhen a user attempts to access a specific service or enter a mode like privileged EXEC (enable) mode, the device queries the authorization server. The server can then return a specific privilege level (such as level 15) for the user, granting them the permission required to operate in that mode. It is important to note that while authorization requires a successful authentication to proceed, it is the authorization step that specifically validates the user's right to access privileged modes."
+        },
+        {
+          "id": 10,
+          "originalNumber": 10,
+          "questionType": "choice",
+          "question": "Which three types of traffic is the router service plane responsible for processing? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "MPLS VPN",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Telnet",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "BGP",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "QoS",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "ICMP",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "GRE",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 14.8.0",
+          "explanation": "The services plane is responsible for a special category of traffic known as \"high-touch\" packets. These are user-generated data plane packets that, while being forwarded to other end-station devices, require processing beyond standard destination IP address-based forwarding. According to the sources, specific examples of services plane functions include:\n\n• Generic Routing Encapsulation (GRE)\n\n• Quality of Service (QoS)\n\n• Multiprotocol Label Switching (MPLS) VPNs\n\n• SSL/IPsec encryption and decryption\n\nOther types of traffic mentioned in your list belong to different planes: BGP is a control plane protocol used for network creation and operation; Telnet is a management plane protocol used to manage the device; and ICMP is generally treated as a \"receive\" or \"exception\" packet that must be handled by the device's route processor."
+        },
+        {
+          "id": 11,
+          "originalNumber": 11,
+          "questionType": "choice",
+          "question": "A RADIUS server is located at IP address 192.168.102.101. Which command configures a Cisco router to find the server?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "radius server 192.168.102.101",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "aaa radius 192.168.102.101",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "authentication radius 192.168.102.101",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "address ipv4 192.168.102.101",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 16.8.0",
+          "explanation": "Configuring a RADIUS server on a Cisco router involves a two-step process using a named server object:\n\n• First, you enter global configuration mode and create a named configuration for the server using the command radius server [configuration-name].\n\n• Once inside the radius server configuration mode, you use the address ipv4 [hostname or IP] command to tell the router the actual location (IP address) of the server.\n\nThis specific command also allows for the optional configuration of the authentication port (default 1812) and accounting port (default 1813) on the same line. While the radius server command initiates the configuration object, the address ipv4 command is what explicitly tells the router where to \"find\" the server on the network."
+        },
+        {
+          "id": 12,
+          "originalNumber": 12,
+          "questionType": "choice",
+          "question": "Refer to the exhibit. Based on the named extended ACLs configured, the line matching port 443 refers to which protocol?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [
+            {
+              "type": "cli",
+              "title": "Cisco CLI",
+              "content": "R1(config)# ip access-list extended SURFING\nR1(config-ext-nacl)# permit tcp 192.168.0.0 0.0.0.255 any eq 80\nR1(config-ext-nacl)# permit tcp 192.168.0.0 0.0.0.255 any eq 443\nR1(config-ext-nacl)# exit\nR1(config)# ip access-list extender BROWSING\nR1(config-ext-nacl)# permit tcp any 192.168.10.0 0.0.0.255 established\nR1(config-ext-nacl)# exit"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "HTTP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "FTP",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "HTTPS",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "SNTP",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "POP3",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.6.2",
+          "explanation": "Extended Access Control Lists (ACLs) provide granular control by allowing administrators to filter traffic based on Layer 4 protocols and port numbers. When configuring these ACLs, Cisco IOS allows the use of either a well-known port number or its corresponding application name.\n\nAccording to the sources, port 443 is the standard port used for HTTPS (Hypertext Transfer Protocol Secure). In the provided exhibit, the ACL named SURFING is configured to permit traffic from the 192.168.0.0/24 subnet to any destination if the traffic matches specific web protocols:\n\n• Port 80 refers to HTTP (often displayed as the keyword www).\n\n• Port 443 refers to HTTPS.\n\nOther protocols mentioned in the options use different ports: FTP typically uses port 21, and Telnet uses port 23. Thus, the line matching port 443 specifically targets secure web traffic."
+        },
+        {
+          "id": 13,
+          "originalNumber": 13,
+          "questionType": "choice",
+          "question": "Which type of AAA message does the TACACS+ shared secret key use for encryption between the client and server?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "authentication messages only",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "authorization messages only",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "accounting messages only",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "all messages",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 16.6.0",
+          "explanation": "The TACACS+ protocol is designed for total separation of the three AAA functions and provides superior security compared to RADIUS. According to the sources, while RADIUS only encrypts the password portion of a packet, the entire TACACS+ packet is encrypted. This means that the shared secret key is used to encrypt all traffic—including authentication, authorization, and accounting messages—ensuring that communication between the Network Access Server (NAS) and the TACACS+ server is completely secure."
+        },
+        {
+          "id": 14,
+          "originalNumber": 14,
+          "questionType": "choice",
+          "question": "Refer to the exhibit. How will Telnet packets from host 10.1.1.1 be treated by the configured CoPP policy?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [
+            {
+              "type": "cli",
+              "title": "Cisco CLI",
+              "content": "!\nclass-map telnet-class     \n    match access-group 100\n!\npolicy-map telnet-policy     \n   class telnet-class       \n     police 80000 conform transmit exceed drop\n! \ncontrol-plane     \n   service-policy input telnet-policy\n!\naccess-list 100 deny tcp host 10.1.1.1 any eq telnet   \n  access-list 100 deny tcp host 10.1.1.2 any eq telnet   \n  access-list 100 permit tcp any any eq telnet"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "Telnet packets from host 10.1.1.1 will be dropped by the CoPP policy.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Telnet packets from host 10.1.1.1 will be permitted without policing.",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Telnet packets from host 10.1.1.1 will be dropped at the inbound interface.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Telnet packets from host 10.1.1.1 will be policed to 8 kbps.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.10.2",
+          "explanation": "The behavior of Control Plane Policing (CoPP) depends on how traffic is classified within the Modular QoS CLI (MQC) framework. In this scenario, the class-map telnet-class uses access-list 100 to identify traffic for policing.\n\nIn the context of CoPP classification, a \"deny\" statement in the referenced ACL does not mean the packet is dropped at the interface; instead, it means the packet is excluded from that specific class. According to the sources, when a packet matches a \"deny\" statement in the ACL, it will still be forwarded to the control plane, but it will not be policed by the actions defined in that class map.\n\nBecause the first line of access-list 100 is deny tcp host 10.1.1.1 any eq telnet, Telnet traffic from host 10.1.1.1 is explicitly excluded from the telnet-class. Consequently, these packets bypass the police 80000 command and are granted unfettered access to the device’s control plane. This configuration is typically used to ensure that trusted hosts are never restricted by rate-limiting during high-traffic events or potential attacks."
+        },
+        {
+          "id": 15,
+          "originalNumber": 15,
+          "questionType": "choice",
+          "question": "What are two deployment modes for VPNs? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "AES",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "remote access",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "SHA-256",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "site-to-site",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "multihop",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 15.4.0",
+          "explanation": "Virtual Private Networks (VPNs) are classified based on specific criteria, one of which is the deployment mode. The two primary deployment models are site-to-site VPN and remote-access VPN.\n\nA site-to-site VPN provides an internet-based WAN infrastructure designed to connect branch offices, home offices, or business partner sites to all or portions of a central network. Conversely, a remote-access VPN is designed to provide secure communications for individual remote hosts to access networks and applications. These remote connections are typically established through the use of VPN client software or an SSL-enabled web browser.\n\nIt is important to distinguish these modes from other technical components mentioned in the options: AES and SHA-256 are cryptographic algorithms used for encryption and data integrity within a VPN, while \"multihop\" is not listed as a standard deployment category in these materials."
+        },
+        {
+          "id": 16,
+          "originalNumber": 16,
+          "questionType": "choice",
+          "question": "Which command is used to activate an IPv4 ACL named SALES on an interface so that the router filters traffic prior to it accessing the routing table?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "ipv4 access-class SALES out",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "ip access-class SALES in",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "ipv4 access-group SALES out",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "ip access-group SALES in",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 14.4.0",
+          "explanation": "To filter traffic before it reaches the routing table, you must apply the ACL in the inbound direction using the ip access-group command. According to the sources, an inbound ACL processes incoming packets before they are routed to an outbound interface. This is considered efficient because it saves the router the overhead of performing a routing lookup if the packet is destined to be discarded by the ACL anyway.\n\nIf the ACL were applied in the outbound direction (using the out keyword), the router would first have to route the packet to the outbound interface before checking it against the ACL. Additionally, the command access-class is specifically used for controlling access to vty lines rather than physical interfaces. Therefore, ip access-group SALES in is the correct command to achieve pre-routing filtering for a named IPv4 ACL on an interface."
+        },
+        {
+          "id": 17,
+          "originalNumber": 17,
+          "questionType": "choice",
+          "question": "What is the major difference between named ACLs and dACLs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "dACLs are configured on Cisco ISE; named ACLs can be configured on Cisco ISE or locally on the WLC.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "dACLs can be configured locally on the WLC or on Cisco ISE; named ACLs are configured locally on the WLC.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "dACLs are configured on Cisco ISE; named ACLs are configured locally on the WLC.",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "dACLs are configured locally on the WLC; named ACLs are configured on Cisco ISE.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 15.16.5",
+          "explanation": "The major difference between these two types of access control lists lies in where they are defined and how they are delivered to the network device:\n\n• Downloadable ACLs (dACLs): These are configured centrally on Cisco ISE. During the authentication and authorization process, the entire ACL is \"pushed down\" or downloaded from the RADIUS server to the switch. The switch then applies these attributes to the specific port for the duration of the user session.\n\n• Named ACLs: These are primarily used for wireless users and are configured locally on the Wireless LAN Controller (WLC). In this scenario, Cisco ISE does not send the actual ACL content; instead, it simply informs the WLC which locally stored ACL name should be applied to that specific user session.\n\nWhile both provide differentiated access based on user identity, dACLs are dynamic and centralized, whereas named ACLs rely on pre-existing local configurations on the network access device."
+        },
+        {
+          "id": 18,
+          "originalNumber": 18,
+          "questionType": "choice",
+          "question": "Which benefit of AAA is best described by the ability to track outdated user credentials across multiple network devices?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "redundancy",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "scalability",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "standardization",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "flexibility",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.4.0",
+          "explanation": "Scalability is the benefit of AAA that specifically addresses the challenges of managing user credentials across a growing network. According to the sources, while a local database might work for a small number of users on a single device, managing many users across multiple network devices becomes highly impractical, error-prone, and an administrative burden as the network expands.\n\nWithout a centralized AAA model, outdated credentials or the lack of individual accounts often leads to multiple administrators sharing a single username, which results in the loss of the ability to track activities back to a specific individual. Centralizing these services on a TACACS+ or RADIUS server provides the necessary manageability and control to ensure that credentials remain current and user actions remain accountable across the entire infrastructure."
+        },
+        {
+          "id": 19,
+          "originalNumber": 19,
+          "questionType": "choice",
+          "question": "Which two devices are considered endpoints? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "mobile devices",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "firewalls",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "switches",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "routers",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "laptops",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 15.7.0\n\nAn",
+          "explanation": "endpoint is a device where data resides and represents a critical point where security must be enforced because the potential for damage there is great. The term \"endpoint security\" specifically refers to the protection of these devices, which include laptops, mobile devices (such as smartphones and tablets), desktop computers, and printers.\n\nIn contrast, devices like firewalls, switches, and routers are typically classified as network infrastructure or Network Access Devices (NADs). Their role is to act as policy enforcement points or authenticators that control the flow of traffic between different security zones rather than serving as the end destination or origin for user data."
+        },
+        {
+          "id": 20,
+          "originalNumber": 20,
+          "questionType": "choice",
+          "question": "Which option is a limitation of TACACS+?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "does not offer multiprotocol support",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "is only supported on Cisco routers",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "has a slower response time than RADIUS",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "does not support mutual authentication",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.6.0",
+          "explanation": "The difference in response time between the two protocols is primarily due to the underlying transport layer protocols they utilize. According to the sources, TACACS+ uses TCP (port 49), which is a connection-oriented protocol. Conversely, RADIUS uses UDP (port 1812 for authentication/authorization and port 1813 for accounting), which is a connectionless protocol.\n\nBecause TCP requires a three-way handshake to establish a connection before any AAA data can be exchanged, it inherently introduces more overhead and latency. This makes the overall process for TACACS+ slower than the lower-overhead, connectionless communication provided by RADIUS.\n\nAdditionally, while TACACS+ is a Cisco proprietary protocol, the option stating it is \"only supported on Cisco routers\" is technically inaccurate because the sources confirm it is also supported on other network access devices such as switches, firewalls, and access points. Therefore, the slower response time caused by TCP overhead is the most accurate technical limitation among the choices."
+        },
+        {
+          "id": 21,
+          "originalNumber": 21,
+          "questionType": "choice",
+          "question": "When applying an ACL to a router interface, which traffic is designated as outbound?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Traffic that is coming from the source IP address into the router.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Traffic that is leaving the router and going toward the destination host.",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Traffic for which the router can find no routing table entry.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Traffic that is going from the destination IP address into the router.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.4.0",
+          "explanation": "The designation of traffic as \"inbound\" or \"outbound\" is determined by the direction it flows relative to a specific router interface:\n\n• Outbound ACLs: These process traffic that is leaving the router through an interface and traveling toward its destination. When a packet is designated as outbound, the router has already performed a routing lookup to determine the correct exit interface; the packet is only then tested against the outbound ACL before being forwarded.\n\n• Inbound ACLs: These process incoming packets that are entering the router through an interface before they are routed to an outbound interface. This is considered more efficient because it prevents the router from wasting resources on a routing lookup for a packet that will ultimately be denied.\n\nTherefore, outbound traffic is specifically the data stream that has been successfully routed and is now exiting the device's interface toward the destination host."
+        },
+        {
+          "id": 22,
+          "originalNumber": 22,
+          "questionType": "choice",
+          "question": "What is the role of the router or switch in the AAA architecture?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "authentication server",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "supplicant",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "NAS",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "RADIUS entry point",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.6.0",
+          "explanation": "In the AAA (Authentication, Authorization, and Accounting) architectural framework, the router or switch functions as the Network Access Server (NAS), also known as the client or RADIUS client. According to the sources, the role of the NAS includes:\n\n• Point of Contact: It is the device that users or machines contact first to gain access to a protected resource, such as the network or the device CLI.\n\n• Intermediary/Proxy: The NAS acts as a proxy between the supplicant (the endpoint requesting access) and the authentication server (the central server, like Cisco ISE, that validates credentials).\n\n• Protocol Translator: It communicates with the endpoint using 802.1X/EAP and then encapsulates that information into RADIUS or TACACS+ messages to communicate with the AAA server.\n\n• Policy Enforcement: After the authentication server validates the user's identity and notifies the NAS of the authorization status, the NAS allows or denies the user access to the network based on that response.\n\nWhile the supplicant is the software service on the endpoint and the authentication server is the central authority, the router or switch serves as the essential NAS that enforces security at the access edge."
+        },
+        {
+          "id": 23,
+          "originalNumber": 23,
+          "questionType": "choice",
+          "question": "Which command would produce the following output?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [
+            {
+              "type": "cli",
+              "title": "Cisco CLI",
+              "content": "Router#\n10 permit 192.168.1.0 0.0.0.7\n20 permit 192.168.1.64 0.0.0.63 (4 match(es))\n30 deny any (8 match(es))"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "show access-lists",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "clear access-list counters",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show run | section access-list",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "no access-list 1",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.7.1",
+          "explanation": "The output provided is characteristic of the show access-lists command. According to the sources, this command is used to display all configured access control lists (ACLs) on a router along with their hit counters. These hit counters, shown in the output as \"(4 match(es))\" or \"(8 match(es))\", indicate the number of packets that have matched a specific access control entry (ACE) since the counters were last cleared.\n\nThe other options are incorrect for the following reasons:\n\n• clear access-list counters: This command is used to reset the hit counters to zero for tuning purposes, rather than displaying them.\n\n• show run | section access-list: This command displays the ACL configuration as it exists in the running configuration file, but it does not show dynamic operational data like hit counters.\n\n• no access-list 1: This is a configuration command used to delete an entire numbered ACL rather than display its status."
+        },
+        {
+          "id": 24,
+          "originalNumber": 24,
+          "questionType": "choice",
+          "question": "Which AAA function does not depend on the other two functions?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "accounting",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "authorization",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "authentication",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "All functions depend on each other.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.3.0",
+          "explanation": "In the AAA (Authentication, Authorization, and Accounting) architectural framework, authentication is the only function that can be valid without the other two. It is the initial process of identifying a user by comparing provided credentials against a database.\n\nAccording to the sources, while authentication can stand alone, authorization and accounting are dependent functions that cannot be performed unless authentication has been successfully completed first. Authorization requires a known identity to determine the specific level of access or commands allowed, and accounting requires that same identity to accurately track resource consumption and user activity. Therefore, authentication acts as the foundational requirement for the rest of the AAA model."
+        },
+        {
+          "id": 25,
+          "originalNumber": 25,
+          "questionType": "choice",
+          "question": "Which two number ranges are used to identify extended ACLs? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "100 - 199",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "2000 - 2699",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "1 - 99",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "1300 – 1999",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "101 - 200",
+              "isCorrect": false
+            },
+            {
+              "id": "f",
+              "text": "1 - 100",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 14.2.0",
+          "explanation": "Cisco IOS uses specific number ranges to distinguish between different types of Access Control Lists (ACLs). Numbered extended IPv4 ACLs are identified by the range 100 to 199. For larger configurations, an expanded range of 2000 to 2699 is also reserved for extended ACLs.\n\nThese specific ranges instruct the router to accept extended ACL statements, which allow for more granular filtering by testing source and destination addresses, protocols, and port numbers. In contrast, the ranges 1 to 99 and 1300 to 1999 are reserved exclusively for standard IPv4 ACLs."
+        },
+        {
+          "id": 26,
+          "originalNumber": 26,
+          "questionType": "choice",
+          "question": "What are the three types of authentication options available in networks today? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "hashing",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "VPNs",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "credentials",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "certificates",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "biometrics",
+              "isCorrect": true
+            },
+            {
+              "id": "f",
+              "text": "encryption",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 16.5.0\n\nA",
+          "explanation": "uthentication is the foundational process of identifying a user before they are granted access to protected network resources. According to the sources, modern network authentication is generally based on three distinct categories:\n\n• Something a user knows: This involves the use of credentials, specifically username and password combinations.\n\n• Something a user has: This refers to digital certificates issued by a trusted certification authority.\n\n• Something a user is: This utilizes biometrics, such as scanners that identify individuals by their fingerprints or eye retina.\n\nWhile options like hashing and encryption are critical security mechanisms used to protect authentication data or ensure confidentiality, they are not categorized as the primary types of authentication options themselves."
+        },
+        {
+          "id": 27,
+          "originalNumber": 27,
+          "questionType": "choice",
+          "question": "Which two statements about phishing are correct? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Phishing is a common social engineering technique.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Phishing is not usually common in social media, but more for marketing and advertising.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Phishing email is usually a legitimate email sent from a large, legitimate organization.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "The goal is to provide the consumer with legitimate choices for products and services.",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "The goal is to get the victim to enter personal information.",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 15.2.1",
+          "explanation": "Phishing is a widespread technique categorized under social engineering, which involves manipulating people into performing specific actions or divulging confidential data.\n\nA typical phishing attack uses an email that pretends to be from a large, legitimate organization. Because these organizations are well-known, the victim is more likely to trust the message and visit a malicious website that closely resembles the official one. The ultimate goal of this deception is to trick the victim into entering personal information, such as account numbers, social security numbers, usernames, or passwords. Unlike legitimate marketing or advertising, phishing is entirely malicious and designed for data theft rather than providing consumer choices."
+        },
+        {
+          "id": 28,
+          "originalNumber": 28,
+          "questionType": "choice",
+          "question": "Which device typically serves as a network access server?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "router",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "switch",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "firewall",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "access point",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "all of the above",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 16.6.0",
+          "explanation": "In the AAA architectural framework, the Network Access Server (NAS)—also known as the client—is the device that users or machines contact to gain access to a protected resource, such as a network or a device CLI. According to the sources, a NAS is typically a router, switch, firewall, or access point. These devices act as intermediaries (proxies) that communicate with an authentication server, such as Cisco ISE, using RADIUS or TACACS+ protocols to verify identity information and enforce authorization status."
         }
       ]
     }

@@ -282,4 +282,28 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-routing.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-security')) {
+  const htmlPath = args[args.indexOf('--build-security') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const questions = parseItExamHtml(html);
+
+  const examData = {
+    id: 'ccnp-encor-v9-security',
+    categoryId: 'ccnp-v9',
+    categoryName: 'CCNP ENCOR v9',
+    courseCode: 'Modules 14 – 16',
+    title: 'Checkpoint Exam : Network Security (Modules 14 – 16)',
+    description: 'Examen Checkpoint officiel sur la sécurité réseau (ACLs, CoPP, AAA, RADIUS/TACACS+, 802.1X, WebAuth, Firewalls) du cours CCNP ENCOR v9.',
+    sourceUrl: 'https://itexamanswers.net/modules-14-16-checkpoint-exam-network-security-answers-ccnp-encor-v9.html',
+    lastUpdated: '2026-05-01',
+    quizChunkSize: 10,
+    examModeQuestionCount: questions.length,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-security.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
 }
