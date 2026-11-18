@@ -378,4 +378,28 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-sdn.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-switching')) {
+  const htmlPath = args[args.indexOf('--build-switching') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const questions = parseItExamHtml(html);
+
+  const examData = {
+    id: 'ccnp-encor-v9-switching',
+    categoryId: 'ccnp-v9',
+    categoryName: 'CCNP ENCOR v9',
+    courseCode: 'Modules 1 – 7',
+    title: 'Checkpoint Exam : Network Switching (Modules 1 – 7)',
+    description: 'Examen Checkpoint officiel sur la commutation réseau (Architecture Campus, CEF, VLANs, Trunks, STP/RSTP/MST, EtherChannel LACP/PAgP, HSRP/VRRP/GLBP, QoS) du cours CCNP ENCOR v9.',
+    sourceUrl: 'https://itexamanswers.net/modules-1-7-checkpoint-exam-network-switching-answers-ccnp-encor-v9.html',
+    lastUpdated: '2026-05-01',
+    quizChunkSize: 10,
+    examModeQuestionCount: questions.length,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-switching.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
 }

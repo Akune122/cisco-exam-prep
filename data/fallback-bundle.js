@@ -29,6 +29,19 @@ window.__EXAM_DATA_BUNDLE__ = {
         "status": "active"
       },
       {
+        "id": "ccnp-encor-v9-switching",
+        "categoryId": "ccnp-v9",
+        "categoryName": "CCNP ENCOR v9",
+        "code": "Modules 1 – 7",
+        "title": "Checkpoint Exam : Network Switching (Modules 1 – 7)",
+        "dataFile": "data/exams/ccnp-encor-v9-switching.json",
+        "totalQuestions": 58,
+        "quizChunkSize": 10,
+        "examModeQuestionCount": 58,
+        "passingScorePercent": 70,
+        "status": "active"
+      },
+      {
         "id": "ccnp-encor-v9-routing",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
@@ -2398,6 +2411,2023 @@ window.__EXAM_DATA_BUNDLE__ = {
           ],
           "topic": null,
           "explanation": null
+        }
+      ]
+    },
+    "ccnp-encor-v9-switching": {
+      "id": "ccnp-encor-v9-switching",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "courseCode": "Modules 1 – 7",
+      "title": "Checkpoint Exam : Network Switching (Modules 1 – 7)",
+      "description": "Examen Checkpoint officiel sur la commutation réseau (Architecture Campus, CEF, VLANs, Trunks, STP/RSTP/MST, EtherChannel LACP/PAgP, HSRP/VRRP/GLBP, QoS) du cours CCNP ENCOR v9.",
+      "sourceUrl": "https://itexamanswers.net/modules-1-7-checkpoint-exam-network-switching-answers-ccnp-encor-v9.html",
+      "lastUpdated": "2026-05-01",
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 58,
+      "passingScorePercent": 70,
+      "totalQuestions": 58,
+      "questions": [
+        {
+          "id": 1,
+          "originalNumber": 1,
+          "questionType": "choice",
+          "question": "What is the default factor in STP that determines the cost of the path associated with a link?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "the duplex of the link",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "the type of link",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "the speed of the link",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "the bridge priority",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.3.2",
+          "explanation": "In the Spanning Tree Protocol (STP), the path cost is a critical metric used to determine the best loop-free path from a nonroot bridge to the root bridge. By default, this cost is automatically calculated based on the speed or bandwidth of the link. The protocol uses an inverse relationship where links with higher bandwidth are assigned lower cost values, while slower links are assigned higher costs. This logic ensures that STP prefers faster paths for data transmission when electing root ports and designated ports. Although network administrators have the flexibility to manually configure these costs to manipulate the active topology for specific traffic engineering needs, the default operational behavior of a switch relies entirely on the detected interface speed to establish the most efficient, redundant network environment."
+        },
+        {
+          "id": 2,
+          "originalNumber": 2,
+          "questionType": "choice",
+          "question": "Which of these is the calculation used to determine the root port in the spanning-tree calculation?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "the first port that becomes active",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "the port with the fastest speed",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "the port with the lowest cost to the root",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "the port that the neighbor switch will forward traffic to",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.3.2",
+          "explanation": "In the Spanning Tree Protocol (STP) operation, after the root bridge has been elected, every non-root bridge must determine its best path back to that root bridge. The switch achieves this by evaluating the cumulative path cost, which represents the sum of the costs of all links leading to the root. The specific interface that offers the lowest cost to the root is designated as the root port. While these path costs are calculated based on the bandwidth of the links by default, the final decision in the spanning-tree calculation specifically relies on identifying the port with the minimum cumulative cost value to ensure the most efficient, loop-free path is selected for traffic forwarding."
+        },
+        {
+          "id": 3,
+          "originalNumber": 3,
+          "questionType": "choice",
+          "question": "Which option is the first criteria in MST used to choose the best path to the root bridge?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "lowest sender BID",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "highest BID",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "lowest root path cost",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "lowest sender port ID",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.7.4",
+          "explanation": "In Multiple Spanning Tree (MST), once the root bridge has been identified, every non-root device must determine the most efficient path to reach it. The protocol utilizes a specific hierarchical sequence of criteria for this calculation, with the lowest root path cost being the primary and first factor considered. This cost is determined by the cumulative bandwidth of the links leading back to the root bridge, where faster links result in lower costs. If and only if multiple paths share the same minimum cost, the protocol will then proceed to evaluate subsequent tie-breakers, which include the lowest sender Bridge ID (BID) and finally the lowest sender Port ID. By prioritizing the path cost first, MST ensures that data is forwarded through the highest-capacity route available while maintaining a loop-free topology."
+        },
+        {
+          "id": 4,
+          "originalNumber": 4,
+          "questionType": "choice",
+          "question": "Which command will allow an administrator to view which MAC addresses are mapped to which ports on a Cisco Catalyst switch?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show address-table",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show mac address-table",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show mac-address table",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "show address table",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 3.4.2",
+          "explanation": "The show mac address-table command is the standard diagnostic tool used to display the contents of the Content-Addressable Memory (CAM) table on a Cisco Catalyst switch. This table is fundamental to Layer 2 operation, as it maps learned source MAC addresses to the specific physical ports and VLANs where they were detected. When a switch receives a frame, it records the source address and the inbound port to build this forwarding database, allowing it to forward subsequent traffic to the correct destination rather than flooding it out of all ports. By executing this command in privileged EXEC mode, an administrator can effectively verify device connectivity, troubleshoot VLAN assignment errors, and monitor how the switch is dynamically learning about the attached network environment. Additionally, the command allows for specific views, such as filtering by a particular interface or VLAN, which is essential for isolating connectivity issues in complex campus designs."
+        },
+        {
+          "id": 5,
+          "originalNumber": 5,
+          "questionType": "choice",
+          "question": "Which option is not an RSTP port state?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "learning",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "blocking",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "discarding",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "forwarding",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.5.7",
+          "explanation": "In the evolution from the original 802.1D Spanning Tree Protocol (STP) to the 802.1w Rapid Spanning Tree Protocol (RSTP), the number of port states was reduced and simplified to allow for faster convergence. While traditional STP utilizes five distinct states—disabled, blocking, listening, learning, and forwarding—RSTP consolidates the first three into a single state known as discarding. In the discarding state, the port does not forward user data or learn MAC addresses, though it can still process BPDUs. The learning and forwarding states remain functionally similar across both versions of the protocol. Because the functionalities of the old blocking and listening states are now merged into discarding, \"blocking\" is technically no longer a valid port state in an RSTP-enabled environment."
+        },
+        {
+          "id": 6,
+          "originalNumber": 6,
+          "questionType": "choice",
+          "question": "What does a host without a dynamic routing protocol do when the only default gateway it has configured is unreachable?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "It performs ARP to determine the next gateway to use.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "It forwards packets to the backup router.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "It uses Cisco Discovery Protocol to determine the next available router.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "It is unable to send packets off the local network segment.",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 5.2.0",
+          "explanation": "Most end devices, such as workstations, servers, and printers, are configured with a single static default gateway IP address and do not typically run dynamic routing protocols to learn about network changes. Because these hosts lack the ability to dynamically update their routing information, they rely entirely on that specific gateway to reach any destination outside their local subnet. If that primary gateway becomes unreachable or fails, the host has no mechanism to automatically discover a backup router or an alternative path. As a result, even if redundant routers are physically present on the same segment, the host remains isolated from the rest of the network and is unable to send packets off the local network segment."
+        },
+        {
+          "id": 7,
+          "originalNumber": 7,
+          "questionType": "choice",
+          "question": "Which two of the following commands can be used to check the status of the member interfaces and the logical channel interface? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show etherchannel group-number detail",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "show ip interface brief",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show etherchannel load-balance",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "show etherchannel traffic",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "show etherchannel summary",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 6.6.0",
+          "explanation": "To effectively monitor and troubleshoot an EtherChannel bundle, network administrators utilize specific diagnostic commands that reveal the health of both the logical port-channel and its underlying physical member interfaces. The show etherchannel summary command is the most common tool, providing a concise one-line status for each channel group that indicates whether the logical interface is functional and which specific ports are successfully bundled, suspended, or operating independently. For a more comprehensive analysis, the show etherchannel <group-number> detail command provides granular data regarding the port-channel's operational state and protocol-specific parameters, which is essential for identifying why a link might not be aggregating correctly. While other commands like show etherchannel load-balance and show etherchannel traffic are useful for analyzing the distribution of frames across links or viewing throughput statistics, they do not provide the primary status information required to verify if the interfaces are correctly bundled into the logical channel. Therefore, these two specific commands are the standard for verifying the basic operational integrity of a Layer 2 or Layer 3 EtherChannel."
+        },
+        {
+          "id": 8,
+          "originalNumber": 8,
+          "questionType": "choice",
+          "question": "Which statement about QoS trust boundaries or domains is true?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "The trust boundary is always a router.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "The IP phone is a common trust boundary.",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "The service provider and the enterprise network need to be one single trust domain or else routing will not work.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "PCs, printers, and tablets are usually part of a trusted domain.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.3.2",
+          "explanation": "In network design, a trust boundary is the specific point where a device identifies and marks traffic, determining whether the existing QoS markings on a packet should be accepted or rewritten before it enters the trusted domain. An IP phone is a classic example of a common trust boundary because it can classify its own voice traffic as high priority while treating data from an attached PC as untrusted, ensuring that only legitimate markings are propagated through the network. By contrast, end-user devices such as PCs, printers, and tablets are typically categorized as part of an untrusted domain because their traffic markings cannot be verified and could be manipulated by users to seek unfair priority. While trust boundaries are frequently established at the edge switch in campus environments, they are not strictly limited to routers, and it is common for enterprise and service provider networks to maintain distinct trust domains rather than a single shared one. Establishing these boundaries allows administrators to protect network resources by only acting upon markings from devices they manage, thereby preventing congestion caused by unauthorized or malicious traffic prioritization."
+        },
+        {
+          "id": 9,
+          "originalNumber": 9,
+          "questionType": "matching",
+          "question": "Place the steps to configure EtherChannel in the correct order.",
+          "chooseCount": 4,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "pairs": [
+            {
+              "id": "p1",
+              "prompt": "Step 1",
+              "answer": "Identify the ports to use on each switch"
+            },
+            {
+              "id": "p2",
+              "prompt": "Step 2",
+              "answer": "Configure the channel group on the interface"
+            },
+            {
+              "id": "p3",
+              "prompt": "Step 3",
+              "answer": "Configure the port channel interface"
+            },
+            {
+              "id": "p4",
+              "prompt": "Step 4",
+              "answer": "Verify connectivity"
+            }
+          ],
+          "options": [],
+          "topic": "Topic 6.4.0",
+          "explanation": null
+        },
+        {
+          "id": 10,
+          "originalNumber": 10,
+          "questionType": "choice",
+          "question": "Which command can be used to set the aging time of entries in the MAC address table?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "address-table [time] aging-time",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "mac address-table aging-time [time]",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "mac aging-time [time]",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "address-table aging-time [time]",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "mac address-table [time] aging-time",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 3.4.2",
+          "explanation": "The mac address-table aging-time command is the standard global configuration command used to set the duration that a dynamically learned entry remains in the switch's MAC address table before being removed due to inactivity. By default, most Cisco Catalyst switches utilize an aging timer of 300 seconds, but administrators can modify this value to optimize how the switch manages its Content-Addressable Memory (CAM) table. Reducing the aging time can help clear out stale entries more quickly in highly dynamic environments, while increasing it can prevent excessive unknown unicast flooding by keeping addresses in the table for longer periods. While the show mac address-table command is primarily used for verification and troubleshooting, the aging-time configuration is essential for maintaining the overall efficiency and accuracy of the Layer 2 forwarding database."
+        },
+        {
+          "id": 11,
+          "originalNumber": 11,
+          "questionType": "choice",
+          "question": "Assuming interface FastEthernet 0/3 is up, which two commands would allow you to verify that the interface is set to trunk mode? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show interface trunk",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "show interface FastEthernet0/3 switchport",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "show vlan all",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "show interface vlan",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "show interface FastEthernet0/3",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 3.3.2",
+          "explanation": "To verify whether a specific interface like FastEthernet 0/3 is correctly operating in trunk mode, network administrators typically rely on two primary verification commands that provide different levels of detail. The show interfaces trunk command is an essential tool because it displays a concise summary of all interfaces currently functioning as trunks, explicitly showing their operational status, the encapsulation type (such as 802.1Q), the native VLAN, and the range of VLANs allowed to pass across the link. Alternatively, the show interface FastEthernet0/3 switchport command provides a more granular look at the Layer 2 configuration of that specific port, allowing a technician to distinguish between the \"Administrative Mode\" (the configured setting) and the \"Operational Mode\" (the actual current state). This is particularly important in environments using negotiation protocols like DTP, as it confirms that the port has successfully transitioned into trunking mode. While commands like show vlan can show which access ports are assigned to specific VLANs, they do not typically list trunk ports because trunks are not members of a single VLAN but rather carry traffic for many. Therefore, combining these two commands provides a definitive confirmation of the trunk's operational integrity and configuration."
+        },
+        {
+          "id": 12,
+          "originalNumber": 12,
+          "questionType": "choice",
+          "question": "Which redundancy mode on Catalyst switches has the effect of the standby module reloading every other module and initializing all supervisor functions?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "RPR",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "HSRP",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "RPR+",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "VRRP",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "SSO",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.7.0",
+          "explanation": "Route Processor Redundancy (RPR) is a redundancy mode on Cisco Catalyst switches where the standby supervisor module is only partially booted and initialized. Because it is not fully ready to take over, when the active supervisor fails, the standby module must reload every other module in the chassis and then initialize all the supervisor functions from scratch. This process results in a significant delay during failover because the switch essentially performing a cold start for its line cards and internal processes. This is distinct from more advanced modes like RPR+, which does not reload other modules, or Stateful Switchover (SSO), which maintains Layer 2 information to ensure a near-seamless transition without link flapping."
+        },
+        {
+          "id": 13,
+          "originalNumber": 13,
+          "questionType": "choice",
+          "question": "Which advanced classification tool can be used to classify data applications?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "PDLM",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "ToS",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "NBAR",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "DSCP",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.4.3\n\nN",
+          "explanation": "BAR (Network-Based Application Recognition) is a sophisticated classification tool that operates from Layer 4 to Layer 7 of the OSI model, providing far more granular visibility than traditional methods. Unlike basic classifiers that rely on static IP addresses or well-known port numbers, NBAR utilizes deep packet inspection to look inside the packet payload and identify application layer protocols. It achieves this by matching traffic against a Packet Description Language Module (PDLM), which acts as a database of application signatures, making it particularly effective for identifying peer-to-peer applications or protocols that negotiate ports dynamically. The most recent version, NBAR2, further expands these capabilities by recognizing a vast array of protocols, including those that do not use standard TCP or UDP ports. By accurately identifying specific data applications, NBAR allows administrators to implement precise QoS policies, such as marking or policing, ensuring that mission-critical applications receive the necessary network resources while managing lower-priority traffic."
+        },
+        {
+          "id": 14,
+          "originalNumber": 14,
+          "questionType": "choice",
+          "question": "What is the correct command for configuring load balancing on an EtherChannel link?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Switch(config)# port-channel load-balance method",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Switch(config-if)# port-channel number load-balance method",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Switch(config)# channel-group number load-balance method",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Switch(config-if)# channel-group number load-balance method",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 6.5.0",
+          "explanation": "EtherChannel performs load balancing by distributing traffic across the physical links within a bundle based on the results of a specific hashing algorithm. The correct command to configure this behavior is port-channel load-balance [method], which must be executed in global configuration mode because the selected method applies to all EtherChannels configured on the device. According to the sources, it is impossible to have different load-balancing methods for different EtherChannels on a single switch; therefore, any change to this setting affects every logical link simultaneously. Administrators can verify the available hashing options—such as source-MAC, destination-IP, or a combination of both—by using the context-sensitive help command port-channel load-balance ? to ensure the most efficient traffic distribution for their specific network environment."
+        },
+        {
+          "id": 15,
+          "originalNumber": 15,
+          "questionType": "matching",
+          "question": "Match the question with the task that involves QoS policies.",
+          "chooseCount": 3,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "pairs": [
+            {
+              "id": "p1",
+              "prompt": "Define classes of traffic",
+              "answer": "Which traffic do we care about?"
+            },
+            {
+              "id": "p2",
+              "prompt": "Define QoS policies for classes",
+              "answer": "What will be done to this traffic?"
+            },
+            {
+              "id": "p3",
+              "prompt": "Apply a service policy",
+              "answer": "Where will this policy be implemented?"
+            }
+          ],
+          "options": [],
+          "topic": "Topic 7.5.1",
+          "explanation": null
+        },
+        {
+          "id": 16,
+          "originalNumber": 16,
+          "questionType": "choice",
+          "question": "Which two of the following options correctly define the characteristics for EtherChannel? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "high bandwidth",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "load sharing across links",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "low convergence timing",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "server scalability",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "multiple logical ports for RSTP+",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 6.2.0",
+          "explanation": "EtherChannel technology is specifically designed to aggregate multiple physical Ethernet links into a single logical link to overcome bandwidth limitations and provide redundancy. According to the sources, the primary characteristics of EtherChannel include providing high bandwidth by combining the capacity of up to eight physical ports and enabling load sharing across links to distribute traffic efficiently. This aggregation allows the Spanning Tree Protocol (STP) to treat the bundle as one logical port, which prevents loop-avoidance mechanisms from blocking redundant paths and ensures all physical links remain active. While EtherChannel does improve network resilience and allows for faster recovery if a single link fails, its core definitions in the technical documentation emphasize the increase in total throughput and the ability to balance traffic across the aggregated members. Therefore, high bandwidth and load sharing are the fundamental characteristics that define its operational purpose in a campus network."
+        },
+        {
+          "id": 17,
+          "originalNumber": 17,
+          "questionType": "choice",
+          "question": "Which Cisco IOS router command would disable Cisco Express Forwarding on a specific interface?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "router(config)# no ip route-cache cef",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "router(config-if)# no ip cef",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "router(config)# no ip cef",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "router(config-if)# no ip route-cache cef",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 2.5.0",
+          "explanation": "Cisco Express Forwarding (CEF) is the default and most efficient switching mechanism used by Cisco routers to forward packets at high speeds using hardware-based tables like the FIB and adjacency tables. While CEF is typically enabled globally on the device, it can be disabled on a specific interface by using the command no ip route-cache cef in interface configuration mode. This action is often taken during troubleshooting to force the router to use process switching for that specific interface, allowing the CPU to examine every packet individually, although this significantly degrades performance. It is important to note that while the provided sources describe the characteristics of CEF, fast switching (route caching), and process switching, the specific command syntax is based on general Cisco IOS knowledge and is not explicitly detailed in the provided excerpts."
+        },
+        {
+          "id": 18,
+          "originalNumber": 18,
+          "questionType": "choice",
+          "question": "Which two options are IEEE variants of STP? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "MSTP",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "VRRP",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "RSTP",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Rapid PVST+",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "PVST+",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.4.0",
+          "explanation": "The Spanning Tree Protocol (STP) has evolved through several standards to provide loop-free redundancy, with RSTP and MSTP being the two primary variants defined by the IEEE. RSTP, or IEEE 802.1w, was developed to address the slow convergence of the original 802.1D standard, allowing network ports to transition to a forwarding state much faster. MSTP, or IEEE 802.1s, further enhances network efficiency by grouping multiple VLANs into a single spanning tree instance, which significantly reduces the processing load on the switch's CPU. In contrast, options such as PVST+ and Rapid PVST+ are Cisco-proprietary enhancements rather than standard IEEE variants, although they incorporate IEEE functionalities to provide per-VLAN spanning tree instances. VRRP is not a part of the spanning tree suite at all, as it is an open-standard protocol used for default gateway redundancy. Therefore, MSTP and RSTP are the only official IEEE standards among the choices provided."
+        },
+        {
+          "id": 19,
+          "originalNumber": 19,
+          "questionType": "choice",
+          "question": "What is the default aging time, in seconds, for entries in the MAC address table on a Cisco Catalyst switch?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "1200",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "150",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "600",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "60",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "300",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 3.4.2",
+          "explanation": "The MAC address table, often referred to as the Content-Addressable Memory (CAM) table, is the primary database used by a switch to make Layer 2 forwarding decisions by mapping source MAC addresses to specific physical ports. To ensure that this table remains efficient and does not retain information for devices that have disconnected or moved, the switch implements an aging timer for all dynamically learned entries. By default, the aging time on a Cisco Catalyst switch is 300 seconds (5 minutes). If the switch does not receive a frame with a particular source MAC address within this five-minute window, the entry is automatically purged from the table to make room for new information. This value represents a balance between minimizing \"unknown unicast flooding\" and maintaining an accurate, up-to-date forwarding table. It is important to distinguish this from the \"Aging Time\" often seen in Spanning Tree Protocol (STP) outputs (such as 15 seconds), which is a shortened timer used only during topology changes to quickly clear stale network paths. While the specific value of 300 seconds is not explicitly stated in the provided excerpts, it is the standard operational default for Cisco Catalyst switches and was previously identified in our conversation history regarding MAC address table management."
+        },
+        {
+          "id": 20,
+          "originalNumber": 20,
+          "questionType": "choice",
+          "question": "Which layer should provide the highest switching speeds?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "none of the above",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "distribution",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "access",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "core",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 1.3.2",
+          "explanation": "In the Cisco hierarchical network design model, the core layer serves as the high-speed backbone for the entire campus network, and its primary objective is to switch packets as fast as possible. To maintain these maximum switching speeds, the core is designed with simplicity in mind, avoiding complex policy-based tasks such as packet manipulation, filtering, or sophisticated QoS services that are typically handled at the distribution layer. By focusing on providing nonstop connectivity, high redundancy, and near-immediate data-flow recovery, the core ensures that large volumes of traffic aggregated from the access and distribution layers move efficiently across the network without introducing unnecessary latency. This specialized focus on pure performance and availability makes the core the layer that requires the highest switching capacities and the fastest convergence within the enterprise architecture."
+        },
+        {
+          "id": 21,
+          "originalNumber": 21,
+          "questionType": "choice",
+          "question": "Where is it best to deploy the root guard?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Only access ports.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Ports that connect to switches that are root bridge.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "All ports connecting switches.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Ports that connect to switches that should not be the root bridge.",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 4.9.0",
+          "explanation": "Root guard is a critical security feature used in Spanning Tree Protocol (STP) to prevent unauthorized or rogue switches from becoming the root bridge and disrupting the network hierarchy. It is best deployed toward ports that connect to switches that should not be the root bridge, as this allows administrators to strictly enforce the intended placement of the root bridge across the campus design. When a port with root guard enabled receives a superior BPDU—one indicating a better bridge ID than the current root—the switch ignores the BPDU and places the interface into a root-inconsistent state, effectively blocking all data traffic to prevent the topology from changing. This mechanism ensures that even if a network attacker or a misconfigured device attempts to claim the root role, the primary traffic paths remain stable and predictable, protecting the network from potential man-in-the-middle attacks or loop-induced downtime."
+        },
+        {
+          "id": 22,
+          "originalNumber": 22,
+          "questionType": "choice",
+          "question": "Which layer provides routing and implements policies (filtering, security, and QoS)?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "core",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "backbone",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "distribution",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "access",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.4.2",
+          "explanation": "The distribution layer acts as the primary service and control boundary between the access layer and the core in a hierarchical network design. Unlike the core layer, which is focused strictly on high-speed switching, the distribution layer is where routing and packet manipulation are specifically performed. It serves as a demarcation point for implementing policy-based connectivity, including filtering tasks, security policies, and Quality of Service (QoS). By handling these complex functions—such as summarizing routes from the access layer and isolating network problems—the distribution layer ensures that the core remains simple and efficient while providing necessary control over traffic flows throughout the campus environment."
+        },
+        {
+          "id": 23,
+          "originalNumber": 23,
+          "questionType": "choice",
+          "question": "Which command, when issued on a trunking interface, would set a VLAN that is not to be given an 802.1q tag?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "SW2(config-if)# switchport trunk native vlan 99",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "SW2(config-if)# switchport trunk no-tagging vlan 99",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "SW2(config-if)# switchport native vlan 99",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "SW2(config-if)# trunk native vlan 99",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 3.3.1",
+          "explanation": "In the IEEE 802.1Q trunking protocol, all frames are typically assigned a 4-byte tag to identify their VLAN membership as they traverse a trunk link. However, there is a special designation known as the native VLAN. By default, frames belonging to the native VLAN are carried over the trunk link untagged (without an 802.1Q header).\n\nWhile the default native VLAN is VLAN 1, network administrators often change it to a different ID for security purposes. To configure a specific VLAN—such as VLAN 99—to be the native VLAN that is not given an 802.1Q tag, you must use the command switchport trunk native vlan 99 while in interface configuration mode. Once this is set, the switch will transmit traffic for VLAN 99 without a tag and expect to receive untagged traffic from the neighboring switch for that same VLAN. The other options provided do not follow the standard Cisco IOS command syntax."
+        },
+        {
+          "id": 24,
+          "originalNumber": 24,
+          "questionType": "choice",
+          "question": "Which option is a Layer 2 QoS marking?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "DSCP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "QoS group",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "EXP",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "CoS",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 7.4.1",
+          "explanation": "CoS (Class of Service) is the standard Layer 2 Quality of Service marking used with Ethernet frames. It consists of a 3-bit field located within the Layer 2 header, which provides eight different priority levels for traffic as it moves across a switched network. While CoS is used for wired Ethernet connections, a similar 3-bit field called TID (Traffic Identifier) is used for Layer 2 marking in wireless 802.11 MAC frames.\n\nIn contrast, other options like DSCP (Differentiated Services Code Point) are Layer 3 markings. DSCP utilizes a 6-bit value within the IPv4 Type of Service (ToS) field or the IPv6 Traffic Class field, providing more granular classification that carries end-to-end significance across routers. Because Layer 2 headers are often stripped and rewritten by routers, CoS markings are typically used to maintain priority only within a local broadcast domain or across trunk links before being mapped to Layer 3 markings for wider network transit."
+        },
+        {
+          "id": 25,
+          "originalNumber": 25,
+          "questionType": "choice",
+          "question": "Which table is used to make the decision on whether a frame should even be forwarded based on the frame being permitted in an ACL?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "CAM",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "MAC address table",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "IP Routing table",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "TCAM",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 2.2.1",
+          "explanation": "The TCAM (Ternary Content-Addressable Memory) is the specific hardware table used to store Access Control Lists (ACLs), Quality of Service (QoS), and other information generally associated with upper-layer processing.\n\nWhen a switch receives a frame and must decide, \"Should it even forward the frame?\", it relies on the TCAM to identify the frame according to the configured ACLs. A single lookup in the TCAM is all that is required to determine whether a frame is permitted or denied.\n\nCisco switches are designed to perform CAM (Layer 2 forwarding) and TCAM (ACL/QoS) lookups in parallel. This hardware-based approach ensures that the switch can enforce security policies and filtering tasks at wire speed without any performance degradation. In contrast, the CAM table (or MAC address table) is primarily used for making Layer 2 forwarding decisions based on destination MAC addresses, not for enforcing ACL permit/deny logic."
+        },
+        {
+          "id": 26,
+          "originalNumber": 26,
+          "questionType": "choice",
+          "question": "What cloud connectivity do organizations use to connect to a public cloud with a private connection?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Direct Connect",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Private Connect",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "MPLS Direct Connect",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Cloud OnRamp",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.6.1\n\nD",
+          "explanation": "irect Connect is a cloud connectivity option that allows an organization to use a private connection to connect to a public cloud. Historically, connecting to a public cloud was done via a public network, such as using a VPN tunnel through the internet; however, many major providers like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud now offer Direct Connect as a way to use a private network instead.\n\nThis method offers several distinct advantages over traditional internet-based connections:\n\n• Security: It provides an extra layer of security because the data is transferred over a private network rather than the public internet.\n\n• Reliability: Because the internet can be unpredictable and prone to failures, using a private connection gives an organization more control over the reliability mechanisms it implements.\n\n• Speed: Private connections typically allow for faster speeds than standard internet connections.\n\nWhile MPLS Direct Connect also involves private paths, it specifically refers to situations where an organization connects via an MPLS provider to a \"Direct Connect Partner\" to reach the cloud. Cloud OnRamp is a Cisco SD-WAN feature used to simplify and automate these connections rather than being the connection type itself."
+        },
+        {
+          "id": 27,
+          "originalNumber": 27,
+          "questionType": "choice",
+          "question": "Which inter-VLAN routing option uses a router with individual physical interfaces connected to a switchport configured as access ports in separate VLANs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "router on a stick",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Layer 3 switch",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "dynamic routing",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Traditional inter-VLAN routing",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 3.5.1",
+          "explanation": "Traditional inter-VLAN routing (referred to in the sources as Option 1) is the method that requires multiple physical interfaces on both the router and the switch. In this setup, each individual router interface is connected to a specific switch port that has been associated with a single-data VLAN, which characterizes that port as an access port. Devices on these separate VLANs send traffic through the dedicated physical link to the router to reach other subnets.\n\nWhile this configuration facilitates the routing process in a multi-VLAN environment, it is not very scalable because the router can quickly run out of physical interfaces as more VLANs are added to the network. This is distinct from router on a stick, which uses a single physical interface configured as a trunk link to carry multiple VLANs via subinterfaces, or a Layer 3 switch, which uses internal virtual interfaces to route between VLANs at wire speed."
+        },
+        {
+          "id": 28,
+          "originalNumber": 28,
+          "questionType": "choice",
+          "question": "An end-user PC should be connected to which hierarchical layer?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "access",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "core",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "transport",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "distribution",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.4.1",
+          "explanation": "The access layer is the specific tier in the hierarchical network design where end devices (such as PCs, printers, and cameras) attach to the wired portion of the campus network. Its primary purpose is to grant user access to network services and devices. Because it must accommodate a wide variety of connected devices and support services like Power over Ethernet (PoE), the access layer is considered one of the most feature-rich parts of the network.\n\nIn contrast, the distribution layer acts as a boundary for routing and policy enforcement, while the core layer serves as a high-speed backbone that is explicitly designed not to have any directly attached user connections."
+        },
+        {
+          "id": 29,
+          "originalNumber": 29,
+          "questionType": "choice",
+          "question": "Which command would set an interface to trunk mode?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "interface mode trunk",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "switchport trunk active",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "switchport trunk",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "switchport mode trunk",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 3.3.2",
+          "explanation": "To configure a switch port to function as a trunk link, which allows it to carry traffic for multiple VLANs simultaneously, you must use the switchport mode trunk command while in interface configuration mode. This command manually overrides any dynamic negotiation and forces the port into trunking mode.\n\nOn many Cisco Catalyst switches, this command also activates the Dynamic Trunking Protocol (DTP) to manage the trunk negotiation with the connected device. Once the command is applied, you can verify the operational state of the port by using commands like show interfaces trunk or show interfaces switchport to ensure the \"Operational Mode\" has transitioned to trunk. In contrast, the other options provided—such as interface mode trunk or switchport trunk—do not match the standard Cisco IOS syntax for setting the administrative mode of an interface."
+        },
+        {
+          "id": 30,
+          "originalNumber": 30,
+          "questionType": "choice",
+          "question": "Which option is used to manage the automation of network device configuration?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Cisco DNA Center",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Cisco SD-WAN",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco SD-Access",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Cisco vBond",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.2.0",
+          "explanation": "Cisco DNA Center is the centralized controller designed to automate network device configuration and management to help an organization achieve its specific intent. By using open APIs, it reduces operational complexity and allows for the very fast, lower-risk deployment of network devices and services through either a user interface or existing orchestration systems.\n\nWhile other technologies mentioned in the sources also involve automation, they have different focuses:\n\n• Cisco SD-Access uses automation specifically for orchestrating user and device policies (such as onboarding and segmentation) across a network fabric.\n\n• Cisco SD-WAN is a secure, cloud-based architecture managed through the Cisco vManage console to establish overlay fabrics between different sites.\n\n• Cisco DNA Center remains the primary solution for the overarching automation of the device configurations themselves within the Cisco Networking roadmap."
+        },
+        {
+          "id": 31,
+          "originalNumber": 31,
+          "questionType": "choice",
+          "question": "Which load-balancing option on a Cisco Catalyst switch will use MAC addresses for load-balancing?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "src-dst-port",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "src-dst-name",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "src-dst-ip",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "src-dst-mac",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 6.5.0",
+          "explanation": "EtherChannel uses a hashing algorithm to distribute traffic across the physical links in a bundled group. The src-dst-mac option specifically utilizes both the source and destination MAC addresses of the incoming frames to calculate this hash value. By using both addresses, the switch can distribute traffic more effectively between different pairs of hosts, allowing packets sent from host A to host B and host A to host C to potentially use different physical ports in the channel. While the default load-balancing mode on many Cisco switches is often src-dst-ip, administrators can manually select src-dst-mac to ensure load distribution occurs at Layer 2. This is particularly useful in environments where a significant amount of non-IP traffic is present or when traffic needs to be balanced across a local segment based on hardware addresses. It is important to note that a single conversation between two specific devices will always be sent through the same physical link to maintain the proper order of frames."
+        },
+        {
+          "id": 32,
+          "originalNumber": 32,
+          "questionType": "choice",
+          "question": "Which type of RSTP link type is full duplex and assumes that the port is connected to a single device at the other end of the link?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "shared",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "serial",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "multilink",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "point-to-point",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 4.5.9",
+          "explanation": "In Rapid Spanning Tree Protocol (RSTP), link types are used to categorize ports to determine how quickly they can transition to a forwarding state. The point-to-point link type is specifically used for ports operating in full-duplex mode. This link type assumes that the port is connected to only a single device (such as another switch) at the other end of the link.\n\nBecause there is only one other device on the segment, the switch can use a proposal-and-agreement handshake to allow the designated port to make a rapid transition to the forwarding state without waiting for traditional timer-based delays. While this link type is typically determined automatically based on the duplex setting of the interface, it can also be manually overwritten with a specific port configuration. In contrast, links that are not point-to-point are considered shared links (labeled as \"Shr\" in command outputs), which occur on half-duplex interfaces and do not support rapid transitions."
+        },
+        {
+          "id": 33,
+          "originalNumber": 33,
+          "questionType": "choice",
+          "question": "Which of these is the correct multicast address that VRRP uses to send advertisements?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "224.0.0.4",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "224.0.0.2",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "224.0.0.16",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "224.0.0.18",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 5.6.1",
+          "explanation": "The correct multicast address used by the Virtual Router Redundancy Protocol (VRRP) to send advertisements is 224.0.0.18.\n\nIn a VRRP configuration, the Master router sends periodic advertisements to this specific multicast address to communicate its status to the Backup routers. These advertisements are typically sent at a default Advertisement interval of 1.000 second. If the Backup routers fail to receive an advertisement within the Master Down interval, they assume the Master has failed and will initiate a transition to become the new Master router. This mechanism ensures transparent default gateway failover for host devices on the network."
+        },
+        {
+          "id": 34,
+          "originalNumber": 34,
+          "questionType": "choice",
+          "question": "How many layers are recommended in the hierarchical network design?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "3",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "1",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "2",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "4",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.3.2",
+          "explanation": "The recommended Cisco hierarchical network design is a three-tier architecture consisting of the access, distribution, and core layers. This modular framework simplifies the tasks required for internetworking by allowing each layer to focus on specific functions:\n\n• Access Layer: Used to grant user access to network devices and end systems like PCs and printers.\n\n• Distribution Layer: Aggregates wiring closets, segments workgroups, and acts as a service and control boundary where routing, security policies, and QoS are implemented.\n\n• Core Layer: Serves as the high-speed backbone for the campus, designed to switch packets as fast as possible with high availability.\n\nWhile some smaller networks may use a \"collapsed core\" design with only two physical tiers, the fundamental hierarchical model is defined by these three functional layers."
+        },
+        {
+          "id": 35,
+          "originalNumber": 35,
+          "questionType": "choice",
+          "question": "Which command can be used to verify the status of HSRP on the Cisco IOS router?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show interface hsrp",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show failover",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show standby",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "show standby router",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "show hsrp",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.4.2",
+          "explanation": "The primary command used to verify the status, state, and configuration of the Hot Standby Router Protocol (HSRP) on a Cisco IOS router is show standby. This command provides comprehensive information about HSRP groups, including the virtual IP address, the virtual MAC address, and the current HSRP state (such as Active, Standby, or Listen).\n\nIf a network administrator needs a condensed summary of all HSRP groups on the device, they can use the show standby brief command. This summary typically includes the interface, group number, priority, pre-emption status, local state, and the IP addresses of both the active and standby routers. Additionally, show standby is used to verify advanced HSRP features, such as interface and object tracking or configured authentication methods."
+        },
+        {
+          "id": 36,
+          "originalNumber": 36,
+          "questionType": "choice",
+          "question": "Which three features are properties and one-way requirements for voice traffic? (Choose three.)",
+          "chooseCount": 3,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "The required bandwidth is roughly between 30 and 128 kbps.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "The required bandwidth is roughly between 0.5 and 20 Mbps.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Latency should be below 400 ms.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Latency should be below 150 ms.",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "Voice traffic is smooth.",
+              "isCorrect": true
+            },
+            {
+              "id": "f",
+              "text": "Voice traffic is bursty.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.2.5",
+          "explanation": "Voice traffic is smooth: According to the sources, voice traffic is categorized as real-time traffic that comprises constant and predictable bandwidth and packet arrival times. This \"predictable\" nature defines the traffic as smooth, as opposed to data traffic which is characterized as bursty and unpredictable.\n\nLatency should be below 150 ms: Voice is extremely time-critical. While the sources note that interactive video shares the same delay and jitter requirements as voice, they emphasize that timely delivery of data is crucial and that real-time applications do not retransmit lost data. To maintain the quality of a two-way conversation, the industry-standard one-way latency requirement is 150 ms or less. (Note: While snippet mentions a 150 ms switchover time for high availability, the 150 ms latency requirement for voice is a standard networking principle used to ensure transmission quality).\n\nRequired bandwidth (30–128 kbps): The sources mention that voice packets are generally small compared to video packets. Because voice uses constant bit-rate codecs, its bandwidth requirement is relatively low and stable, typically ranging between 30 and 128 kbps depending on the specific codec and header overhead used. By contrast, video traffic requires significantly higher bandwidth, often in the Mbps range."
+        },
+        {
+          "id": 37,
+          "originalNumber": 37,
+          "questionType": "choice",
+          "question": "Which two protocol choices do you have when you are implementing an EtherChannel bundle? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "LAPD",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "PAgP",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "LACP",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "PADP",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "dot1Q",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 6.3",
+          "explanation": "EtherChannel can be established using two main negotiation protocols that allow switches to automatically form a bundle by exchanging control packets:\n\n• LACP (Link Aggregation Control Protocol): This is part of an IEEE specification (802.3ad). Because it is a standard, it is used to facilitate EtherChannels in mixed-vendor environments. It ensures configuration consistency regarding speed, duplex settings, and VLAN information before bundling ports.\n\n• PAgP (Port Aggregation Protocol): This is a Cisco proprietary protocol, meaning it only works on Cisco devices. It provides negotiation benefits similar to LACP by identifying neighbors and comparing port capabilities to ensure they match before forming the logical link.\n\nWhile a third option exists—Static persistence (the \"on\" mode)—it is a manual configuration that does not use a negotiation protocol to exchange control packets. Other options provided, such as dot1Q, refer to IEEE 802.1Q, which is a protocol used for VLAN trunking and tagging rather than link aggregation."
+        },
+        {
+          "id": 38,
+          "originalNumber": 38,
+          "questionType": "choice",
+          "question": "Which option is a congestion avoidance mechanism?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "QPM",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "WRED",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "LFI",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "MRF",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.4.7",
+          "explanation": "WRED (Weighted Random Early Detection) is a congestion avoidance mechanism that manages network resources by selectively dropping packets before a queue becomes completely full. While standard \"tail drop\" mechanisms only discard packets when a buffer is already overflowed, WRED monitors the buffer depth and performs early discards on random packets once a minimum defined threshold is exceeded.\n\nThis proactive dropping is primarily used to prevent TCP global synchronization, which occurs when multiple TCP senders simultaneously reduce their transmission rates due to a tail drop, leading to suboptimal bandwidth utilization. By using WRED, the switch can skew the randomness of these drops based on traffic weights, meaning more important traffic is less likely to be dropped than less important traffic during periods of congestion."
+        },
+        {
+          "id": 39,
+          "originalNumber": 39,
+          "questionType": "choice",
+          "question": "Which command can you use to verify the MST port cost for instance 1?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show spanning-tree1",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show spanning tree cost1",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show spanning-tree mst1",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "show spanning-tree mst instance1",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.7.6",
+          "explanation": "To verify the configuration and operational status of a specific Multiple Spanning Tree (MST) instance, including the port cost and port priority, the correct command is show spanning-tree mst <instance-id>.\n\nIn MST, port parameters like cost are not global but are instead configured and maintained per instance. This allows different instances to have different path costs for the same physical interface, enabling load balancing across the network topology. When you issue the command show spanning-tree mst 1, the switch displays a table listing each interface's role, status, cost, and priority number specifically for MST instance 1.\n\nThe other options provided are incorrect because they do not follow the standard Cisco IOS syntax for MST verification:\n\n• show spanning-tree 1 would typically refer to a specific VLAN in a PVST+ environment.\n\n• The keywords \"cost\" and \"instance\" are not used as standalone arguments in the basic verification command in the manner suggested by the other options."
+        },
+        {
+          "id": 40,
+          "originalNumber": 40,
+          "questionType": "choice",
+          "question": "Which option is the protocol that will prevent a bridging loop if BPDUs are received on an interface that has the STP calculation disabled?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "RSTP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "BPDU guard",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "PortFast",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "MST",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 4.8.0",
+          "explanation": "BPDU guard is a Cisco enhancement used to prevent bridging loops on ports where traditional Spanning Tree Protocol (STP) calculations have been effectively bypassed using PortFast.\n\nWhen PortFast is enabled on an access port, the port transitions immediately from blocking to forwarding, skipping the standard listening and learning states to allow end devices to connect quickly. Because these ports are intended only for end-user devices (like PCs or printers) that do not send BPDUs, receiving a BPDU on such an interface would indicate that another switch or bridge has been connected. If left unchecked, this could create a catastrophic bridging loop.\n\nBPDU guard protects the network by monitoring these interfaces; if it detects an incoming BPDU, it immediately shuts down the port and places it into an errdisable state. This ensures that the STP domain borders are enforced and the network topology remains predictable and loop-free."
+        },
+        {
+          "id": 41,
+          "originalNumber": 41,
+          "questionType": "choice",
+          "question": "Which option is the default priority for VRRP?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "110",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "1",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "255",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "100",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 5.6.1",
+          "explanation": "The default priority for a router participating in Virtual Router Redundancy Protocol (VRRP) is 100. This priority value is used during the election process to determine which device will function as the Master router for the group.\n\nKey details regarding VRRP priority include:\n\n• Master Election: The router with the highest priority is elected as the Master. If priorities are equal, the router with the highest IP address becomes the Master.\n\n• Manual Configuration: Administrators can manually set the priority to a higher value (such as 110) to ensure a specific router becomes the Master for deterministic network behavior.\n\n• IP Address Owner: If a router's actual physical IP address is used as the virtual IP address for the group, that router will automatically become the Master, and priorities are ignored in the election process.\n\n• Verification: The current priority and state of a VRRP group can be verified using the show vrrp or show vrrp brief commands."
+        },
+        {
+          "id": 42,
+          "originalNumber": 42,
+          "questionType": "choice",
+          "question": "How many bits constitute the DSCP field of the IP header?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "6 bits",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "8 bits",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "3 bits",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "4 bits",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.4.1",
+          "explanation": "The Differentiated Services Code Point (DSCP) is a Layer 3 marking mechanism that utilizes a 6-bit value within the IPv4 Type of Service (ToS) field or the IPv6 Traffic Class field.\n\nHistorically, the ToS field used a 3-bit marking known as IP Precedence, which only allowed for eight different priority levels. The transition to the 6-bit DSCP field was implemented to provide more granular classification for modern network traffic while maintaining backward compatibility with the original IP Precedence standards. By using 6 bits, DSCP allows for up to 64 different traffic classes, enabling network administrators to more precisely manage Quality of Service (QoS) for various types of data, voice, and video traffic."
+        },
+        {
+          "id": 43,
+          "originalNumber": 43,
+          "questionType": "choice",
+          "question": "Which two commands could be issued on R1 to verify the HSRP group, priority, and state of a Cisco IOS router? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show hsrp brief",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show standby",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "show standby detail",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "show standby brief",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "show hsrp",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.4.7",
+          "explanation": "To verify the configuration and operational status of the Hot Standby Router Protocol (HSRP) on a Cisco IOS router, the following two commands are primarily used:\n\n• show standby: This command provides a detailed look at the HSRP status. It displays the HSRP group number, the current state (such as Active or Standby), the virtual IP and MAC addresses, and the priority of the router. It also includes information on timers and whether pre-emption is enabled.\n\n• show standby brief: This command offers a condensed, tabular summary of the HSRP information. It is highly useful for quickly verifying the Group, Priority, State, and the IP addresses of the Active and Standby routers for all HSRP-enabled interfaces on the device.\n\nThe other options provided, such as show hsrp or show hsrp brief, do not follow the standard Cisco IOS syntax for HSRP verification as described in the sources. While \"show standby detail\" exists in some Cisco software versions, the sources specifically highlight show standby and its brief counterpart as the primary verification tools."
+        },
+        {
+          "id": 44,
+          "originalNumber": 44,
+          "questionType": "choice",
+          "question": "Which feature can be used to optimize the traffic path for a specific application?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "RSTP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "PBR",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "uRPF",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "OSPF",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 6.8.0",
+          "explanation": "Policy-based routing (PBR) is a feature that allows you to selectively route traffic based on specific criteria or policies instead of relying solely on traditional destination-based routing protocols. It provides a flexible tool for network administrators to implement user-defined policies that direct packets to take different paths across an internetwork.\n\nBy using route maps to match incoming packets, PBR can override the default routing table to forward traffic based on factors like the source IP address. This is particularly useful in complex environments where specific traffic paths must be chosen due to legal, contractual, or political constraints, or simply to optimize the path based on network needs. In contrast, protocols like OSPF focus on traditional destination-based path selection, while RSTP is used for Layer 2 loop prevention."
+        },
+        {
+          "id": 45,
+          "originalNumber": 45,
+          "questionType": "choice",
+          "question": "In HSRP, what are two possible states for the routers? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Standby",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Active",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Subordinate",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Primary",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "Backup",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.4.2",
+          "explanation": "The Hot Standby Router Protocol (HSRP) is designed to provide redundancy for a default gateway by allowing a group of routers to emulate a single virtual router. Within an HSRP group, two primary operational roles are assigned:\n\n• Active Router: This router is responsible for forwarding packets sent to the virtual IP address and responding to ARP requests with the virtual MAC address. It periodically sends hello messages to inform other routers of its status.\n\n• Standby Router: This router's main function is to monitor the operational status of the HSRP group. It listens for hello messages from the active router and is prepared to quickly assume packet-forwarding responsibility if the active router fails.\n\nWhile an HSRP group can contain more than two routers, only one can be Active and one can be Standby at any given time; any additional routers in the group remain in a Listen state. Note that \"Backup\" and \"Master\" are the terms used for similar roles in the VRRP protocol, rather than HSRP."
+        },
+        {
+          "id": 46,
+          "originalNumber": 46,
+          "questionType": "choice",
+          "question": "Which command will allow you to verify that Cisco Express Forwarding is enabled on interface GigabitEthernet 0/0?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show interface cef GigabitEthernet 0/0",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show ip interface GigabitEthernet 0/0 cef",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show ip interface cef",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "show ip interface GigabitEthernet 0/0",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 2.6.0",
+          "explanation": "Cisco Express Forwarding (CEF) is defined in the sources as the fastest switching mechanism and the default mode for Cisco devices. It operates by separating the control plane, which builds the forwarding tables in software, from the data plane, which forwards traffic using hardware. CEF relies on two primary hardware-based tables: the Forwarding Information Base (FIB), which contains destination prefixes, and the adjacency table, which stores Layer 2 next-hop and header rewrite information.\n\nTo verify that CEF is enabled and functioning on a specific interface, the command show ip interface [interface-id] is used. This command provides a comprehensive report of the IP configuration and status for the interface, including a specific line indicating whether IP CEF switching is enabled."
+        },
+        {
+          "id": 47,
+          "originalNumber": 47,
+          "questionType": "choice",
+          "question": "Which statement about network core design is true?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "A collapsed core is a preferred design in big company networks.",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "The core layer is not needed unless you have IP telephony.",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "A dedicated core layer allows the campus to more easily accommodate growth.",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "A collapsed core is preferred to a design where the distribution layer is moved down to the access layer.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.4.4",
+          "explanation": "The core layer serves as the high-speed backbone for campus connectivity and acts as the aggregation point for all other layers and modules. According to the sources, having a dedicated core layer allows the campus to accommodate growth without compromising the design of the distribution blocks, the data center, or the rest of the network. This dedicated layer provides the capacity and scaling capability necessary as the number of distribution blocks, geographical area, or complexity of the campus increases.\n\nIn contrast, a collapsed core design—where core and distribution functions are combined into a single physical switch—is typically used in smaller campuses rather than large enterprise networks. Without a separate core layer, distribution switches would need to be fully meshed, a design that is difficult to scale because it requires a significant increase in cabling and routing complexity for each new building or module added to the network. Therefore, while a collapsed core is efficient for smaller sites, a dedicated core is preferred for its ability to provide scalability and minimize risks during network moves, additions, and changes."
+        },
+        {
+          "id": 48,
+          "originalNumber": 48,
+          "questionType": "choice",
+          "question": "From configuration mode, which command sequence would create VLAN 20 and name the VLAN Voice?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "SW1(config)# vlan 20 name Voice",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "SW1(config)# vlan name Voice SW1(config)# vlan number 20",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "SW1(config)# vlan name Voice number 20",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "SW1(config)# vlan 20 SW1(config-vlan)# name Voice",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 3.2.0",
+          "explanation": "To create a VLAN and assign it a name on a Cisco Catalyst switch, you must use a two-step command sequence starting from global configuration mode. First, you enter the vlan [vlan-id] command, which creates the VLAN in the database and moves the session into VLAN configuration mode (indicated by the (config-vlan)# prompt). Second, while in this sub-mode, you use the name [vlan-name] command to assign the descriptive label.\n\nIn your example:\n\n• SW1(config)# vlan 20 creates the VLAN entry.\n\n• SW1(config-vlan)# name Voice assigns the name \"Voice\" to it.\n\nCreating a VLAN other than the factory default (VLAN 1) causes the switch to update the vlan.dat file, which is stored in flash memory. If you do not manually specify a name, the switch automatically assigns a default name such as VLAN0020."
+        },
+        {
+          "id": 49,
+          "originalNumber": 49,
+          "questionType": "choice",
+          "question": "Which layer supports convergence for voice, wireless, and data?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "distribution",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "access",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "none of the above",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "core",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 1.4.1",
+          "explanation": "The access layer is the specific functional area of the network where end devices, such as PCs, printers, and cameras, attach to the wired campus infrastructure. It supports the convergence of different communication services by serving as the primary connection point for IP phones (voice) and wireless access points (wireless). To facilitate this convergence, the access layer provides essential technologies like Power over Ethernet (PoE) and perpetual power to ensure voice and wireless devices remain operational during reboots. Because it must handle such a wide variety of device types and service requirements, the access layer is defined as one of the most feature-rich parts of the campus network. In modern designs like SD-Access, this layer also helps automate policy for any application across the unified wireless and wired network fabric."
+        },
+        {
+          "id": 50,
+          "originalNumber": 50,
+          "questionType": "choice",
+          "question": "Which command would allow you to see all interfaces that are configured in trunk mode and the VLANs that are allowed on those trunk ports?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "show vlan detail",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "show vlan interfaces",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "show vlan brief",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "show interfaces trunk",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 3.3.2",
+          "explanation": "To verify the configuration and status of trunk ports on a switch, the sources specify that you should use the show interfaces trunk command. This command is essential because it provides a detailed summary of all interfaces currently operating in trunking mode, including their administrative and operational status, encapsulation type (such as 802.1q), and the native VLAN assigned to the port.\n\nMost importantly, the output of show interfaces trunk explicitly lists the VLANs allowed on trunk, as well as the VLANs that are currently active and not pruned by the Spanning Tree Protocol. While other commands like show vlan brief are useful for seeing which access ports are assigned to specific VLANs, they do not provide the detailed trunking parameters and allowed-list information that show interfaces trunk offers. Another useful command for individual port verification is show interfaces [interface-id] switchport, which shows whether a port is operationally a trunk and its allowed VLANs, but show interfaces trunk provides a more efficient global view of all trunking links."
+        },
+        {
+          "id": 51,
+          "originalNumber": 51,
+          "questionType": "choice",
+          "question": "Which of these is an FHRP that Cisco designed to allow multiple active forwarders to load-balance outgoing traffic?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "VRRP",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "GLBP",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "OSPF",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "EIGRP",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "HSRP",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.3.0",
+          "explanation": "The Gateway Load Balancing Protocol (GLBP) is a Cisco-proprietary First Hop Redundancy Protocol (FHRP) specifically designed to overcome the limitations of older protocols like HSRP and VRRP. While HSRP and VRRP provide redundancy by having multiple routers act as a single virtual gateway, they typically only allow one router to actively forward traffic while others remain in a standby or backup state.\n\nGLBP, however, allows for multiple active forwarders to share the load of outgoing traffic from the LAN. It accomplishes this by balancing the host load across multiple uplinks, which provides significantly better bandwidth utilization and scalability at the distribution layer. In contrast, OSPF and EIGRP are Interior Gateway Protocols (IGPs) used for dynamic routing between routers, rather than providing default gateway redundancy for end hosts."
+        },
+        {
+          "id": 52,
+          "originalNumber": 52,
+          "questionType": "choice",
+          "question": "Which two actions on a Cisco router are functions of the control layer between the routing protocol and the firmware data plane microcode? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "collecting the data plane information, such as traffic statistics, from the interface module to the route processor",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "allowing management access",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "managing the internal data and control circuits for the packet-forwarding and control functions",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "forwarding data packets",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 2.4.0",
+          "explanation": "In Cisco Layer 3 devices, the control plane and data plane operate independently to ensure efficient processing and forwarding. The control plane (running on the route processor) manages routing protocols and builds the forwarding logic, while the data plane (utilizing interface modules and switching fabric) is responsible for moving the actual data packets.\n\nAccording to the sources, specific actions define the interaction between the control plane (where routing protocols reside) and the firmware data plane microcode:\n\n• Managing internal circuits: The system must manage the internal data and control circuits required for both packet-forwarding and control functions.\n\n• Collecting statistics: The control plane collects information from the data plane, such as traffic statistics, moving this data from the interface module to the route processor for monitoring and analysis.\n\n• Conveying information: It extracts routing and forwarding-related control information from protocols and configuration data to convey it to the interface modules.\n\nIn contrast, forwarding data packets is a dedicated function of the data plane hardware and microcode, not a function of the control layer interaction. While management access (like SSH or Telnet) is a control plane function, it is not specifically categorized in the sources as an interaction between the routing protocols and the forwarding microcode."
+        },
+        {
+          "id": 53,
+          "originalNumber": 53,
+          "questionType": "choice",
+          "question": "Which two commands would set the authentication method for VRRP on an interface to use the key string Cisco123 (one command for MD5 authentication and one command for plaintext authentication)? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "vrrp 1 authentication md5 key-string Cisco123",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "vrrp authentication md5 key Cisco123",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "vrrp 1 authentication text Cisco123",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "vrrp 1 authentication plaintext key-string Cisco123",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "vrrp authentication key-string Cisco123",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 5.6.3\n\nA",
+          "explanation": "ccording to the sources, while modern VRRP standards (RFC 3768 and RFC 5798) removed authentication support, Cisco IOS devices still support plaintext and MD5 authentication mechanisms originally specified in RFC 2338.\n\nThe specific command syntax required to implement these on an interface is as follows:\n\n• Plaintext Authentication: The command used is vrrp [group-number] authentication text [key-string].\n\n• MD5 Authentication: The command used is vrrp [group-number] authentication md5 key-string [key-string].\n\nIn both cases, the group number (1 in this example) must be specified to associate the authentication method with the correct VRRP group on the interface. MD5 is generally the preferred method because it computes a hash on a portion of each message, ensuring that hash keys are never actually exchanged over the network."
+        },
+        {
+          "id": 54,
+          "originalNumber": 54,
+          "questionType": "choice",
+          "question": "Which Cisco switching mechanism requires a Cisco router to process all packets in the CPU?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "process switching",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "circuit switching",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco Express Forwarding",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "fast switching",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "pass-through switching",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 2.5.0",
+          "explanation": "Process switching is the slowest switching mechanism because every packet is examined by the CPU and all forwarding decisions are made in software. For every individual frame, the router must use its CPU to strip the Layer 2 header, look up the Layer 3 destination in the routing table, and rewrite the Layer 2 header. Due to this high demand on the processor, it is considered the most CPU-intensive method and is typically used only as a last resort or for troubleshooting.\n\nIn contrast, other mechanisms are more efficient:\n\n• Fast switching only requires the CPU to examine the first packet in a flow to create a cache for subsequent packets.\n\n• Cisco Express Forwarding (CEF) is the fastest method and is less CPU-intensive because it uses hardware-based tables (FIB and adjacency tables) to switch all packets in a flow, including the first one, without needing to involve the CPU for each frame."
+        },
+        {
+          "id": 55,
+          "originalNumber": 55,
+          "questionType": "choice",
+          "question": "Which of these is a VLAN that exists in the VLAN database and cannot be deleted?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "default VLAN 1",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "Native VLAN 99",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Voice VLAN 20",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "default VLAN 99",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 3.2.0\n\nA",
+          "explanation": "ccording to the sources, when a Cisco Catalyst switch is first powered on, certain VLANs are automatically created in the VLAN database (stored as the vlan.dat file in flash memory). These include VLAN 1, which is the factory default VLAN, as well as VLANs 1002 through 1005, which are reserved for Token Ring and FDDI.\n\nThe sources explicitly state that these specific VLAN IDs (1 and 1002 to 1005) cannot be removed from the database. While other VLANs like a Native VLAN 99 or a Voice VLAN 20 can be manually created and deleted by an administrator using the vlan or no vlan commands, VLAN 1 must always exist as it is the default membership for all ports until they are reassigned."
+        },
+        {
+          "id": 56,
+          "originalNumber": 56,
+          "questionType": "choice",
+          "question": "Which option is the default switching mode and uses information from tables that are built by the CPU, such as the routing table and the ARP table, to build hardware-based tables that are known as the FIB and adjacency tables?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "process switching",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "program-layered switching",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Cisco Express Forwarding",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "fast switching",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 2.5.0",
+          "explanation": "Cisco Express Forwarding (CEF) is identified as the default switching mode for Cisco routers. It is a topology-based switching mechanism that is significantly less CPU-intensive than process or fast switching because it pre-builds forwarding information before traffic actually arrives.\n\nCEF functions by taking information from control plane tables built by the CPU—specifically the IP routing table and the ARP table—to construct two specialized hardware-based tables:\n\n• Forwarding Information Base (FIB): Derived from the IP routing table, the FIB contains a mirrored set of the routing information and is optimized for fast destination lookups.\n\n• Adjacency Table: Derived from the ARP table, this table stores the Layer 2 next-hop addresses and pre-computed frame header rewrite information for all entries in the FIB.\n\nBy using these tables, CEF allows the data plane to make hardware-based forwarding decisions for every packet in a data flow, including the very first packet, without needing to involve the CPU for a software lookup."
+        },
+        {
+          "id": 57,
+          "originalNumber": 57,
+          "questionType": "choice",
+          "question": "Which two of the following are LACP EtherChannel modes? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "on",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "passive",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "desirable",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "off",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "active",
+              "isCorrect": true
+            },
+            {
+              "id": "f",
+              "text": "auto",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 6.3.1",
+          "explanation": "The Link Aggregation Control Protocol (LACP) is an IEEE standard (802.3ad) that facilitates the automatic bundling of physical ports into a single logical EtherChannel. LACP operates using two specific modes: active and passive. In active mode, the switch port unconditionally initiates negotiations by sending LACP packets to the connected peer. In passive mode, the port does not initiate negotiation but instead waits for LACP requests and responds to them if a compatible device is detected.\n\nIn contrast, other modes mentioned belong to different mechanisms:\n\n• desirable and auto are the operational modes for PAgP (Port Aggregation Protocol), which is a Cisco proprietary protocol.\n\n• The on mode is used for static manual configuration, where the EtherChannel is forced to form without the use of any negotiation protocol like LACP or PAgP."
+        },
+        {
+          "id": 58,
+          "originalNumber": 58,
+          "questionType": "choice",
+          "question": "Which QoS mechanism will drop traffic if a session uses more than the allotted bandwidth?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "policing",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "shaping",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "marking",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "congestion management",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 7.4.4",
+          "explanation": "Policing is a Quality of Service (QoS) mechanism designed to monitor traffic sessions and ensure they do not exceed their allotted bandwidth. When a session violates the configured rate, a policer typically takes one of two actions: it either drops the excess traffic or re-marks it to a different class of service, usually one with a higher drop probability.\n\nIn contrast, shaping is a traffic-smoothing tool that does not drop traffic. Instead, it uses buffering to delay and smooth out traffic spikes so the session never exceeds the contracted rate. Furthermore, congestion management (queuing) is used to avoid dropping packets by temporarily storing them in buffers until network resources become available. Because policing makes instantaneous decisions to drop packets rather than delaying them, it is often preferred at the ingress (entry) point of a network to save bandwidth and CPU cycles."
         }
       ]
     },

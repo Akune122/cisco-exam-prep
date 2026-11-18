@@ -417,11 +417,14 @@
     // Mélange systématique des réponses (et des paires pour les questions d'association)
     const preparedQuestions = baseQuestions.map(q => {
       if (q.questionType === 'matching' && Array.isArray(q.pairs)) {
-        const shuffledPairs = shuffleArray(q.pairs.map(p => ({ ...p })));
+        const isOrderedSteps = q.pairs.every(p => /^step\s*\d+/i.test(p.prompt));
+        const preparedPairs = isOrderedSteps
+          ? q.pairs.map(p => ({ ...p }))
+          : shuffleArray(q.pairs.map(p => ({ ...p })));
         const choicesPool = shuffleArray(q.pairs.map(p => p.answer));
         return {
           ...q,
-          pairs: shuffledPairs,
+          pairs: preparedPairs,
           matchingChoices: choicesPool
         };
       }

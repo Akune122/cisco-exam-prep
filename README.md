@@ -37,6 +37,7 @@ Conçue pour reproduire les conditions d'examen avec extraits **Cisco IOS CLI**,
 | Catégorie | Examen / Module | Questions | Découpage | Statut |
 | :--- | :--- | :---: | :---: | :---: |
 | **CCNP ENCOR v9** | **Course Final Exam — CCNP ENCOR (v9)** | `63` | 7 Quizz (10 par 10) + Mode Examen (60 Q) | ✅ Actif |
+| **CCNP ENCOR v9** | **Checkpoint Exam : Network Switching (Modules 1 – 7)** | `58` | 6 Quizz (10 par 10) + Mode Examen (58 Q) | ✅ Actif |
 | **CCNP ENCOR v9** | **Checkpoint Exam : Network Routing (Modules 8 – 13)** | `45` | 5 Quizz (10 par 10) + Mode Examen (45 Q) | ✅ Actif |
 | **CCNP ENCOR v9** | **Checkpoint Exam : Network Security (Modules 14 – 16)** | `28` | 3 Quizz (10 par 10) + Mode Examen (28 Q) | ✅ Actif |
 | **CCNP ENCOR v9** | **Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)** | `30` | 3 Quizz (10 par 10) + Mode Examen (30 Q) | ✅ Actif |

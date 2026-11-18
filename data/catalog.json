@@ -27,6 +27,19 @@
       "status": "active"
     },
     {
+      "id": "ccnp-encor-v9-switching",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 1 – 7",
+      "title": "Checkpoint Exam : Network Switching (Modules 1 – 7)",
+      "dataFile": "data/exams/ccnp-encor-v9-switching.json",
+      "totalQuestions": 58,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 58,
+      "passingScorePercent": 70,
+      "status": "active"
+    },
+    {
       "id": "ccnp-encor-v9-routing",
       "categoryId": "ccnp-v9",
       "categoryName": "CCNP ENCOR v9",
