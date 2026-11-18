@@ -64,6 +64,19 @@
       "examModeQuestionCount": 30,
       "passingScorePercent": 70,
       "status": "active"
+    },
+    {
+      "id": "ccnp-encor-v9-programmability",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "code": "Modules 21 – 22",
+      "title": "Checkpoint Exam : Programmability (Modules 21 – 22)",
+      "dataFile": "data/exams/ccnp-encor-v9-programmability.json",
+      "totalQuestions": 17,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 17,
+      "passingScorePercent": 70,
+      "status": "active"
     }
   ]
 }

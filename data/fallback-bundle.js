@@ -66,6 +66,19 @@ window.__EXAM_DATA_BUNDLE__ = {
         "examModeQuestionCount": 30,
         "passingScorePercent": 70,
         "status": "active"
+      },
+      {
+        "id": "ccnp-encor-v9-programmability",
+        "categoryId": "ccnp-v9",
+        "categoryName": "CCNP ENCOR v9",
+        "code": "Modules 21 – 22",
+        "title": "Checkpoint Exam : Programmability (Modules 21 – 22)",
+        "dataFile": "data/exams/ccnp-encor-v9-programmability.json",
+        "totalQuestions": 17,
+        "quizChunkSize": 10,
+        "examModeQuestionCount": 17,
+        "passingScorePercent": 70,
+        "status": "active"
       }
     ]
   },
@@ -6150,6 +6163,613 @@ window.__EXAM_DATA_BUNDLE__ = {
           "options": [],
           "topic": "Topic 19.2.8",
           "explanation": null
+        }
+      ]
+    },
+    "ccnp-encor-v9-programmability": {
+      "id": "ccnp-encor-v9-programmability",
+      "categoryId": "ccnp-v9",
+      "categoryName": "CCNP ENCOR v9",
+      "courseCode": "Modules 21 – 22",
+      "title": "Checkpoint Exam : Programmability (Modules 21 – 22)",
+      "description": "Examen Checkpoint officiel sur la programmabilité réseau (Python, JSON/XML, YANG, NETCONF, RESTCONF, Ansible, Puppet, Chef, SaltStack) du cours CCNP ENCOR v9.",
+      "sourceUrl": "https://itexamanswers.net/modules-21-22-checkpoint-exam-programmability-answers-ccnp-encor-v9.html",
+      "lastUpdated": "2026-05-01",
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 17,
+      "passingScorePercent": 70,
+      "totalQuestions": 17,
+      "questions": [
+        {
+          "id": 1,
+          "originalNumber": 1,
+          "questionType": "choice",
+          "question": "Which option is an open-source, Python-based software for event driven IT automation.",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Puppet",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Ansible",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Saltstack",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Chef",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.2.4",
+          "explanation": "Saltstack (or simply Salt) is an open-source, Python-based software specifically designed for event-driven IT automation. Developed in 2011, it features a highly modular and extensible design that allows it to be adapted for various enterprise use cases, including remote execution, configuration management, and cloud control. While Ansible is also Python-based, Saltstack is uniquely distinguished in the sources by its \"event-driven\" automation focus."
+        },
+        {
+          "id": 2,
+          "originalNumber": 2,
+          "questionType": "choice",
+          "question": "Which two options are the main data encoding formats that are commonly used in Application Programming Interfaces? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "HTML",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "JSON",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "PDF",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "XML",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "DOCX",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.7.0",
+          "explanation": "The two main data encoding formats commonly used in modern APIs are XML and JSON. These formats are favored for data transmission because they are human-readable (self-describing), hierarchical (storing values within values), and easily parsable by many programming languages. While other formats like YAML exist, XML and JSON are the core encodings supported by next-generation programmatic interfaces such as NETCONF and RESTCONF to ensure machine-to-machine communication is both efficient and predictable."
+        },
+        {
+          "id": 3,
+          "originalNumber": 3,
+          "questionType": "choice",
+          "question": "Which option is a language for data modeling and RPCs?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "NETCONF",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "YANG",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "JSON",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "XML",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.11.0",
+          "explanation": "YANG (Yet Another Next Generation) is a data modeling language specifically designed to model configuration and state data, as well as Remote Procedure Calls (RPCs) and notifications. While NETCONF is the protocol that carries these messages, YANG is the language used to define the syntax, semantics, and structure of the data and operations, utilizing specific statements like the YANG rpc statement to define protocol operations. In contrast, JSON and XML are considered data encoding formats used for transmission, and NETCONF is a management protocol rather than a modeling language."
+        },
+        {
+          "id": 4,
+          "originalNumber": 4,
+          "questionType": "choice",
+          "question": "Which function can you use on an object to see its available built-in methods and attributes?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "dir()",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "print banner",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "split",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "format",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.2.3",
+          "explanation": "The dir() function is a built-in Python helper utility used to inspect the properties of an object. When you pass an object to the dir() function, it returns a comprehensive list of all the attributes and built-in methods associated with that specific object. For instance, using dir(str) would display all available methods for manipulating strings, such as upper(), lower(), and split()."
+        },
+        {
+          "id": 5,
+          "originalNumber": 5,
+          "questionType": "choice",
+          "question": "Which two options are logical operators used to evaluate whether a condition is True or False? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "in",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "and",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "or",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "is",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "is not",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.5.1",
+          "explanation": "In Python, logical operators are used to combine and evaluate multiple expressions to determine a final True or False Boolean result. The and operator evaluates to True only if all conditions in the expression are True, while the or operator evaluates to True if at least one condition is True. Other options provided, such as in, are categorized as membership operators, while is and is not are defined as identity operators."
+        },
+        {
+          "id": 6,
+          "originalNumber": 6,
+          "questionType": "choice",
+          "question": "Which function could be used to add a value to the specified area indicated by { }?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "replace",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "startswith",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "format",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "split",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.3.3",
+          "explanation": "In Python, the format method is a built-in function used to modify or manipulate string data. Specifically, it is used to add a value to a specified area within a string that is indicated by curly braces { }.\n\nThe sources contrast this with other common string methods:\n\n• replace: Used to return a string where a specified value is replaced with another value (e.g., changing \":\" to \".\" in a MAC address).\n\n• startswith: Used to verify if a string begins with a specific value.\n\n• split: Used to create a list from a string by separating values based on an indicated character, such as a period in an IP address."
+        },
+        {
+          "id": 7,
+          "originalNumber": 7,
+          "questionType": "choice",
+          "question": "Which data type requires you to supply a key to extract a value?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "list",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "dictionary",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "string",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "integers",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.7.0",
+          "explanation": "In Python, a dictionary is a data structure that allows you to create key-value pairs to match specific keys to their corresponding values. According to the sources, while a list requires you to supply an integer index to extract an element, a dictionary requires you to supply a key to extract its value. This key-value system is also the basis for how JSON objects represent data."
+        },
+        {
+          "id": 8,
+          "originalNumber": 8,
+          "questionType": "choice",
+          "question": "Which Linux command could be used to verify which Python version would be used for a script if you did not include the shebang?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "which version",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "python version",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "which python version",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "which python",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 21.6.1",
+          "explanation": "If a shebang (e.g., #!/usr/bin/env python) is not included as the first line of a script, the shell environment will use the version of Python that is currently configured in the system's environment. To verify which Python executable and version would be used in this scenario, you can use the Linux command which python. While the shebang is recommended to enforce a specific version or to run a script as a standalone binary, the which python command allows an administrator to check the environment's default path for the Python interpreter."
+        },
+        {
+          "id": 9,
+          "originalNumber": 9,
+          "questionType": "choice",
+          "question": "Which option is not a requirement for next generation configuration management?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Provide easier to use management interfaces",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Support client-side validation and error checking",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Separate configuration and operational data",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "Strong reliance on CLI",
+              "isCorrect": true
+            },
+            {
+              "id": "e",
+              "text": "Be both human and machine friendly",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.3.0\n\nN",
+          "explanation": "ext-generation configuration management specifically aims to eliminate the industry's reliance on the traditional CLI for configuration tasks because it is considered error-prone, inefficient, and was designed for human-to-machine rather than machine-to-machine communication. According to the sources, the actual requirements for next-generation management include:\n\n• Providing easier-to-use management interfaces through well-defined APIs.\n\n• Supporting client-side validation and error-checking so that management applications can handle errors before they reach the device.\n\n• Separating configuration and operational data to ensure all parameters and statistics are programmatically accessible.\n\n• Being both human- and machine-friendly by utilizing structured, readable data formats like JSON and XML."
+        },
+        {
+          "id": 10,
+          "originalNumber": 10,
+          "questionType": "choice",
+          "question": "Which HTTP verb is normally used to update or replace an already existing resource?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "GET",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "PUT",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "POST",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "PATCH",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.13.2",
+          "explanation": "In REST APIs, the HTTP verb PUT is normally used to update or replace an already existing resource. When a client uses PUT, it sends a request with a complete updated representation of the resource, effectively overwriting the original content. This is distinct from PATCH, which is used to modify a resource by sending only the specific changes or attributes that need to be updated rather than the full resource. Additionally, GET is used for retrieving or reading a resource, while POST is primarily used to create a new resource."
+        },
+        {
+          "id": 11,
+          "originalNumber": 11,
+          "questionType": "choice",
+          "question": "Which command could you use to execute the python script named “sample.py”?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "python sample.py",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "run sample.py",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "python execute sample.py",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "execute python sample.py",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.6.0",
+          "explanation": "Python scripts are written in text editors and saved locally using the .py file extension. To execute a script from a terminal or command-line interface, the standard method is to invoke the python statement followed by the filename. For example, the sources note that a script named cisco.py is normally run with the command python cisco.py, and a script named welcome.py is executed using python welcome.py. Consequently, to execute a script named sample.py, you would use the command python sample.py."
+        },
+        {
+          "id": 12,
+          "originalNumber": 12,
+          "questionType": "choice",
+          "question": "Which two Boolean expressions results in a value of True? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "True and False",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "True and True",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "True or False",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "not True",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "False not",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.5.0",
+          "explanation": "In Python, Booleans are binary variables representing either True or False. The sources define the behavior of logical operators as follows:\n\n• and: For an expression using \"and\" to evaluate to True, all values in that expression must be True. Therefore, True and True results in True, while True and False results in False.\n\n• or: For an expression using \"or\" to evaluate to True, only one value needs to be True. Consequently, True or False results in True.\n\n• not: This operator takes the inverse of the value. Thus, not True results in False.\n\nThe option \"False not\" is not a standard logical expression format described in the sources, as the not operator precedes the value it modifies."
+        },
+        {
+          "id": 13,
+          "originalNumber": 13,
+          "questionType": "choice",
+          "question": "Which two options are tools that require a software agent to be installed on all devices you want to manage? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Ansible",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Chef",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "Puppet",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "REST",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "SSL",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.2.0",
+          "explanation": "Puppet and Chef are both agent-based configuration management tools. Agent-based means that a software agent must be installed on every device you intend to manage, including servers, routers, switches, and firewalls.\n\n• Puppet uses an automation instruction set known as \"manifests\" and requires this agent to manage systems in a declarative manner.\n\n• Chef uses \"recipes\" and \"cookbooks\" to achieve a desired state and similarly relies on an agent, which the sources note can sometimes increase the time required to deploy the solution.\n\nIn contrast, Ansible is explicitly described as being agentless, which allows it to manage devices via APIs (such as REST, NETCONF, or SSH) without requiring any software to be pre-installed on the target hardware. REST and SSL are not configuration management tools; REST is a style of API, and SSL (often referred to as TLS in modern contexts) is a transport security protocol."
+        },
+        {
+          "id": 14,
+          "originalNumber": 14,
+          "questionType": "choice",
+          "question": "Which best describes platforms or solutions that are driven by an object model, but do not use YANG?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Model Driven Programmability",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Vender Specific Attributes",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Custom Engineering",
+              "isCorrect": true
+            },
+            {
+              "id": "d",
+              "text": "Structured Engineering",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 22.7.0",
+          "explanation": "Custom Engineering describes platforms or solutions that utilize custom device APIs developed when networking devices first began supporting programmatic interfaces.\n\nWhile these solutions are driven by an object model to define device characteristics, they do not use YANG as their data modeling language.\n\nThe sources contrast these with Model Driven Programmability, which is a \"model-based approach\" that specifically utilizes standardized data models like YANG to define the syntax, semantics, and constraints of the API.\n\nCustom engineering was often seen as a precursor to modern standards but was criticized for not supporting full functionality and requiring excessive work to translate CLI commands into proprietary, non-standard API calls."
+        },
+        {
+          "id": 15,
+          "originalNumber": 15,
+          "questionType": "choice",
+          "question": "Which two options correctly describe Python? (Choose two.)",
+          "chooseCount": 2,
+          "isMultipleChoice": true,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "The syntax is similar to the English language.",
+              "isCorrect": true
+            },
+            {
+              "id": "b",
+              "text": "It is an interpreted language.",
+              "isCorrect": true
+            },
+            {
+              "id": "c",
+              "text": "It is not included on switch platforms, such as Nexus.",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "It is a complex, challenging, programming language.",
+              "isCorrect": false
+            },
+            {
+              "id": "e",
+              "text": "It must be added to Linux distributions in order to operate.",
+              "isCorrect": false
+            }
+          ],
+          "topic": "Topic 21.2.0",
+          "explanation": "Python is an interpreted language, meaning it executes instructions directly without the need to compile the program first. Its syntax is similar to the English language, which contributes to it being relatively easy to learn and having a low barrier to entry for network engineers. Contrary to the other options, Python is natively included on most Linux distributions and is explicitly supported on Cisco switch platforms like Cisco Nexus (NX-OS)."
+        },
+        {
+          "id": 16,
+          "originalNumber": 16,
+          "questionType": "choice",
+          "question": "Which NETCONF operation loads all or part of a configuration to the specified datastore?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "<copy-config>",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "<get-config>",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "<get>",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "<edit-config>",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 22.10.1",
+          "explanation": "The <edit-config> operation is used to load all or part of a configuration to a specified datastore. This operation allows for granular changes to the configuration, such as creating, deleting, or merging data.\n\nThe other options listed serve different purposes:\n\n• <copy-config>: This operation replaces an entire configuration datastore with another, rather than just loading a part of it.\n\n• <get-config>: This is used to retrieve all or part of a configuration datastore, not to load or modify data.\n\n• <get>: This operation retrieves both running configuration data and device state (operational) information."
+        },
+        {
+          "id": 17,
+          "originalNumber": 17,
+          "questionType": "choice",
+          "question": "Which option is not a property of YANG?",
+          "chooseCount": 1,
+          "isMultipleChoice": false,
+          "exhibits": [],
+          "options": [
+            {
+              "id": "a",
+              "text": "Protocol independent",
+              "isCorrect": false
+            },
+            {
+              "id": "b",
+              "text": "Extensible and modular",
+              "isCorrect": false
+            },
+            {
+              "id": "c",
+              "text": "Analogous to XML schema and SMI for SNMP",
+              "isCorrect": false
+            },
+            {
+              "id": "d",
+              "text": "does not provide semantics to better define data",
+              "isCorrect": true
+            }
+          ],
+          "topic": "Topic 22.8.1",
+          "explanation": "YANG is a highly structured data modeling language used to define the syntax and semantics of data, which is used to enforce data input values and constraints. Therefore, the statement that it \"does not provide semantics\" is incorrect.\n\nThe other options are valid properties of YANG as described in the sources:\n\n• Protocol independent: While originally designed for NETCONF, it is protocol-independent and is also used by RESTCONF and potentially other protocols.\n\n• Extensible and modular: YANG supports extensibility through augmentation and provides data modularity through the use of modules and submodules.\n\n• Analogous to XML schema and SMI for SNMP: YANG modules serve a purpose for NETCONF and RESTCONF that is analogous to what MIBs (modeled via SMI) provide for SNMP. It defines data hierarchies called schema trees, which represent how data is structured and accessed."
         }
       ]
     }

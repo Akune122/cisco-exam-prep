@@ -330,4 +330,28 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-virtualization.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-programmability')) {
+  const htmlPath = args[args.indexOf('--build-programmability') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const questions = parseItExamHtml(html);
+
+  const examData = {
+    id: 'ccnp-encor-v9-programmability',
+    categoryId: 'ccnp-v9',
+    categoryName: 'CCNP ENCOR v9',
+    courseCode: 'Modules 21 – 22',
+    title: 'Checkpoint Exam : Programmability (Modules 21 – 22)',
+    description: 'Examen Checkpoint officiel sur la programmabilité réseau (Python, JSON/XML, YANG, NETCONF, RESTCONF, Ansible, Puppet, Chef, SaltStack) du cours CCNP ENCOR v9.',
+    sourceUrl: 'https://itexamanswers.net/modules-21-22-checkpoint-exam-programmability-answers-ccnp-encor-v9.html',
+    lastUpdated: '2026-05-01',
+    quizChunkSize: 10,
+    examModeQuestionCount: questions.length,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-programmability.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
 }
