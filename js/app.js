@@ -427,7 +427,7 @@
         const preparedPairs = isOrderedSteps
           ? q.pairs.map(p => ({ ...p }))
           : shuffleArray(q.pairs.map(p => ({ ...p })));
-        const choicesPool = shuffleArray(q.pairs.map(p => p.answer));
+        const choicesPool = shuffleArray([...new Set(q.pairs.map(p => p.answer))]);
         return {
           ...q,
           pairs: preparedPairs,

@@ -48,12 +48,53 @@ export function stripTags(str) {
     .trim();
 }
 
+function extractPairsFromTable(tableHtml) {
+  const ths = [...tableHtml.matchAll(/<th[^>]*>([\s\S]*?)<\/th>/gi)].map(m => stripTags(m[1])).filter(Boolean);
+  const tbodyMatch = tableHtml.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/i);
+  const bodyHtml = tbodyMatch ? tbodyMatch[1] : tableHtml;
+  const trRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
+  const pairs = [];
+  let pairIdx = 0;
+
+  if (ths.length >= 2) {
+    // Table de catégories (ex: Cut-through | Store-and-forward, Layer 2 | Layer 3 | Layer 4)
+    for (const trm of bodyHtml.matchAll(trRegex)) {
+      const tds = [...trm[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(td => stripTags(td[1]));
+      for (let c = 0; c < Math.min(tds.length, ths.length); c++) {
+        if (tds[c]) {
+          pairs.push({
+            id: `p${pairIdx + 1}`,
+            prompt: tds[c],
+            answer: ths[c]
+          });
+          pairIdx++;
+        }
+      }
+    }
+  } else {
+    // Table d'association 2 colonnes (prompt -> answer)
+    for (const trm of bodyHtml.matchAll(trRegex)) {
+      const tds = [...trm[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(td => stripTags(td[1]));
+      if (tds.length >= 2 && tds[0] && tds[1]) {
+        pairs.push({
+          id: `p${pairIdx + 1}`,
+          prompt: tds[0],
+          answer: tds[1]
+        });
+        pairIdx++;
+      }
+    }
+  }
+
+  return pairs.length > 0 ? pairs : null;
+}
+
 export function parseItExamHtml(html) {
   const startIdx = html.indexOf('<div class="thecontent clearfix">');
   const endIdx = html.indexOf('<nav class="navigation post-navigation"', startIdx);
   const contentHtml = startIdx !== -1 && endIdx !== -1 ? html.slice(startIdx, endIdx) : html;
 
-  const questionRegex = /<p><strong>(\d{1,3})\.\s*([\s\S]*?)<\/strong><\/p>/g;
+  const questionRegex = /<p[^>]*>\s*<strong>\s*(\d{1,3})\.\s*((?:(?!<\/strong>)[\s\S])*?)<\/strong>/g;
   const rawMatches = [...contentHtml.matchAll(questionRegex)].filter(m => {
     const n = parseInt(m[1], 10);
     return n >= 1 && n <= 300;
@@ -126,6 +167,80 @@ export function parseItExamHtml(html) {
     let explanation = null;
     let topic = null;
     let pairs = null;
+    let keepFirstImageOnly = false;
+
+    // 1. Vérifier s'il y a une table dans mainBlock (format fréquent sur CCNA v7)
+    if (options.length === 0) {
+      const mainTableMatch = mainBlock.match(/<table[^>]*>([\s\S]*?)<\/table>/i);
+      if (mainTableMatch) {
+        pairs = extractPairsFromTable(mainTableMatch[1]);
+      }
+    }
+
+    // 2. Cas spéciaux dans mainBlock sans <ul> ni <table>
+    if (options.length === 0 && !pairs) {
+      // Cas connecteurs en légendes wp-caption (ex: CCNA 1 Q122)
+      const captions = [...mainBlock.matchAll(/<p[^>]*class="wp-caption-text"[^>]*>([\s\S]*?)<\/p>/gi)]
+        .map(m => stripTags(m[1]))
+        .filter(Boolean);
+      if (captions.length >= 3 && captions.some(c => /\(true answer\)/i.test(c))) {
+        captions.forEach((cap, idx) => {
+          const isCorrect = /\(true answer\)/i.test(cap);
+          const cleanLabel = cap
+            .replace(/\s*\(true answer\)\s*/i, '')
+            .replace(/conector/gi, 'connector')
+            .replace(/^RJ\s+(\d+)$/i, 'RJ-$1')
+            .trim();
+          options.push({
+            id: String.fromCharCode(97 + idx),
+            text: cleanLabel,
+            isCorrect
+          });
+        });
+      }
+
+      // Cas QCM en paragraphes <p> (ex: CCNA 1 Q33)
+      if (options.length === 0 && /Layer 2 destination address\s*=/i.test(mainBlock)) {
+        const pBlocks = [...mainBlock.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)];
+        let optIdx = 0;
+        for (const pb of pBlocks) {
+          const rawP = pb[1];
+          if (!/Layer 2 destination address\s*=/i.test(rawP)) continue;
+          const isCorrect = /color:\s*#ff0000|color:\s*red/i.test(rawP);
+          const cleanP = stripTags(rawP.replace(/<img[^>]*>/gi, '')).trim();
+          if (cleanP) {
+            options.push({
+              id: String.fromCharCode(97 + optIdx),
+              text: cleanP,
+              isCorrect
+            });
+            optIdx++;
+          }
+        }
+      }
+
+      // Cas "Place the options in the following order:" (ex: CCNA 1 Q96 / Q120)
+      if (options.length === 0 && /Place the options in the following order:/i.test(mainBlock)) {
+        const stripped = stripTags(mainBlock);
+        const afterOrder = stripped.split(/Place the options in the following order:/i)[1] || '';
+        const lines = afterOrder.split('\n').map(l => l.trim()).filter(Boolean);
+        let currentCat = null;
+        const extracted = [];
+        for (const line of lines) {
+          const itemMatch = line.match(/^\[[+#*x-]\]\s*(.+)$/);
+          if (itemMatch && currentCat) {
+            extracted.push({
+              id: `p${extracted.length + 1}`,
+              prompt: itemMatch[1].trim(),
+              answer: currentCat
+            });
+          } else if (!line.startsWith('[')) {
+            currentCat = line.replace(/aplication/gi, 'application').trim();
+          }
+        }
+        if (extracted.length > 0) pairs = extracted;
+      }
+    }
 
     if (expIdx !== -1) {
       const expHtml = block.slice(expIdx);
@@ -133,54 +248,56 @@ export function parseItExamHtml(html) {
       if (expMatch) {
         const innerExp = expMatch[1];
 
-        // Vérifier s'il s'agit d'une question "Match" avec un tableau <table>
+        // Vérifier s'il s'agit d'une question "Match" avec un tableau <table> dans l'explication
         const tableMatch = innerExp.match(/<table[^>]*>([\s\S]*?)<\/table>/i);
-        if (options.length === 0 && tableMatch) {
-          pairs = [];
-          const trRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
-          let pairIdx = 0;
-          for (const trm of tableMatch[1].matchAll(trRegex)) {
-            const tds = [...trm[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map(td => stripTags(td[1]));
-            if (tds.length >= 2 && tds[0] && tds[1]) {
-              pairs.push({
-                id: `p${pairIdx + 1}`,
-                prompt: tds[0],
-                answer: tds[1]
-              });
-              pairIdx++;
-            }
+        if (options.length === 0 && !pairs && tableMatch) {
+          pairs = extractPairsFromTable(tableMatch[1]);
+        }
+
+        // Cas VLSM Match où les réponses sont détaillées dans l'explication (ex: CCNA 1 Q17 / Q28)
+        if (options.length === 0 && !pairs) {
+          const rawExpText = stripTags(innerExp);
+          const netMatches = [...rawExpText.matchAll(/(Network\s+[A-Z])\s+needs\s+to\s+use\s+([\d.]+\s*\/\d+)/gi)];
+          if (netMatches.length >= 2) {
+            pairs = netMatches.map((nm, idx) => ({
+              id: `p${idx + 1}`,
+              prompt: nm[1].trim(),
+              answer: nm[2].replace(/\s+\//g, '/').trim()
+            }));
+            keepFirstImageOnly = true;
           }
         }
 
-        // Pour une question normale (sans table de match), extraire le texte d'explication
-        if (!pairs) {
-          let rawExp = stripTags(innerExp);
-          const topicMatch = rawExp.match(/^Explanation:\s*(Topic\s+[\d.,\sand]+)\s*/i);
-          if (topicMatch) {
-            topic = topicMatch[1].trim();
-            rawExp = rawExp.slice(topicMatch[0].length).trim();
-          } else {
-            rawExp = rawExp.replace(/^Explanation:\s*/i, '').trim();
-          }
-          if (rawExp) {
-            explanation = rawExp;
-          }
+        // Extraire le texte d'explication (et le Topic)
+        let rawExp = stripTags(innerExp);
+        const topicMatch = rawExp.match(/^Explanation:\s*(Topic\s+[\d.,\sand]+)\s*/i);
+        if (topicMatch) {
+          topic = topicMatch[1].trim();
+          rawExp = rawExp.slice(topicMatch[0].length).trim();
         } else {
-          const topicMatch = stripTags(innerExp).match(/Topic\s+[\d.]+/i);
-          if (topicMatch) topic = topicMatch[0];
+          rawExp = rawExp.replace(/^Explanation:\s*/i, '').trim();
+        }
+        if (rawExp && (!tableMatch || !pairs)) {
+          explanation = rawExp;
         }
       }
     }
 
-    // Si ce n'est pas une question "Match", conserver les images de mainBlock comme exhibits
-    if (!pairs) {
+    // Conserver les images de mainBlock comme exhibits (pour QCM, ou uniquement le schéma pour VLSM Match)
+    if (!pairs || keepFirstImageOnly) {
       const imgRegex = /<img[^>]+src="([^"]+)"[^>]*>/g;
-      for (const im of mainBlock.matchAll(imgRegex)) {
-        exhibits.push({
-          type: 'image',
-          title: 'Illustration',
-          src: im[1]
-        });
+      const imgs = [...mainBlock.matchAll(imgRegex)];
+      // Ne pas inclure les images d'options si c'est la question connecteurs (Q122)
+      const isCaptionChoices = options.length > 0 && /class="wp-caption-text"/i.test(mainBlock) && /\(true answer\)/i.test(mainBlock);
+      if (!isCaptionChoices) {
+        const selectedImgs = keepFirstImageOnly ? imgs.slice(0, 1) : imgs;
+        for (const im of selectedImgs) {
+          exhibits.push({
+            type: 'image',
+            title: 'Illustration',
+            src: im[1]
+          });
+        }
       }
     }
 
@@ -402,4 +519,41 @@ if (args.includes('--rebuild-bundle')) {
   const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccnp-encor-v9-switching.json');
   fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
   console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath}`);
+} else if (args.includes('--build-ccna1-final')) {
+  const htmlPath = args[args.indexOf('--build-ccna1-final') + 1];
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const rawQuestions = parseItExamHtml(html);
+
+  // Dédupliquer les questions strictement identiques (même énoncé + mêmes options/paires)
+  const seenKeys = new Set();
+  const questions = [];
+  for (const q of rawQuestions) {
+    const normQ = q.question.toLowerCase().replace(/\s+/g, ' ').trim();
+    const sig = q.questionType === 'matching'
+      ? `${normQ}||M||${q.pairs.map(p => `${p.prompt}=${p.answer}`).sort().join('|')}`
+      : `${normQ}||C||${q.options.map(o => o.text).sort().join('|')}`;
+    if (seenKeys.has(sig)) continue;
+    seenKeys.add(sig);
+    questions.push({ ...q, id: questions.length + 1 });
+  }
+
+  const examData = {
+    id: 'ccna-1-v7-final',
+    categoryId: 'ccna',
+    categoryName: 'CCNA v7',
+    courseCode: 'CCNA 1 — Final Exam',
+    title: 'Course Final Exam — CCNA 1 v7.0 (ITN)',
+    description: 'Examen Final complet du cours CCNA 1 v7.0 Introduction to Networks (Modèle OSI/TCP-IP, Ethernet, Adressage IPv4/IPv6, Sous-réseaux VLSM, Couche Transport, Sécurité de base).',
+    sourceUrl: 'https://itexamanswers.net/ccna-1-v7-0-final-exam-answers-full-introduction-to-networks.html',
+    lastUpdated: new Date().toISOString().slice(0, 10),
+    quizChunkSize: 10,
+    examModeQuestionCount: 60,
+    passingScorePercent: 70,
+    totalQuestions: questions.length,
+    questions
+  };
+
+  const outPath = path.join(ROOT_DIR, 'data', 'exams', 'ccna-1-v7-final.json');
+  fs.writeFileSync(outPath, JSON.stringify(examData, null, 2), 'utf8');
+  console.log(`✔ ${questions.length} questions sauvegardées dans ${outPath} (${rawQuestions.length - questions.length} doublon(s) retiré(s))`);
 }

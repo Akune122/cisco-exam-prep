@@ -103,6 +103,19 @@
       "examModeQuestionCount": 33,
       "passingScorePercent": 70,
       "status": "active"
+    },
+    {
+      "id": "ccna-1-v7-final",
+      "categoryId": "ccna",
+      "categoryName": "CCNA v7",
+      "code": "CCNA 1 — Final Exam",
+      "title": "Course Final Exam — CCNA 1 v7.0 (ITN)",
+      "dataFile": "data/exams/ccna-1-v7-final.json",
+      "totalQuestions": 156,
+      "quizChunkSize": 10,
+      "examModeQuestionCount": 60,
+      "passingScorePercent": 70,
+      "status": "active"
     }
   ]
 }
