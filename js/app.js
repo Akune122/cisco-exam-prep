@@ -1341,31 +1341,21 @@ interface:
   }
 
   function renderStudyGuideHtml(guide) {
-    const keyNumsHtml = (guide.keyNumbers || [])
+    const defsHtml = (guide.definitions || [])
       .map(
-        kn => `
-        <div class="key-number-card">
-          <div class="key-number-label">${escapeHtml(kn.label)}</div>
-          <div class="key-number-val">${escapeHtml(kn.value)}</div>
-          <div class="key-number-note">${escapeHtml(kn.note)}</div>
+        d => `
+        <div class="def-card">
+          <div class="def-term">🔹 ${escapeHtml(d.term)}</div>
+          <p class="def-simple">${escapeHtml(d.simple)}</p>
         </div>
-      `
-      )
-      .join('');
-
-    const tocHtml = (guide.sections || [])
-      .map(
-        s => `
-        <button type="button" class="study-toc-link" data-scroll-sec="${escapeHtml(s.id)}">
-          ${escapeHtml(s.title)}
-        </button>
       `
       )
       .join('');
 
     const sectionsHtml = (guide.sections || [])
       .map(sec => {
-        const bulletsHtml = (sec.bullets || []).map(b => `<li>${b}</li>`).join('');
+        const pointsList = sec.points || sec.bullets || [];
+        const bulletsHtml = pointsList.map(b => `<li>${b}</li>`).join('');
 
         let tableHtml = '';
         if (sec.table) {
@@ -1383,32 +1373,23 @@ interface:
           `;
         }
 
-        const cliHtml = sec.cli
-          ? `
-            <div class="exhibit-block exhibit-terminal" style="margin-top:1.35rem; margin-bottom:0;">
-              <div class="exhibit-terminal-bar">
-                <span class="term-dot r"></span>
-                <span class="term-dot y"></span>
-                <span class="term-dot g"></span>
-                <span class="term-label">Commandes Cisco IOS Essentielles — ${escapeHtml(sec.tag)}</span>
-              </div>
-              <pre class="exhibit-pre">${formatCliHtml(sec.cli)}</pre>
-            </div>
-          `
+        const ideaText = sec.idea || sec.summary || '';
+        const ideaHtml = ideaText
+          ? `<div class="study-idea-box"><strong>💡 L'idée simple :</strong> ${escapeHtml(ideaText)}</div>`
           : '';
 
-        const tipHtml = sec.examTip
-          ? `<div class="study-exam-tip"><strong>💡 Astuce &amp; Piège d'Examen :</strong> ${escapeHtml(sec.examTip)}</div>`
+        const tipText = sec.tip || sec.examTip || '';
+        const tipHtml = tipText
+          ? `<div class="study-exam-tip"><strong>⚠️ À retenir pour les questions :</strong> ${escapeHtml(tipText)}</div>`
           : '';
 
         return `
           <article class="study-section-card" id="${escapeHtml(sec.id)}">
             <span class="course-tag">${escapeHtml(sec.tag)}</span>
             <h3>${escapeHtml(sec.title)}</h3>
-            <p class="study-section-summary">${escapeHtml(sec.summary)}</p>
+            ${ideaHtml}
             <ul class="study-bullets">${bulletsHtml}</ul>
             ${tableHtml}
-            ${cliHtml}
             ${tipHtml}
           </article>
         `;
@@ -1418,35 +1399,51 @@ interface:
     return `
       <div class="study-guide-wrapper">
         <div class="study-hero-banner">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.75rem; flex-wrap:wrap;">
-            <span class="course-tag" style="margin-bottom:0;">${escapeHtml(guide.badge)}</span>
-            <span class="metric-chip">⏱️ Lecture &amp; Manipulation : ~${escapeHtml(guide.readingTime || '15 min')}</span>
-          </div>
+          <span class="course-tag" style="margin-bottom:0.35rem;">${escapeHtml(guide.badge)}</span>
           <h2>${escapeHtml(guide.title)}</h2>
-          <p>${escapeHtml(guide.subtitle)}</p>
+          <p style="margin-bottom:0;">${escapeHtml(guide.intro || guide.subtitle || '')}</p>
+        </div>
 
-          <div class="study-toc">${tocHtml}</div>
-          <div class="study-key-numbers">${keyNumsHtml}</div>
+        ${
+          defsHtml
+            ? `
+              <div class="study-defs-section">
+                <h3 class="section-label" style="font-size:1.05rem; color:var(--text-main); margin-bottom:0.85rem;">
+                  📖 1. Les Termes Clés Expliqués Simplement (C'est quoi ?)
+                </h3>
+                <div class="definitions-grid">
+                  ${defsHtml}
+                </div>
+              </div>
+            `
+            : ''
+        }
+
+        <div class="study-essentials-section">
+          <h3 class="section-label" style="font-size:1.05rem; color:var(--text-main); margin-bottom:0.85rem;">
+            🎯 2. L'Essentiel à Comprendre pour les Questions
+          </h3>
+          <div style="display:flex; flex-direction:column; gap:1.35rem;">
+            ${sectionsHtml}
+          </div>
         </div>
 
         <div class="interactive-box" id="interactive-widget-box">
           <div class="interactive-header">
-            <h3 class="interactive-title">⚡ ${escapeHtml(guide.interactiveTitle || 'Schéma Interactif')}</h3>
+            <h3 class="interactive-title">⚡ 3. ${escapeHtml(guide.interactiveTitle || 'Schéma Interactif')}</h3>
             <span class="course-tag" style="margin:0;">Interactif • Cliquez pour tester</span>
           </div>
           ${renderInteractiveWidgetHtml(guide.interactiveType)}
         </div>
 
-        ${sectionsHtml}
-
         <div class="study-callout-box" style="margin-bottom:0;">
           <div>
-            <span class="study-callout-badge">Prêt à valider vos connaissances ?</span>
-            <h2>Passer aux Quizz et au Mode Examen de ce module</h2>
-            <p>Testez immédiatement ce que vous venez d'apprendre sur les séries de 10 questions.</p>
+            <span class="study-callout-badge">Prêt à tester vos connaissances ?</span>
+            <h2>Passer aux Quizz et au Mode Examen</h2>
+            <p>Entraînez-vous maintenant sur les séries de 10 questions de ce module.</p>
           </div>
           <button type="button" class="btn btn-primary" id="btn-study-to-quizzes">
-            🎯 Aller aux Quizz de ce Checkpoint &rarr;
+            🎯 Aller aux Quizz &rarr;
           </button>
         </div>
       </div>
@@ -1516,12 +1513,12 @@ interface:
       ? `
         <div class="study-callout-box">
           <div>
-            <span class="study-callout-badge">📚 Fiche de Révision &amp; Schémas Interactifs</span>
-            <h2>Cours Complet : ${escapeHtml(studyGuide.title)}</h2>
-            <p>${escapeHtml(studyGuide.subtitle)}</p>
+            <span class="study-callout-badge">📚 Fiche de Cours &amp; Schéma Interactif</span>
+            <h2>Comprendre le Cours : ${escapeHtml(studyGuide.title)}</h2>
+            <p>${escapeHtml(studyGuide.intro || studyGuide.subtitle || '')}</p>
           </div>
           <button type="button" class="btn btn-secondary" id="btn-open-study-guide" style="border-color: rgba(16, 185, 129, 0.5); color: var(--success);">
-            📖 Ouvrir le Cours &amp; Schémas Interactifs &rarr;
+            📖 Voir le Cours &amp; Définitions &rarr;
           </button>
         </div>
       `
