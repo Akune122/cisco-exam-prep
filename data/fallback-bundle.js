@@ -6,12 +6,18 @@ window.__EXAM_DATA_BUNDLE__ = {
       {
         "id": "ccnp-v9",
         "name": "CCNP ENCOR v9",
-        "shortName": "CCNP V9"
+        "shortName": "CCNP V9",
+        "badge": "Certification 350-401 ENCOR",
+        "subtitle": "Implementing Cisco Enterprise Network Core Technologies (v9)",
+        "description": "Parcours complet CCNP Enterprise Core : 6 Checkpoints thématiques (Switching, Routing, Security, Virtualization, Programmability, SDN) avec fiches de cours interactives et le Final Exam officiel."
       },
       {
         "id": "ccna",
-        "name": "CCNA v7",
-        "shortName": "CCNA"
+        "name": "CCNA 1 v7.0 — Introduction to Networks",
+        "shortName": "CCNA 1",
+        "badge": "CCNA v7.0 (ITN)",
+        "subtitle": "Introduction to Networks — Fondamentaux Réseaux, IPv4/IPv6 & IOS",
+        "description": "Parcours CCNA 1 v7.0 (ITN) : Examen Final complet (156 questions), fiche de cours interactive (OSI, Ethernet, Subnetting VLSM, IPv6, Transport) et emplacements prêts pour les prochains Checkpoints."
       }
     ],
     "courses": [
@@ -19,6 +25,7 @@ window.__EXAM_DATA_BUNDLE__ = {
         "id": "ccnp-encor-v9-final",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "final",
         "code": "Final Exam",
         "title": "Course Final Exam — CCNP ENCOR (v9)",
         "dataFile": "data/exams/ccnp-encor-v9-final.json",
@@ -26,12 +33,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 60,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-switching",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 1 – 7",
         "title": "Checkpoint Exam : Network Switching (Modules 1 – 7)",
         "dataFile": "data/exams/ccnp-encor-v9-switching.json",
@@ -39,12 +48,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 58,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-routing",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 8 – 13",
         "title": "Checkpoint Exam : Network Routing (Modules 8 – 13)",
         "dataFile": "data/exams/ccnp-encor-v9-routing.json",
@@ -52,12 +63,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 45,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-security",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 14 – 16",
         "title": "Checkpoint Exam : Network Security (Modules 14 – 16)",
         "dataFile": "data/exams/ccnp-encor-v9-security.json",
@@ -65,12 +78,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 28,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-virtualization",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 17 – 20",
         "title": "Checkpoint Exam : Virtualization & Network Services (Modules 17 – 20)",
         "dataFile": "data/exams/ccnp-encor-v9-virtualization.json",
@@ -78,12 +93,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 30,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-programmability",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 21 – 22",
         "title": "Checkpoint Exam : Programmability (Modules 21 – 22)",
         "dataFile": "data/exams/ccnp-encor-v9-programmability.json",
@@ -91,12 +108,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 17,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccnp-encor-v9-sdn",
         "categoryId": "ccnp-v9",
         "categoryName": "CCNP ENCOR v9",
+        "type": "checkpoint",
         "code": "Modules 23 – 26",
         "title": "Checkpoint Exam : Software-Defined Networking (Modules 23 – 26)",
         "dataFile": "data/exams/ccnp-encor-v9-sdn.json",
@@ -104,12 +123,14 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 33,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       },
       {
         "id": "ccna-1-v7-final",
         "categoryId": "ccna",
-        "categoryName": "CCNA v7",
+        "categoryName": "CCNA 1 v7.0",
+        "type": "final",
         "code": "CCNA 1 — Final Exam",
         "title": "Course Final Exam — CCNA 1 v7.0 (ITN)",
         "dataFile": "data/exams/ccna-1-v7-final.json",
@@ -117,6 +138,7 @@ window.__EXAM_DATA_BUNDLE__ = {
         "quizChunkSize": 10,
         "examModeQuestionCount": 60,
         "passingScorePercent": 70,
+        "hasStudyGuide": true,
         "status": "active"
       }
     ]

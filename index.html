@@ -46,18 +46,25 @@
   </header>
 
   <main class="main-content">
-    <!-- VUE 1 : Accueil -->
+    <!-- VUE 1 : Accueil (Sélection du Parcours : CCNP ENCOR v9, CCNA 1...) -->
     <section id="view-home" class="view active">
       <div class="container">
         <div class="page-intro">
-          <h1>Examens &amp; Entraînements</h1>
-          <div class="category-tabs" id="category-tabs"></div>
+          <div>
+            <h1>Parcours &amp; Certifications Cisco</h1>
+            <p class="page-intro-sub">Choisissez une certification pour accéder à ses Checkpoints, fiches de cours interactives et Examen Final.</p>
+          </div>
         </div>
-        <div class="courses-grid" id="courses-grid"></div>
+        <div class="categories-home-grid" id="categories-home-grid"></div>
       </div>
     </section>
 
-    <!-- VUE 2 : Liste des Quizz du cours -->
+    <!-- VUE 1-BIS : Page d'un Parcours (Checkpoints + Final Exam) -->
+    <section id="view-category" class="view">
+      <div class="container" id="category-dashboard-content"></div>
+    </section>
+
+    <!-- VUE 2 : Liste des Quizz & Fiche de Cours du Checkpoint / Examen -->
     <section id="view-course" class="view">
       <div class="container" id="course-dashboard-content"></div>
     </section>
@@ -97,6 +104,7 @@
   </div>
 
   <script src="data/fallback-bundle.js"></script>
+  <script src="data/study-guides.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
